@@ -81,8 +81,6 @@ namespace WindowsFormsApplication1
 
         private void installation_Products_LinkDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex==-1) { return; }
-            if (e.ColumnIndex == 3 ||e.ColumnIndex==4 ||e.ColumnIndex==5) { UpdateProduct(e.RowIndex); }
             
         }
 
@@ -119,12 +117,62 @@ namespace WindowsFormsApplication1
 
         private void installation_Products_LinkDataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
-            installation_Products_LinkBindingSource.EndEdit();
+            DataGridViewRow cur = installation_Products_LinkDataGridView.Rows[e.RowIndex];
+            string msg="";
+            if (cur.Cells[6].Value == DBNull.Value)
+            {
+                msg = "You must enter a value for Quantity";
+            }
+            if (cur.Cells[2].Value == DBNull.Value)
+            {
+                msg = "You must select a Type, Make and Model";
+            }
+            if (msg != "")
+            {
+                MessageBox.Show(msg);
+                e.Cancel=true;
+                return;
+            }
+                installation_Products_LinkBindingSource.EndEdit();
         }
 
         private void zone_MappingsDataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
             zoneMappingsBindingSource.EndEdit();
+            bool flag = true;
+            foreach (DataGridViewCell c in zone_MappingsDataGridView.Rows[e.RowIndex].Cells)
+            {
+              //  flag=flag&c.
+            }
+        }
+
+        private void butcancel_Click(object sender, EventArgs e)
+        {
+            safeandsounddb1DataSet.RejectChanges();
+            CallingForm.Show();
+            this.Dispose();
+        }
+
+        private void butsaveexit_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            installation_Products_LinkBindingSource.EndEdit();
+            productBindingSource.EndEdit();
+            zoneMappingsBindingSource.EndEdit();
+            addressesBindingSource.EndEdit();
+            if (safeandsounddb1DataSet.HasChanges())
+            {
+                tableAdapterManager.UpdateAll(safeandsounddb1DataSet);
+            }
+            safeandsounddb1DataSet.AcceptChanges();
+            CallingForm.Show();
+            this.Dispose();
+        }
+
+        private void installation_Products_LinkDataGridView_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) { return; }
+            if (e.ColumnIndex == 3 || e.ColumnIndex == 4 || e.ColumnIndex == 5) { UpdateProduct(e.RowIndex); }
         }
     }
 }

@@ -57,16 +57,9 @@
             this.installation_Products_LinkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressintallationfrgnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.installation_Products_LinkDataGridView = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.prodTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Make = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.prodMakeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Model = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.prodModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label2 = new System.Windows.Forms.Label();
             this.zone_MappingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zoneMappingsibfk1BindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -82,6 +75,13 @@
             this.zoneMappingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.butcancel = new System.Windows.Forms.Button();
             this.butsaveexit = new System.Windows.Forms.Button();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Make = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             address_Line_1Label = new System.Windows.Forms.Label();
             address_Line_2Label = new System.Windows.Forms.Label();
             address_Line_3Label = new System.Windows.Forms.Label();
@@ -299,6 +299,7 @@
             // 
             // installation_Products_LinkDataGridView
             // 
+            this.installation_Products_LinkDataGridView.AllowUserToResizeRows = false;
             this.installation_Products_LinkDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -319,72 +320,25 @@
             this.installation_Products_LinkDataGridView.Size = new System.Drawing.Size(738, 160);
             this.installation_Products_LinkDataGridView.TabIndex = 36;
             this.installation_Products_LinkDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.installation_Products_LinkDataGridView_CellContentClick);
+            this.installation_Products_LinkDataGridView.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.installation_Products_LinkDataGridView_CellValidated);
             this.installation_Products_LinkDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.installation_Products_LinkDataGridView_CellValueChanged);
             this.installation_Products_LinkDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.installation_Products_LinkDataGridView_RowValidating);
             this.installation_Products_LinkDataGridView.Enter += new System.EventHandler(this.installation_Products_LinkDataGridView_Enter);
-            // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            // 
-            // addressDataGridViewTextBoxColumn1
-            // 
-            this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
-            // 
-            // productDataGridViewTextBoxColumn
-            // 
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            this.productDataGridViewTextBoxColumn.HeaderText = "Product";
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            // 
-            // Type
-            // 
-            this.Type.DataSource = this.prodTypeBindingSource;
-            this.Type.DisplayMember = "Type";
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.ValueMember = "TypeID";
             // 
             // prodTypeBindingSource
             // 
             this.prodTypeBindingSource.DataMember = "Prod Type";
             this.prodTypeBindingSource.DataSource = this.safeandsounddb1DataSet;
             // 
-            // Make
-            // 
-            this.Make.DataSource = this.prodMakeBindingSource;
-            this.Make.DisplayMember = "Make";
-            this.Make.HeaderText = "Make";
-            this.Make.Name = "Make";
-            this.Make.ValueMember = "MakeID";
-            // 
             // prodMakeBindingSource
             // 
             this.prodMakeBindingSource.DataMember = "Prod Make";
             this.prodMakeBindingSource.DataSource = this.safeandsounddb1DataSet;
             // 
-            // Model
-            // 
-            this.Model.DataSource = this.prodModelBindingSource;
-            this.Model.DisplayMember = "Model";
-            this.Model.HeaderText = "Model";
-            this.Model.Name = "Model";
-            this.Model.ValueMember = "ModelID";
-            // 
             // prodModelBindingSource
             // 
             this.prodModelBindingSource.DataMember = "Prod Model";
             this.prodModelBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             // 
             // Label2
             // 
@@ -495,6 +449,7 @@
             this.butcancel.TabIndex = 40;
             this.butcancel.Text = "&Cancel";
             this.butcancel.UseVisualStyleBackColor = true;
+            this.butcancel.Click += new System.EventHandler(this.butcancel_Click);
             // 
             // butsaveexit
             // 
@@ -505,6 +460,59 @@
             this.butsaveexit.TabIndex = 39;
             this.butsaveexit.Text = "&Save && Exit";
             this.butsaveexit.UseVisualStyleBackColor = true;
+            this.butsaveexit.Click += new System.EventHandler(this.butsaveexit_Click);
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // addressDataGridViewTextBoxColumn1
+            // 
+            this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
+            this.addressDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // productDataGridViewTextBoxColumn
+            // 
+            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
+            this.productDataGridViewTextBoxColumn.HeaderText = "Product";
+            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            this.productDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Type
+            // 
+            this.Type.DataSource = this.prodTypeBindingSource;
+            this.Type.DisplayMember = "Type";
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ValueMember = "TypeID";
+            // 
+            // Make
+            // 
+            this.Make.DataSource = this.prodMakeBindingSource;
+            this.Make.DisplayMember = "Make";
+            this.Make.HeaderText = "Make";
+            this.Make.Name = "Make";
+            this.Make.ValueMember = "MakeID";
+            // 
+            // Model
+            // 
+            this.Model.DataSource = this.prodModelBindingSource;
+            this.Model.DisplayMember = "Model";
+            this.Model.HeaderText = "Model";
+            this.Model.Name = "Model";
+            this.Model.ValueMember = "ModelID";
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // FormAddresses
             // 

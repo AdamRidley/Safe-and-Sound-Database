@@ -62,13 +62,15 @@ namespace WindowsFormsApplication1 {
         
         private global::System.Data.DataRelation relationFK_CustAdd_correspondents;
         
+        private global::System.Data.DataRelation relationproductfrgn;
+        
         private global::System.Data.DataRelation relationaddressintallationfrgn;
         
         private global::System.Data.DataRelation relationservices_ibfk_1;
         
-        private global::System.Data.DataRelation relationservicefrgn;
-        
         private global::System.Data.DataRelation relationzonefrgn;
+        
+        private global::System.Data.DataRelation relationservicefrgn;
         
         private global::System.Data.DataRelation relationtitlesfrgn;
         
@@ -78,15 +80,13 @@ namespace WindowsFormsApplication1 {
         
         private global::System.Data.DataRelation relationphone_numbers_ibfk_1;
         
-        private global::System.Data.DataRelation relationzone_mappings_ibfk_1;
+        private global::System.Data.DataRelation relationzone_mappings_ibfk_3;
         
         private global::System.Data.DataRelation relationzone_mappings_ibfk_2;
         
-        private global::System.Data.DataRelation relationzone_mappings_ibfk_3;
+        private global::System.Data.DataRelation relationzone_mappings_ibfk_1;
         
         private global::System.Data.DataRelation relationproduct_id_frgn;
-        
-        private global::System.Data.DataRelation relationproductfrgn;
         
         private global::System.Data.DataRelation relationmakefrgn;
         
@@ -616,19 +616,19 @@ namespace WindowsFormsApplication1 {
             }
             this.relationcorrespondent_products_link_correspondents = this.Relations["correspondent products link_correspondents"];
             this.relationFK_CustAdd_correspondents = this.Relations["FK_CustAdd_correspondents"];
+            this.relationproductfrgn = this.Relations["productfrgn"];
             this.relationaddressintallationfrgn = this.Relations["addressintallationfrgn"];
             this.relationservices_ibfk_1 = this.Relations["services_ibfk_1"];
-            this.relationservicefrgn = this.Relations["servicefrgn"];
             this.relationzonefrgn = this.Relations["zonefrgn"];
+            this.relationservicefrgn = this.Relations["servicefrgn"];
             this.relationtitlesfrgn = this.Relations["titlesfrgn"];
             this.relationcustomeridfrgn = this.Relations["customeridfrgn"];
             this.relationaddressidfrgn = this.Relations["addressidfrgn"];
             this.relationphone_numbers_ibfk_1 = this.Relations["phone numbers_ibfk_1"];
-            this.relationzone_mappings_ibfk_1 = this.Relations["zone mappings_ibfk_1"];
-            this.relationzone_mappings_ibfk_2 = this.Relations["zone mappings_ibfk_2"];
             this.relationzone_mappings_ibfk_3 = this.Relations["zone mappings_ibfk_3"];
+            this.relationzone_mappings_ibfk_2 = this.Relations["zone mappings_ibfk_2"];
+            this.relationzone_mappings_ibfk_1 = this.Relations["zone mappings_ibfk_1"];
             this.relationproduct_id_frgn = this.Relations["product id frgn"];
-            this.relationproductfrgn = this.Relations["productfrgn"];
             this.relationmakefrgn = this.Relations["makefrgn"];
             this.relationmodelfrgn = this.Relations["modelfrgn"];
             this.relationtypefrgn = this.Relations["typefrgn"];
@@ -712,6 +712,13 @@ namespace WindowsFormsApplication1 {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.Cascade;
             fkc.DeleteRule = global::System.Data.Rule.SetNull;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("productfrgn", new global::System.Data.DataColumn[] {
+                        this.tableProduct.ProdIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableInstallation_Products_Link.ProductColumn});
+            this.tableInstallation_Products_Link.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("addressintallationfrgn", new global::System.Data.DataColumn[] {
                         this.tableaddresses.Address_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableInstallation_Products_Link.AddressColumn});
@@ -733,13 +740,6 @@ namespace WindowsFormsApplication1 {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("servicefrgn", new global::System.Data.DataColumn[] {
-                        this.tableServices.Service_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableServiceZoneMes.ServiceColumn});
-            this.tableServiceZoneMes.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("zonefrgn", new global::System.Data.DataColumn[] {
                         this.tableZone_Mappings.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableServiceZoneMes.Zone_NumberColumn});
@@ -747,9 +747,16 @@ namespace WindowsFormsApplication1 {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("zone mappings_ibfk_1", new global::System.Data.DataColumn[] {
-                        this.tableaddresses.Address_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableZone_Mappings.AddressColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("servicefrgn", new global::System.Data.DataColumn[] {
+                        this.tableServices.Service_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableServiceZoneMes.ServiceColumn});
+            this.tableServiceZoneMes.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("zone mappings_ibfk_3", new global::System.Data.DataColumn[] {
+                        this.tableZone_Types.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableZone_Mappings.Zone_TypeColumn});
             this.tableZone_Mappings.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -761,9 +768,9 @@ namespace WindowsFormsApplication1 {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("zone mappings_ibfk_3", new global::System.Data.DataColumn[] {
-                        this.tableZone_Types.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableZone_Mappings.Zone_TypeColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("zone mappings_ibfk_1", new global::System.Data.DataColumn[] {
+                        this.tableaddresses.Address_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableZone_Mappings.AddressColumn});
             this.tableZone_Mappings.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -776,6 +783,10 @@ namespace WindowsFormsApplication1 {
                         this.tableCustAdd.CustAdd_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablecorrespondents.CustAdd_IDColumn}, false);
             this.Relations.Add(this.relationFK_CustAdd_correspondents);
+            this.relationproductfrgn = new global::System.Data.DataRelation("productfrgn", new global::System.Data.DataColumn[] {
+                        this.tableProduct.ProdIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableInstallation_Products_Link.ProductColumn}, false);
+            this.Relations.Add(this.relationproductfrgn);
             this.relationaddressintallationfrgn = new global::System.Data.DataRelation("addressintallationfrgn", new global::System.Data.DataColumn[] {
                         this.tableaddresses.Address_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableInstallation_Products_Link.AddressColumn}, false);
@@ -784,14 +795,14 @@ namespace WindowsFormsApplication1 {
                         this.tableaddresses.Address_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableServices.AddressColumn}, false);
             this.Relations.Add(this.relationservices_ibfk_1);
-            this.relationservicefrgn = new global::System.Data.DataRelation("servicefrgn", new global::System.Data.DataColumn[] {
-                        this.tableServices.Service_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableServiceZoneMes.ServiceColumn}, false);
-            this.Relations.Add(this.relationservicefrgn);
             this.relationzonefrgn = new global::System.Data.DataRelation("zonefrgn", new global::System.Data.DataColumn[] {
                         this.tableZone_Mappings.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableServiceZoneMes.Zone_NumberColumn}, false);
             this.Relations.Add(this.relationzonefrgn);
+            this.relationservicefrgn = new global::System.Data.DataRelation("servicefrgn", new global::System.Data.DataColumn[] {
+                        this.tableServices.Service_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableServiceZoneMes.ServiceColumn}, false);
+            this.Relations.Add(this.relationservicefrgn);
             this.relationtitlesfrgn = new global::System.Data.DataRelation("titlesfrgn", new global::System.Data.DataColumn[] {
                         this.tableTitles.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableCustomers.TitleColumn}, false);
@@ -811,26 +822,22 @@ namespace WindowsFormsApplication1 {
                         this.tablePhone_Numbers.CustAdd_IDColumn}, false);
             this.relationphone_numbers_ibfk_1.Nested = true;
             this.Relations.Add(this.relationphone_numbers_ibfk_1);
-            this.relationzone_mappings_ibfk_1 = new global::System.Data.DataRelation("zone mappings_ibfk_1", new global::System.Data.DataColumn[] {
-                        this.tableaddresses.Address_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableZone_Mappings.AddressColumn}, false);
-            this.Relations.Add(this.relationzone_mappings_ibfk_1);
-            this.relationzone_mappings_ibfk_2 = new global::System.Data.DataRelation("zone mappings_ibfk_2", new global::System.Data.DataColumn[] {
-                        this.tableZone_List.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableZone_Mappings.Zone_DescriptionColumn}, false);
-            this.Relations.Add(this.relationzone_mappings_ibfk_2);
             this.relationzone_mappings_ibfk_3 = new global::System.Data.DataRelation("zone mappings_ibfk_3", new global::System.Data.DataColumn[] {
                         this.tableZone_Types.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableZone_Mappings.Zone_TypeColumn}, false);
             this.Relations.Add(this.relationzone_mappings_ibfk_3);
+            this.relationzone_mappings_ibfk_2 = new global::System.Data.DataRelation("zone mappings_ibfk_2", new global::System.Data.DataColumn[] {
+                        this.tableZone_List.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableZone_Mappings.Zone_DescriptionColumn}, false);
+            this.Relations.Add(this.relationzone_mappings_ibfk_2);
+            this.relationzone_mappings_ibfk_1 = new global::System.Data.DataRelation("zone mappings_ibfk_1", new global::System.Data.DataColumn[] {
+                        this.tableaddresses.Address_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableZone_Mappings.AddressColumn}, false);
+            this.Relations.Add(this.relationzone_mappings_ibfk_1);
             this.relationproduct_id_frgn = new global::System.Data.DataRelation("product id frgn", new global::System.Data.DataColumn[] {
                         this.tableProduct.ProdIdColumn}, new global::System.Data.DataColumn[] {
                         this.tablecorrespondent_products_link.Prod_IDColumn}, false);
             this.Relations.Add(this.relationproduct_id_frgn);
-            this.relationproductfrgn = new global::System.Data.DataRelation("productfrgn", new global::System.Data.DataColumn[] {
-                        this.tableProduct.ProdIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableInstallation_Products_Link.ProductColumn}, false);
-            this.Relations.Add(this.relationproductfrgn);
             this.relationmakefrgn = new global::System.Data.DataRelation("makefrgn", new global::System.Data.DataColumn[] {
                         this.tableProd_Make.MakeIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableProduct.MakeColumn}, false);
@@ -7328,23 +7335,23 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public addressesRow addressesRow {
-                get {
-                    return ((addressesRow)(this.GetParentRow(this.Table.ParentRelations["addressintallationfrgn"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["addressintallationfrgn"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProductRow ProductRow {
                 get {
                     return ((ProductRow)(this.GetParentRow(this.Table.ParentRelations["productfrgn"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["productfrgn"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public addressesRow addressesRow {
+                get {
+                    return ((addressesRow)(this.GetParentRow(this.Table.ParentRelations["addressintallationfrgn"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["addressintallationfrgn"]);
                 }
             }
         }
@@ -7724,23 +7731,23 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public correspondent_products_linkRow[] Getcorrespondent_products_linkRows() {
-                if ((this.Table.ChildRelations["product id frgn"] == null)) {
-                    return new correspondent_products_linkRow[0];
-                }
-                else {
-                    return ((correspondent_products_linkRow[])(base.GetChildRows(this.Table.ChildRelations["product id frgn"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Installation_Products_LinkRow[] GetInstallation_Products_LinkRows() {
                 if ((this.Table.ChildRelations["productfrgn"] == null)) {
                     return new Installation_Products_LinkRow[0];
                 }
                 else {
                     return ((Installation_Products_LinkRow[])(base.GetChildRows(this.Table.ChildRelations["productfrgn"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public correspondent_products_linkRow[] Getcorrespondent_products_linkRows() {
+                if ((this.Table.ChildRelations["product id frgn"] == null)) {
+                    return new correspondent_products_linkRow[0];
+                }
+                else {
+                    return ((correspondent_products_linkRow[])(base.GetChildRows(this.Table.ChildRelations["product id frgn"])));
                 }
             }
         }
@@ -8111,23 +8118,23 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ServicesRow ServicesRow {
-                get {
-                    return ((ServicesRow)(this.GetParentRow(this.Table.ParentRelations["servicefrgn"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["servicefrgn"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Zone_MappingsRow Zone_MappingsRow {
                 get {
                     return ((Zone_MappingsRow)(this.GetParentRow(this.Table.ParentRelations["zonefrgn"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["zonefrgn"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ServicesRow ServicesRow {
+                get {
+                    return ((ServicesRow)(this.GetParentRow(this.Table.ParentRelations["servicefrgn"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["servicefrgn"]);
                 }
             }
             
@@ -8369,12 +8376,12 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public addressesRow addressesRow {
+            public Zone_TypesRow Zone_TypesRow {
                 get {
-                    return ((addressesRow)(this.GetParentRow(this.Table.ParentRelations["zone mappings_ibfk_1"])));
+                    return ((Zone_TypesRow)(this.GetParentRow(this.Table.ParentRelations["zone mappings_ibfk_3"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["zone mappings_ibfk_1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["zone mappings_ibfk_3"]);
                 }
             }
             
@@ -8391,12 +8398,12 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Zone_TypesRow Zone_TypesRow {
+            public addressesRow addressesRow {
                 get {
-                    return ((Zone_TypesRow)(this.GetParentRow(this.Table.ParentRelations["zone mappings_ibfk_3"])));
+                    return ((addressesRow)(this.GetParentRow(this.Table.ParentRelations["zone mappings_ibfk_1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["zone mappings_ibfk_3"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["zone mappings_ibfk_1"]);
                 }
             }
             
@@ -9288,7 +9295,7 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO addresses\r\n                         (`Address Line 1`, `Address Line " +
                 "2`, `Address Line 3`, Town, `Post Code`, Notes)\r\nVALUES        (@p1, @p2, @p3, @" +
-                "p4, @p5, @p6);\r\n                             SELECT        last_insert_id() as \'" +
+                "p4, @p5, @p6);\r\n                             SELECT        last_insert_id() AS \'" +
                 "Address ID\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -9993,8 +10000,9 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `correspondent products link` (`Correspondent ID`, `Prod ID`, `Quanti" +
-                "ty`, `Price`, `Show Price`) VALUES (@p1, @p2, @p3, @p4, @p5)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `correspondent products link`\r\n                         (`Corresponde" +
+                "nt ID`, `Prod ID`, Quantity, Price, `Show Price`)\r\nVALUES        (@p1, @p2, @p3," +
+                " @p4, @p5);\r\nSELECT        last_insert_id() as \'ID\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -10577,8 +10585,10 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `correspondents` (`CustAdd ID`, `Correspondent Date`, `Correspondent " +
-                "Type`, `Notes`, `Other`, `Other Price`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO correspondents
+                         (`CustAdd ID`, `Correspondent Date`, `Correspondent Type`, Notes, Other, `Other Price`)
+VALUES        (@p1, @p2, @p3, @p4, @p5, @p6);
+                             SELECT        last_insert_id() AS 'Correspondent ID';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -12153,8 +12163,9 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Installation Products Link` (`Address`, `Product`, `Quantity`) VALUE" +
-                "S (@p1, @p2, @p3)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Installation Products Link`\r\n                         (Address, Prod" +
+                "uct, Quantity)\r\nVALUES        (@p1, @p2, @p3);\r\n                             SEL" +
+                "ECT        last_insert_id() AS \'ID\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -12925,7 +12936,8 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Prod Make` (`Make`) VALUES (@p1)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Prod Make`\r\n                         (Make)\r\nVALUES        (@p1);\r\n " +
+                "                            SELECT        last_insert_id() AS \'MakeID\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -13293,7 +13305,8 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Prod Model` (`Model`) VALUES (@p1)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Prod Model`\r\n                         (Model)\r\nVALUES        (@p1);\r" +
+                "\n                             SELECT        last_insert_id() AS \'ModelID\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -13661,7 +13674,8 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Prod Type` (`Type`) VALUES (@p1)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Prod Type`\r\n                         (Type)\r\nVALUES        (@p1);\r\n " +
+                "                            SELECT        last_insert_id() AS \'TypeID\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -14056,8 +14070,8 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO Product\r\n                         (Make, Model, Type, Price)\r\nVALUES " +
-                "       (@p1, @p2, @p3, @p4)\r\nSELECT LAST_INSERT_ID();";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO Product (Make, Model, Type, Price)\r\nVALUES        (@p1, @p2, @p3, @p4" +
+                ");\r\nSELECT last_insert_id() AS \'ProdId\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -14629,7 +14643,11 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Services` (`Address`, `Date of Service`, `Battery Charging Voltage`, `Battery Draining Voltage`, `Charging Current Amps`, `Resting Current Amps`, `Alarm Current Amps`, `Bell Tamper Resistance Ohms`, `Overall Tamper Resistance Ohms`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO Services
+                         (Address, `Date of Service`, `Battery Charging Voltage`, `Battery Draining Voltage`, `Charging Current Amps`, `Resting Current Amps`, `Alarm Current Amps`, 
+                         `Bell Tamper Resistance Ohms`, `Overall Tamper Resistance Ohms`)
+VALUES        (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+                             SELECT        last_insert_id() AS 'Service ID';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -15474,9 +15492,10 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `ServiceZoneMes` (`ServiceZoneID`, `Service`, `Zone Number`, `Resista" +
-                "nce Ohms`, `Tamper Resistance Ohms`, `Voltage`) VALUES (@p1, @p2, @p3, @p4, @p5," +
-                " @p6)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ServiceZoneMes
+                         (ServiceZoneID, Service, `Zone Number`, `Resistance Ohms`, `Tamper Resistance Ohms`, Voltage)
+VALUES        (@p1, @p2, @p3, @p4, @p5, @p6);
+                             SELECT        last_insert_id() AS 'ServiceZoneID';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -16427,7 +16446,9 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Zone List` (`Zone Description`) VALUES (@p1)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Zone List`\r\n                         (`Zone Description`)\r\nVALUES   " +
+                "     (@p1);\r\n                             SELECT        last_insert_id() AS \'ID\'" +
+                ";";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -16813,8 +16834,9 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Zone Mappings` (`Address`, `Zone Number`, `Zone Description`, `Zone " +
-                "Type`) VALUES (@p1, @p2, @p3, @p4)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Zone Mappings`\r\n                         (Address, `Zone Number`, `Z" +
+                "one Description`, `Zone Type`)\r\nVALUES        (@p1, @p2, @p3, @p4);\r\n           " +
+                "                  SELECT        last_insert_id() as \'ID\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -17219,7 +17241,8 @@ namespace WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Zone Types` (`Type`) VALUES (@p1)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Zone Types`\r\n                         (Type)\r\nVALUES        (@p1);\r\n" +
+                "                             SELECT        last_insert_id() AS \'ID\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
