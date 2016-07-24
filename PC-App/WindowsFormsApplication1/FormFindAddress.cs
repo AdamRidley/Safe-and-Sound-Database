@@ -12,9 +12,16 @@ namespace WindowsFormsApplication1
 {
     public partial class FormFindAddress : Form
     {
+        private int searchFor;
+        public int foundId;
+
         public FormFindAddress()
         {
             InitializeComponent();
+        }
+        public FormFindAddress(int newSearchFor)
+        {
+            searchFor = newSearchFor;
         }
 
         private void Form1_Load(object sender, EventArgs e)

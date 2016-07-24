@@ -378,6 +378,7 @@
             this.zone_MappingsDataGridView.Size = new System.Drawing.Size(738, 151);
             this.zone_MappingsDataGridView.TabIndex = 37;
             this.zone_MappingsDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.zone_MappingsDataGridView_RowValidating);
+            this.zone_MappingsDataGridView.Enter += new System.EventHandler(this.zone_MappingsDataGridView_Enter);
             // 
             // iDDataGridViewTextBoxColumn
             // 

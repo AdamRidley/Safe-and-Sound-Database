@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Search_Bycs
+    partial class Search_By
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@
             this.ButByAddress.TabIndex = 8;
             this.ButByAddress.Text = "Search by &Address";
             this.ButByAddress.UseVisualStyleBackColor = true;
+            this.ButByAddress.Click += new System.EventHandler(this.ButByAddress_Click);
             // 
             // ButByCustomer
             // 
@@ -50,6 +51,7 @@
             this.ButByCustomer.TabIndex = 7;
             this.ButByCustomer.Text = "Search by C&ustomer";
             this.ButByCustomer.UseVisualStyleBackColor = true;
+            this.ButByCustomer.Click += new System.EventHandler(this.ButByCustomer_Click);
             // 
             // ButCancel
             // 
@@ -60,8 +62,9 @@
             this.ButCancel.TabIndex = 6;
             this.ButCancel.Text = "&Cancel";
             this.ButCancel.UseVisualStyleBackColor = true;
+            this.ButCancel.Click += new System.EventHandler(this.ButCancel_Click);
             // 
-            // Search_Bycs
+            // Search_By
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -73,8 +76,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Search_Bycs";
+            this.Name = "Search_By";
             this.Text = "Search by";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Search_By_FormClosing);
+            this.Load += new System.EventHandler(this.Search_By_Load);
             this.ResumeLayout(false);
 
         }

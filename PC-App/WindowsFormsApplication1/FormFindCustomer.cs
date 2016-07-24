@@ -12,9 +12,16 @@ namespace WindowsFormsApplication1
 {
     public partial class FormFindCustomer : Form
     {
+        private int searchFor;
+        public int foundId;
+
         public FormFindCustomer()
         {
             InitializeComponent();
+        }
+        public FormFindCustomer(int newSearchFor):this()
+        {
+            searchFor = newSearchFor;
         }
 
         private void FormFindCustomer_Load(object sender, EventArgs e)

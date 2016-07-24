@@ -19,6 +19,7 @@ namespace WindowsFormsApplication1
 
         private int PassedId;
         private Form CallingForm;
+
         public FormCustomer(int id, Form newcallingform) : this()
         {
             PassedId = id;

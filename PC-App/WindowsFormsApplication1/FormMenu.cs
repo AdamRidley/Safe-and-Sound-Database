@@ -26,6 +26,13 @@ namespace WindowsFormsApplication1
 
         private void ButCustomerEdit_Click(object sender, EventArgs e)
         {
+            Search_By f = new Search_By(1);
+            DialogResult resp = f.ShowDialog();
+            if (resp!=DialogResult.OK) { return; }
+            FormCustomer formCust = new FormCustomer(f.foundId, this);
+            formCust.Show();
+            f.Dispose();
+            this.Hide();
 
         }
 

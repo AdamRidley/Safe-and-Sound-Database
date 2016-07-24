@@ -174,5 +174,10 @@ namespace WindowsFormsApplication1
             if (e.RowIndex == -1) { return; }
             if (e.ColumnIndex == 3 || e.ColumnIndex == 4 || e.ColumnIndex == 5) { UpdateProduct(e.RowIndex); }
         }
+
+        private void zone_MappingsDataGridView_Enter(object sender, EventArgs e)
+        {
+            addressesBindingSource.EndEdit();
+        }
     }
 }
