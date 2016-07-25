@@ -58,6 +58,10 @@ namespace WindowsFormsApplication1 {
         
         private Zone_TypesDataTable tableZone_Types;
         
+        private Zone_List_SortedDataTable tableZone_List_Sorted;
+        
+        private Customers_Friendly_ViewDataTable tableCustomers_Friendly_View;
+        
         private global::System.Data.DataRelation relationcorrespondent_products_link_correspondents;
         
         private global::System.Data.DataRelation relationFK_CustAdd_correspondents;
@@ -93,6 +97,10 @@ namespace WindowsFormsApplication1 {
         private global::System.Data.DataRelation relationmodelfrgn;
         
         private global::System.Data.DataRelation relationtypefrgn;
+        
+        private global::System.Data.DataRelation relationzone_mappings_ibfk_21;
+        
+        private global::System.Data.DataRelation relationcustomeridfrgn1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -172,6 +180,12 @@ namespace WindowsFormsApplication1 {
                 }
                 if ((ds.Tables["Zone Types"] != null)) {
                     base.Tables.Add(new Zone_TypesDataTable(ds.Tables["Zone Types"]));
+                }
+                if ((ds.Tables["Zone List Sorted"] != null)) {
+                    base.Tables.Add(new Zone_List_SortedDataTable(ds.Tables["Zone List Sorted"]));
+                }
+                if ((ds.Tables["Customers Friendly View"] != null)) {
+                    base.Tables.Add(new Customers_Friendly_ViewDataTable(ds.Tables["Customers Friendly View"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -363,6 +377,26 @@ namespace WindowsFormsApplication1 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Zone_List_SortedDataTable Zone_List_Sorted {
+            get {
+                return this.tableZone_List_Sorted;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Customers_Friendly_ViewDataTable Customers_Friendly_View {
+            get {
+                return this.tableCustomers_Friendly_View;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -478,6 +512,12 @@ namespace WindowsFormsApplication1 {
                 }
                 if ((ds.Tables["Zone Types"] != null)) {
                     base.Tables.Add(new Zone_TypesDataTable(ds.Tables["Zone Types"]));
+                }
+                if ((ds.Tables["Zone List Sorted"] != null)) {
+                    base.Tables.Add(new Zone_List_SortedDataTable(ds.Tables["Zone List Sorted"]));
+                }
+                if ((ds.Tables["Customers Friendly View"] != null)) {
+                    base.Tables.Add(new Customers_Friendly_ViewDataTable(ds.Tables["Customers Friendly View"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -614,6 +654,18 @@ namespace WindowsFormsApplication1 {
                     this.tableZone_Types.InitVars();
                 }
             }
+            this.tableZone_List_Sorted = ((Zone_List_SortedDataTable)(base.Tables["Zone List Sorted"]));
+            if ((initTable == true)) {
+                if ((this.tableZone_List_Sorted != null)) {
+                    this.tableZone_List_Sorted.InitVars();
+                }
+            }
+            this.tableCustomers_Friendly_View = ((Customers_Friendly_ViewDataTable)(base.Tables["Customers Friendly View"]));
+            if ((initTable == true)) {
+                if ((this.tableCustomers_Friendly_View != null)) {
+                    this.tableCustomers_Friendly_View.InitVars();
+                }
+            }
             this.relationcorrespondent_products_link_correspondents = this.Relations["correspondent products link_correspondents"];
             this.relationFK_CustAdd_correspondents = this.Relations["FK_CustAdd_correspondents"];
             this.relationproductfrgn = this.Relations["productfrgn"];
@@ -632,6 +684,8 @@ namespace WindowsFormsApplication1 {
             this.relationmakefrgn = this.Relations["makefrgn"];
             this.relationmodelfrgn = this.Relations["modelfrgn"];
             this.relationtypefrgn = this.Relations["typefrgn"];
+            this.relationzone_mappings_ibfk_21 = this.Relations["zone mappings_ibfk_21"];
+            this.relationcustomeridfrgn1 = this.Relations["customeridfrgn1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -676,6 +730,10 @@ namespace WindowsFormsApplication1 {
             base.Tables.Add(this.tableZone_Mappings);
             this.tableZone_Types = new Zone_TypesDataTable();
             base.Tables.Add(this.tableZone_Types);
+            this.tableZone_List_Sorted = new Zone_List_SortedDataTable();
+            base.Tables.Add(this.tableZone_List_Sorted);
+            this.tableCustomers_Friendly_View = new Customers_Friendly_ViewDataTable();
+            base.Tables.Add(this.tableCustomers_Friendly_View);
             global::System.Data.ForeignKeyConstraint fkc;
             fkc = new global::System.Data.ForeignKeyConstraint("correspondent products link_correspondents", new global::System.Data.DataColumn[] {
                         this.tablecorrespondents.Correspondent_IDColumn}, new global::System.Data.DataColumn[] {
@@ -850,6 +908,14 @@ namespace WindowsFormsApplication1 {
                         this.tableProd_Type.TypeIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableProduct.TypeColumn}, false);
             this.Relations.Add(this.relationtypefrgn);
+            this.relationzone_mappings_ibfk_21 = new global::System.Data.DataRelation("zone mappings_ibfk_21", new global::System.Data.DataColumn[] {
+                        this.tableZone_List_Sorted.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableZone_Mappings.Zone_DescriptionColumn}, false);
+            this.Relations.Add(this.relationzone_mappings_ibfk_21);
+            this.relationcustomeridfrgn1 = new global::System.Data.DataRelation("customeridfrgn1", new global::System.Data.DataColumn[] {
+                        this.tableCustomers_Friendly_View.Customer_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCustAdd.Customer_IDColumn}, false);
+            this.Relations.Add(this.relationcustomeridfrgn1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -951,6 +1017,18 @@ namespace WindowsFormsApplication1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeZone_Types() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeZone_List_Sorted() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeCustomers_Friendly_View() {
             return false;
         }
         
@@ -1059,6 +1137,12 @@ namespace WindowsFormsApplication1 {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Zone_TypesRowChangeEventHandler(object sender, Zone_TypesRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Zone_List_SortedRowChangeEventHandler(object sender, Zone_List_SortedRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Customers_Friendly_ViewRowChangeEventHandler(object sender, Customers_Friendly_ViewRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -6387,6 +6471,619 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Zone_List_SortedDataTable : global::System.Data.TypedTableBase<Zone_List_SortedRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnZone_Description;
+            
+            private global::System.Data.DataColumn columnzone_description_used;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Zone_List_SortedDataTable() {
+                this.TableName = "Zone List Sorted";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Zone_List_SortedDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Zone_List_SortedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Zone_DescriptionColumn {
+                get {
+                    return this.columnZone_Description;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn zone_description_usedColumn {
+                get {
+                    return this.columnzone_description_used;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Zone_List_SortedRow this[int index] {
+                get {
+                    return ((Zone_List_SortedRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Zone_List_SortedRowChangeEventHandler Zone_List_SortedRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Zone_List_SortedRowChangeEventHandler Zone_List_SortedRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Zone_List_SortedRowChangeEventHandler Zone_List_SortedRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Zone_List_SortedRowChangeEventHandler Zone_List_SortedRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddZone_List_SortedRow(Zone_List_SortedRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Zone_List_SortedRow AddZone_List_SortedRow(string Zone_Description, long zone_description_used) {
+                Zone_List_SortedRow rowZone_List_SortedRow = ((Zone_List_SortedRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Zone_Description,
+                        zone_description_used};
+                rowZone_List_SortedRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowZone_List_SortedRow);
+                return rowZone_List_SortedRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Zone_List_SortedRow FindByID(int ID) {
+                return ((Zone_List_SortedRow)(this.Rows.Find(new object[] {
+                            ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Zone_List_SortedDataTable cln = ((Zone_List_SortedDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Zone_List_SortedDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnZone_Description = base.Columns["Zone Description"];
+                this.columnzone_description_used = base.Columns["zone description used"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnZone_Description = new global::System.Data.DataColumn("Zone Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZone_Description);
+                this.columnzone_description_used = new global::System.Data.DataColumn("zone description used", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnzone_description_used);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.Unique = true;
+                this.columnZone_Description.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Zone_List_SortedRow NewZone_List_SortedRow() {
+                return ((Zone_List_SortedRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Zone_List_SortedRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Zone_List_SortedRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Zone_List_SortedRowChanged != null)) {
+                    this.Zone_List_SortedRowChanged(this, new Zone_List_SortedRowChangeEvent(((Zone_List_SortedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Zone_List_SortedRowChanging != null)) {
+                    this.Zone_List_SortedRowChanging(this, new Zone_List_SortedRowChangeEvent(((Zone_List_SortedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Zone_List_SortedRowDeleted != null)) {
+                    this.Zone_List_SortedRowDeleted(this, new Zone_List_SortedRowChangeEvent(((Zone_List_SortedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Zone_List_SortedRowDeleting != null)) {
+                    this.Zone_List_SortedRowDeleting(this, new Zone_List_SortedRowChangeEvent(((Zone_List_SortedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveZone_List_SortedRow(Zone_List_SortedRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                safeandsounddb1DataSet ds = new safeandsounddb1DataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Zone_List_SortedDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Customers_Friendly_ViewDataTable : global::System.Data.TypedTableBase<Customers_Friendly_ViewRow> {
+            
+            private global::System.Data.DataColumn columnCustomer_ID;
+            
+            private global::System.Data.DataColumn columnTitle;
+            
+            private global::System.Data.DataColumn columnFirst_Name;
+            
+            private global::System.Data.DataColumn columnLast_Name;
+            
+            private global::System.Data.DataColumn _columnE_Mail_Address;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Customers_Friendly_ViewDataTable() {
+                this.TableName = "Customers Friendly View";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Customers_Friendly_ViewDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Customers_Friendly_ViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Customer_IDColumn {
+                get {
+                    return this.columnCustomer_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TitleColumn {
+                get {
+                    return this.columnTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn First_NameColumn {
+                get {
+                    return this.columnFirst_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Last_NameColumn {
+                get {
+                    return this.columnLast_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn _E_Mail_AddressColumn {
+                get {
+                    return this._columnE_Mail_Address;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Customers_Friendly_ViewRow this[int index] {
+                get {
+                    return ((Customers_Friendly_ViewRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Customers_Friendly_ViewRowChangeEventHandler Customers_Friendly_ViewRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Customers_Friendly_ViewRowChangeEventHandler Customers_Friendly_ViewRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Customers_Friendly_ViewRowChangeEventHandler Customers_Friendly_ViewRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Customers_Friendly_ViewRowChangeEventHandler Customers_Friendly_ViewRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddCustomers_Friendly_ViewRow(Customers_Friendly_ViewRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Customers_Friendly_ViewRow AddCustomers_Friendly_ViewRow(string Title, string First_Name, string Last_Name, string _E_Mail_Address) {
+                Customers_Friendly_ViewRow rowCustomers_Friendly_ViewRow = ((Customers_Friendly_ViewRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Title,
+                        First_Name,
+                        Last_Name,
+                        _E_Mail_Address};
+                rowCustomers_Friendly_ViewRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCustomers_Friendly_ViewRow);
+                return rowCustomers_Friendly_ViewRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Customers_Friendly_ViewRow FindByCustomer_ID(int Customer_ID) {
+                return ((Customers_Friendly_ViewRow)(this.Rows.Find(new object[] {
+                            Customer_ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Customers_Friendly_ViewDataTable cln = ((Customers_Friendly_ViewDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Customers_Friendly_ViewDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnCustomer_ID = base.Columns["Customer ID"];
+                this.columnTitle = base.Columns["Title"];
+                this.columnFirst_Name = base.Columns["First Name"];
+                this.columnLast_Name = base.Columns["Last Name"];
+                this._columnE_Mail_Address = base.Columns["E-Mail Address"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnCustomer_ID = new global::System.Data.DataColumn("Customer ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_ID);
+                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle);
+                this.columnFirst_Name = new global::System.Data.DataColumn("First Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirst_Name);
+                this.columnLast_Name = new global::System.Data.DataColumn("Last Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLast_Name);
+                this._columnE_Mail_Address = new global::System.Data.DataColumn("E-Mail Address", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnE_Mail_Address.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnE_Mail_Address");
+                this._columnE_Mail_Address.ExtendedProperties.Add("Generator_UserColumnName", "E-Mail Address");
+                base.Columns.Add(this._columnE_Mail_Address);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCustomer_ID}, true));
+                this.columnCustomer_ID.AutoIncrement = true;
+                this.columnCustomer_ID.AutoIncrementSeed = -1;
+                this.columnCustomer_ID.AutoIncrementStep = -1;
+                this.columnCustomer_ID.AllowDBNull = false;
+                this.columnCustomer_ID.Unique = true;
+                this.columnTitle.MaxLength = 255;
+                this.columnFirst_Name.MaxLength = 255;
+                this.columnLast_Name.MaxLength = 255;
+                this._columnE_Mail_Address.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Customers_Friendly_ViewRow NewCustomers_Friendly_ViewRow() {
+                return ((Customers_Friendly_ViewRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Customers_Friendly_ViewRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Customers_Friendly_ViewRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Customers_Friendly_ViewRowChanged != null)) {
+                    this.Customers_Friendly_ViewRowChanged(this, new Customers_Friendly_ViewRowChangeEvent(((Customers_Friendly_ViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Customers_Friendly_ViewRowChanging != null)) {
+                    this.Customers_Friendly_ViewRowChanging(this, new Customers_Friendly_ViewRowChangeEvent(((Customers_Friendly_ViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Customers_Friendly_ViewRowDeleted != null)) {
+                    this.Customers_Friendly_ViewRowDeleted(this, new Customers_Friendly_ViewRowChangeEvent(((Customers_Friendly_ViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Customers_Friendly_ViewRowDeleting != null)) {
+                    this.Customers_Friendly_ViewRowDeleting(this, new Customers_Friendly_ViewRowChangeEvent(((Customers_Friendly_ViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveCustomers_Friendly_ViewRow(Customers_Friendly_ViewRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                safeandsounddb1DataSet ds = new safeandsounddb1DataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Customers_Friendly_ViewDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class addressesRow : global::System.Data.DataRow {
@@ -7037,6 +7734,17 @@ namespace WindowsFormsApplication1 {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["addressidfrgn"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Customers_Friendly_ViewRow Customers_Friendly_ViewRow {
+                get {
+                    return ((Customers_Friendly_ViewRow)(this.GetParentRow(this.Table.ParentRelations["customeridfrgn1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["customeridfrgn1"]);
                 }
             }
             
@@ -8409,6 +9117,17 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Zone_List_SortedRow Zone_List_SortedRow {
+                get {
+                    return ((Zone_List_SortedRow)(this.GetParentRow(this.Table.ParentRelations["zone mappings_ibfk_21"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["zone mappings_ibfk_21"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ServiceZoneMesRow[] GetServiceZoneMesRows() {
                 if ((this.Table.ChildRelations["zonefrgn"] == null)) {
                     return new ServiceZoneMesRow[0];
@@ -8463,6 +9182,250 @@ namespace WindowsFormsApplication1 {
                 }
                 else {
                     return ((Zone_MappingsRow[])(base.GetChildRows(this.Table.ChildRelations["zone mappings_ibfk_3"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Zone_List_SortedRow : global::System.Data.DataRow {
+            
+            private Zone_List_SortedDataTable tableZone_List_Sorted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Zone_List_SortedRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableZone_List_Sorted = ((Zone_List_SortedDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tableZone_List_Sorted.IDColumn]));
+                }
+                set {
+                    this[this.tableZone_List_Sorted.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Zone_Description {
+                get {
+                    try {
+                        return ((string)(this[this.tableZone_List_Sorted.Zone_DescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Zone Description\' in table \'Zone List Sorted\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZone_List_Sorted.Zone_DescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long zone_description_used {
+                get {
+                    try {
+                        return ((long)(this[this.tableZone_List_Sorted.zone_description_usedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'zone description used\' in table \'Zone List Sorted\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableZone_List_Sorted.zone_description_usedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsZone_DescriptionNull() {
+                return this.IsNull(this.tableZone_List_Sorted.Zone_DescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetZone_DescriptionNull() {
+                this[this.tableZone_List_Sorted.Zone_DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iszone_description_usedNull() {
+                return this.IsNull(this.tableZone_List_Sorted.zone_description_usedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setzone_description_usedNull() {
+                this[this.tableZone_List_Sorted.zone_description_usedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Zone_MappingsRow[] GetZone_MappingsRows() {
+                if ((this.Table.ChildRelations["zone mappings_ibfk_21"] == null)) {
+                    return new Zone_MappingsRow[0];
+                }
+                else {
+                    return ((Zone_MappingsRow[])(base.GetChildRows(this.Table.ChildRelations["zone mappings_ibfk_21"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Customers_Friendly_ViewRow : global::System.Data.DataRow {
+            
+            private Customers_Friendly_ViewDataTable tableCustomers_Friendly_View;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Customers_Friendly_ViewRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCustomers_Friendly_View = ((Customers_Friendly_ViewDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Customer_ID {
+                get {
+                    return ((int)(this[this.tableCustomers_Friendly_View.Customer_IDColumn]));
+                }
+                set {
+                    this[this.tableCustomers_Friendly_View.Customer_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Title {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers_Friendly_View.TitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'Customers Friendly View\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers_Friendly_View.TitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string First_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers_Friendly_View.First_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'First Name\' in table \'Customers Friendly View\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers_Friendly_View.First_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Last_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers_Friendly_View.Last_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Last Name\' in table \'Customers Friendly View\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers_Friendly_View.Last_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string _E_Mail_Address {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers_Friendly_View._E_Mail_AddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'E-Mail Address\' in table \'Customers Friendly View\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers_Friendly_View._E_Mail_AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitleNull() {
+                return this.IsNull(this.tableCustomers_Friendly_View.TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitleNull() {
+                this[this.tableCustomers_Friendly_View.TitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFirst_NameNull() {
+                return this.IsNull(this.tableCustomers_Friendly_View.First_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFirst_NameNull() {
+                this[this.tableCustomers_Friendly_View.First_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLast_NameNull() {
+                return this.IsNull(this.tableCustomers_Friendly_View.Last_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLast_NameNull() {
+                this[this.tableCustomers_Friendly_View.Last_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_E_Mail_AddressNull() {
+                return this.IsNull(this.tableCustomers_Friendly_View._E_Mail_AddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_E_Mail_AddressNull() {
+                this[this.tableCustomers_Friendly_View._E_Mail_AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CustAddRow[] GetCustAddRows() {
+                if ((this.Table.ChildRelations["customeridfrgn1"] == null)) {
+                    return new CustAddRow[0];
+                }
+                else {
+                    return ((CustAddRow[])(base.GetChildRows(this.Table.ChildRelations["customeridfrgn1"])));
                 }
             }
         }
@@ -9031,6 +9994,74 @@ namespace WindowsFormsApplication1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Zone_TypesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Zone_List_SortedRowChangeEvent : global::System.EventArgs {
+            
+            private Zone_List_SortedRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Zone_List_SortedRowChangeEvent(Zone_List_SortedRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Zone_List_SortedRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Customers_Friendly_ViewRowChangeEvent : global::System.EventArgs {
+            
+            private Customers_Friendly_ViewRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Customers_Friendly_ViewRowChangeEvent(Customers_Friendly_ViewRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Customers_Friendly_ViewRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -16078,7 +17109,7 @@ VALUES        (@p1, @p2, @p3, @p4, @p5, @p6);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO Titles\r\n                         (Title)\r\nVALUES        (@p1);\r\n     " +
-                "                        SELECT        LAST_INSERT_ID() as \'ID\';";
+                "                        SELECT        last_insert_id() AS \'ID\';";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -16139,7 +17170,7 @@ VALUES        (@p1, @p2, @p3, @p4, @p5, @p6);
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `ID`, `Title` FROM `Titles`";
+            this._commandCollection[0].CommandText = "SELECT `ID`, `Title` FROM `Titles` ORDER BY ID ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17449,13 +18480,92 @@ VALUES        (@p1, @p2, @p3, @p4, @p5, @p6);
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+    public partial class Zone_List_SortedTableAdapter : global::System.ComponentModel.Component {
         
-        private global::System.Data.IDbCommand[] _commandCollection;
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.IDbCommand[] CommandCollection {
+        public Zone_List_SortedTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -17466,44 +18576,243 @@ VALUES        (@p1, @p2, @p3, @p4, @p5, @p6);
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Zone List Sorted";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("Zone Description", "Zone Description");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::WindowsFormsApplication1.Properties.Settings.Default.safeandsounddb1ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            ((global::MySql.Data.MySqlClient.MySqlCommand)(this._commandCollection[0])).Connection = new global::MySql.Data.MySqlClient.MySqlConnection(global::WindowsFormsApplication1.Properties.Settings.Default.safeandsounddb1ConnectionString);
-            ((global::MySql.Data.MySqlClient.MySqlCommand)(this._commandCollection[0])).CommandText = @"SELECT        `Zone List`.ID, `Zone List`.`Zone Description`, COUNT(`Zone Mappings`.`Zone Description`) AS `zone description used`
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        `Zone List`.ID, `Zone List`.`Zone Description`, COUNT(`Zone Mappings`.`Zone Description`) AS `zone description used`
 FROM            `Zone List` LEFT OUTER JOIN
                          `Zone Mappings` ON `Zone List`.ID = `Zone Mappings`.`Zone Description`
 GROUP BY `Zone List`.ID
 ORDER BY `zone description used` DESC";
-            ((global::MySql.Data.MySqlClient.MySqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> ZoneListUses() {
-            global::MySql.Data.MySqlClient.MySqlCommand command = ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[0]));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(safeandsounddb1DataSet.Zone_List_SortedDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
             }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual safeandsounddb1DataSet.Zone_List_SortedDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            safeandsounddb1DataSet.Zone_List_SortedDataTable dataTable = new safeandsounddb1DataSet.Zone_List_SortedDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Customers_Friendly_ViewTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Customers_Friendly_ViewTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
             }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
                 }
             }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<int>();
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
             }
-            else {
-                return new global::System.Nullable<int>(((int)(returnValue)));
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Customers Friendly View";
+            tableMapping.ColumnMappings.Add("Customer ID", "Customer ID");
+            tableMapping.ColumnMappings.Add("First Name", "First Name");
+            tableMapping.ColumnMappings.Add("Last Name", "Last Name");
+            tableMapping.ColumnMappings.Add("E-Mail Address", "E-Mail Address");
+            tableMapping.ColumnMappings.Add("Title", "Title");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::WindowsFormsApplication1.Properties.Settings.Default.safeandsounddb1ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        Customers.`Customer ID`, Titles.`Title`, Customers.`First Name`, Cu" +
+                "stomers.`Last Name`, Customers.`E-Mail Address`\r\nFROM         Titles RIGHT OUTER" +
+                " JOIN Customers ON Titles.ID = Customers.Title  ";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(safeandsounddb1DataSet.Customers_Friendly_ViewDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual safeandsounddb1DataSet.Customers_Friendly_ViewDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            safeandsounddb1DataSet.Customers_Friendly_ViewDataTable dataTable = new safeandsounddb1DataSet.Customers_Friendly_ViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     
@@ -17977,15 +19286,6 @@ ORDER BY `zone description used` DESC";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._addressesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.addresses.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._addressesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._customersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Customers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -17995,39 +19295,12 @@ ORDER BY `zone description used` DESC";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._zone_ListTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Zone_List.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._addressesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.addresses.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._zone_ListTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._custAddTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CustAdd.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._custAddTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._prod_TypeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Prod_Type.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._prod_TypeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._zone_TypesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Zone_Types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._zone_TypesTableAdapter.Update(updatedRows));
+                    result = (result + this._addressesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -18049,30 +19322,48 @@ ORDER BY `zone description used` DESC";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._prod_TypeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Prod_Type.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._prod_TypeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._custAddTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CustAdd.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._custAddTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._zone_ListTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Zone_List.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._zone_ListTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._zone_TypesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Zone_Types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._zone_TypesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._productTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Product.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._productTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._zone_MappingsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Zone_Mappings.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._zone_MappingsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._correspondentsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.correspondents.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._correspondentsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -18085,21 +19376,30 @@ ORDER BY `zone description used` DESC";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._serviceZoneMesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ServiceZoneMes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._correspondentsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.correspondents.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._serviceZoneMesTableAdapter.Update(updatedRows));
+                    result = (result + this._correspondentsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._installation_Products_LinkTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Installation_Products_Link.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._zone_MappingsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Zone_Mappings.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._installation_Products_LinkTableAdapter.Update(updatedRows));
+                    result = (result + this._zone_MappingsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._correspondent_products_linkTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.correspondent_products_link.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._correspondent_products_linkTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -18112,12 +19412,21 @@ ORDER BY `zone description used` DESC";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._correspondent_products_linkTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.correspondent_products_link.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._installation_Products_LinkTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Installation_Products_Link.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._correspondent_products_linkTableAdapter.Update(updatedRows));
+                    result = (result + this._installation_Products_LinkTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._serviceZoneMesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ServiceZoneMes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._serviceZoneMesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -18139,14 +19448,6 @@ ORDER BY `zone description used` DESC";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._addressesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.addresses.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._addressesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._customersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Customers.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -18155,35 +19456,11 @@ ORDER BY `zone description used` DESC";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._zone_ListTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Zone_List.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._addressesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.addresses.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._zone_ListTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._custAddTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CustAdd.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._custAddTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._prod_TypeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Prod_Type.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._prod_TypeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._zone_TypesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Zone_Types.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._zone_TypesTableAdapter.Update(addedRows));
+                    result = (result + this._addressesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -18203,27 +19480,43 @@ ORDER BY `zone description used` DESC";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._prod_TypeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Prod_Type.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._prod_TypeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._custAddTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CustAdd.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._custAddTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._zone_ListTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Zone_List.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._zone_ListTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._zone_TypesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Zone_Types.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._zone_TypesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._productTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Product.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._productTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._zone_MappingsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Zone_Mappings.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._zone_MappingsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._correspondentsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.correspondents.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._correspondentsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -18235,19 +19528,27 @@ ORDER BY `zone description used` DESC";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._serviceZoneMesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ServiceZoneMes.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._correspondentsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.correspondents.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._serviceZoneMesTableAdapter.Update(addedRows));
+                    result = (result + this._correspondentsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._installation_Products_LinkTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Installation_Products_Link.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._zone_MappingsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Zone_Mappings.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._installation_Products_LinkTableAdapter.Update(addedRows));
+                    result = (result + this._zone_MappingsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._correspondent_products_linkTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.correspondent_products_link.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._correspondent_products_linkTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -18259,11 +19560,19 @@ ORDER BY `zone description used` DESC";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._correspondent_products_linkTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.correspondent_products_link.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._installation_Products_LinkTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Installation_Products_Link.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._correspondent_products_linkTableAdapter.Update(addedRows));
+                    result = (result + this._installation_Products_LinkTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._serviceZoneMesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ServiceZoneMes.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._serviceZoneMesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -18277,19 +19586,11 @@ ORDER BY `zone description used` DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(safeandsounddb1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._correspondent_products_linkTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.correspondent_products_link.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._serviceZoneMesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ServiceZoneMes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._correspondent_products_linkTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._phone_NumbersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Phone_Numbers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._phone_NumbersTableAdapter.Update(deletedRows));
+                    result = (result + this._serviceZoneMesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -18301,27 +19602,19 @@ ORDER BY `zone description used` DESC";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._serviceZoneMesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ServiceZoneMes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._phone_NumbersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Phone_Numbers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._serviceZoneMesTableAdapter.Update(deletedRows));
+                    result = (result + this._phone_NumbersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._servicesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Services.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._correspondent_products_linkTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.correspondent_products_link.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._servicesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._correspondentsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.correspondents.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._correspondentsTableAdapter.Update(deletedRows));
+                    result = (result + this._correspondent_products_linkTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -18333,11 +19626,59 @@ ORDER BY `zone description used` DESC";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._correspondentsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.correspondents.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._correspondentsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._servicesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Services.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._servicesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._productTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Product.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._productTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._zone_TypesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Zone_Types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._zone_TypesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._zone_ListTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Zone_List.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._zone_ListTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._custAddTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CustAdd.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._custAddTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._prod_TypeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Prod_Type.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._prod_TypeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -18357,35 +19698,11 @@ ORDER BY `zone description used` DESC";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._zone_TypesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Zone_Types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._addressesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.addresses.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._zone_TypesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._prod_TypeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Prod_Type.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._prod_TypeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._custAddTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CustAdd.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._custAddTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._zone_ListTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Zone_List.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._zone_ListTableAdapter.Update(deletedRows));
+                    result = (result + this._addressesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -18394,14 +19711,6 @@ ORDER BY `zone description used` DESC";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._customersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._addressesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.addresses.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._addressesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

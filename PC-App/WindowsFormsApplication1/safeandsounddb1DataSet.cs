@@ -4,6 +4,10 @@
 
     partial class safeandsounddb1DataSet
     {
+        partial class Zone_List_SortedDataTable
+        {
+        }
+
         partial class correspondent_products_linkDataTable
         {
         }
