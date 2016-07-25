@@ -64,12 +64,7 @@
             this.zone_MappingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zoneMappingsibfk1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zone_MappingsDataGridView = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zoneTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.zoneTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zoneDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.zoneListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zoneMappingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -82,6 +77,11 @@
             this.Make = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zoneTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.zoneDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             address_Line_1Label = new System.Windows.Forms.Label();
             address_Line_2Label = new System.Windows.Forms.Label();
             address_Line_3Label = new System.Windows.Forms.Label();
@@ -380,50 +380,10 @@
             this.zone_MappingsDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.zone_MappingsDataGridView_RowValidating);
             this.zone_MappingsDataGridView.Enter += new System.EventHandler(this.zone_MappingsDataGridView_Enter);
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // zoneNumberDataGridViewTextBoxColumn
-            // 
-            this.zoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Zone Number";
-            this.zoneNumberDataGridViewTextBoxColumn.HeaderText = "Zone Number";
-            this.zoneNumberDataGridViewTextBoxColumn.Name = "zoneNumberDataGridViewTextBoxColumn";
-            // 
-            // zoneTypeDataGridViewTextBoxColumn
-            // 
-            this.zoneTypeDataGridViewTextBoxColumn.DataPropertyName = "Zone Type";
-            this.zoneTypeDataGridViewTextBoxColumn.DataSource = this.zoneTypesBindingSource;
-            this.zoneTypeDataGridViewTextBoxColumn.DisplayMember = "Type";
-            this.zoneTypeDataGridViewTextBoxColumn.HeaderText = "Zone Type";
-            this.zoneTypeDataGridViewTextBoxColumn.Name = "zoneTypeDataGridViewTextBoxColumn";
-            this.zoneTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.zoneTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.zoneTypeDataGridViewTextBoxColumn.ValueMember = "ID";
-            // 
             // zoneTypesBindingSource
             // 
             this.zoneTypesBindingSource.DataMember = "Zone Types";
             this.zoneTypesBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // zoneDescriptionDataGridViewTextBoxColumn
-            // 
-            this.zoneDescriptionDataGridViewTextBoxColumn.DataPropertyName = "Zone Description";
-            this.zoneDescriptionDataGridViewTextBoxColumn.DataSource = this.zoneListBindingSource;
-            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayMember = "Zone Description";
-            this.zoneDescriptionDataGridViewTextBoxColumn.HeaderText = "Zone Description";
-            this.zoneDescriptionDataGridViewTextBoxColumn.Name = "zoneDescriptionDataGridViewTextBoxColumn";
-            this.zoneDescriptionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.zoneDescriptionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.zoneDescriptionDataGridViewTextBoxColumn.ValueMember = "ID";
             // 
             // zoneListBindingSource
             // 
@@ -488,6 +448,9 @@
             // 
             this.Type.DataSource = this.prodTypeBindingSource;
             this.Type.DisplayMember = "Type";
+            this.Type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Type.DisplayStyleForCurrentCellOnly = true;
+            this.Type.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Type.HeaderText = "Type";
             this.Type.Name = "Type";
             this.Type.ValueMember = "TypeID";
@@ -496,6 +459,9 @@
             // 
             this.Make.DataSource = this.prodMakeBindingSource;
             this.Make.DisplayMember = "Make";
+            this.Make.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Make.DisplayStyleForCurrentCellOnly = true;
+            this.Make.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Make.HeaderText = "Make";
             this.Make.Name = "Make";
             this.Make.ValueMember = "MakeID";
@@ -504,6 +470,9 @@
             // 
             this.Model.DataSource = this.prodModelBindingSource;
             this.Model.DisplayMember = "Model";
+            this.Model.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Model.DisplayStyleForCurrentCellOnly = true;
+            this.Model.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Model.HeaderText = "Model";
             this.Model.Name = "Model";
             this.Model.ValueMember = "ModelID";
@@ -514,6 +483,52 @@
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             this.quantityDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // zoneNumberDataGridViewTextBoxColumn
+            // 
+            this.zoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Zone Number";
+            this.zoneNumberDataGridViewTextBoxColumn.HeaderText = "Zone Number";
+            this.zoneNumberDataGridViewTextBoxColumn.Name = "zoneNumberDataGridViewTextBoxColumn";
+            // 
+            // zoneTypeDataGridViewTextBoxColumn
+            // 
+            this.zoneTypeDataGridViewTextBoxColumn.DataPropertyName = "Zone Type";
+            this.zoneTypeDataGridViewTextBoxColumn.DataSource = this.zoneTypesBindingSource;
+            this.zoneTypeDataGridViewTextBoxColumn.DisplayMember = "Type";
+            this.zoneTypeDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.zoneTypeDataGridViewTextBoxColumn.DisplayStyleForCurrentCellOnly = true;
+            this.zoneTypeDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.zoneTypeDataGridViewTextBoxColumn.HeaderText = "Zone Type";
+            this.zoneTypeDataGridViewTextBoxColumn.Name = "zoneTypeDataGridViewTextBoxColumn";
+            this.zoneTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.zoneTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.zoneTypeDataGridViewTextBoxColumn.ValueMember = "ID";
+            // 
+            // zoneDescriptionDataGridViewTextBoxColumn
+            // 
+            this.zoneDescriptionDataGridViewTextBoxColumn.DataPropertyName = "Zone Description";
+            this.zoneDescriptionDataGridViewTextBoxColumn.DataSource = this.zoneListBindingSource;
+            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayMember = "Zone Description";
+            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayStyleForCurrentCellOnly = true;
+            this.zoneDescriptionDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.zoneDescriptionDataGridViewTextBoxColumn.HeaderText = "Zone Description";
+            this.zoneDescriptionDataGridViewTextBoxColumn.Name = "zoneDescriptionDataGridViewTextBoxColumn";
+            this.zoneDescriptionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.zoneDescriptionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.zoneDescriptionDataGridViewTextBoxColumn.ValueMember = "ID";
             // 
             // FormAddresses
             // 
@@ -599,11 +614,6 @@
         private safeandsounddb1DataSet safeandsounddb1DataSet;
         internal System.Windows.Forms.Button butcancel;
         internal System.Windows.Forms.Button butsaveexit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zoneNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn zoneTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn zoneDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
@@ -611,5 +621,10 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Make;
         private System.Windows.Forms.DataGridViewComboBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn zoneTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn zoneDescriptionDataGridViewTextBoxColumn;
     }
 }

@@ -85,5 +85,67 @@ namespace WindowsFormsApplication1
 
             FilterCustomers();
         }
+
+        private void CustomersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void CustomersDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            ButChooseSetVisibility();
+            if (CustomersDataGridView.SelectedCells.Count==0||CustomersDataGridView.SelectedCells[0].ColumnIndex==-1 ||CustomersDataGridView.SelectedCells[0].RowIndex==-1) { AddressesBindingSource.Filter = "[Address ID] = Null";return;}
+            custAddBindingSource.Filter = "[Customer ID] = " + CustomersDataGridView.SelectedCells[0].OwningRow.Cells["customerIDDataGridViewTextBoxColumn"].Value.ToString();
+            StringBuilder str = new StringBuilder("[Address ID] in (" );
+            foreach (DataRowView a in custAddBindingSource.List)
+            {
+                safeandsounddb1DataSet.CustAddRow b = (safeandsounddb1DataSet.CustAddRow)a.Row;
+                if (!b.IsAddress_IDNull())
+                {
+                    str.Append(((safeandsounddb1DataSet.CustAddRow)a.Row).Address_ID + ", ");
+                }
+            }
+            if (str.Length> "[Address ID] in (".Length)
+            {
+                str.Remove(str.Length - 2, 2);
+                AddressesBindingSource.Filter = str.ToString() + ")";
+            }
+            else
+            {
+                AddressesBindingSource.Filter = "[Address ID] = Null";
+            }
+                
+        }
+
+        private void ButChooseSetVisibility()
+        {
+            //searchFor 1 - customer, 2 - address
+            if (searchFor == 1 && CustomersDataGridView.SelectedCells.Count > 0 && !(CustomersDataGridView.SelectedCells[0].ColumnIndex == -1 || CustomersDataGridView.SelectedCells[0].RowIndex == -1))
+            {
+                ButChoose.Enabled = true;
+                return;
+            }
+            if (searchFor==2&&AddressesDataGridView.SelectedCells.Count>0 && !(AddressesDataGridView.SelectedCells[0].ColumnIndex == -1 || AddressesDataGridView.SelectedCells[0].RowIndex == -1))
+            {
+                ButChoose.Enabled = true;
+                return;
+            }
+            ButChoose.Enabled = false;
+        }
+
+        private void ButChoose_Click(object sender, EventArgs e)
+        {
+            switch (searchFor)
+            {
+                case 1:
+                    this.foundId = (int)CustomersDataGridView.SelectedCells[0].OwningRow.Cells["customerIDDataGridViewTextBoxColumn"].Value;
+                    this.DialogResult = DialogResult.OK;
+                    return;
+                case 2:
+                    this.foundId = (int)AddressesDataGridView.SelectedCells[0].OwningRow.Cells["addressIDDataGridViewTextBoxColumn"].Value;
+                    this.DialogResult = DialogResult.OK;
+                    return;
+            }
+        }
     }
 }
