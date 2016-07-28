@@ -35,9 +35,6 @@
             this.AddressesTab = new System.Windows.Forms.TabPage();
             this.ButAddressEdit = new System.Windows.Forms.Button();
             this.ButAddressAdd = new System.Windows.Forms.Button();
-            this.ServicesTab = new System.Windows.Forms.TabPage();
-            this.ButServiceEdit = new System.Windows.Forms.Button();
-            this.ButServiceAdd = new System.Windows.Forms.Button();
             this.InstallationsTab = new System.Windows.Forms.TabPage();
             this.ButInstallationEdit = new System.Windows.Forms.Button();
             this.ButInstallationAdd = new System.Windows.Forms.Button();
@@ -47,7 +44,6 @@
             this.tabControl1.SuspendLayout();
             this.CustomersTab.SuspendLayout();
             this.AddressesTab.SuspendLayout();
-            this.ServicesTab.SuspendLayout();
             this.InstallationsTab.SuspendLayout();
             this.CorrespondentsTab.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +55,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.CustomersTab);
             this.tabControl1.Controls.Add(this.AddressesTab);
-            this.tabControl1.Controls.Add(this.ServicesTab);
             this.tabControl1.Controls.Add(this.InstallationsTab);
             this.tabControl1.Controls.Add(this.CorrespondentsTab);
             this.tabControl1.Location = new System.Drawing.Point(3, 4);
@@ -84,7 +79,7 @@
             // 
             this.ButCustomerEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButCustomerEdit.Location = new System.Drawing.Point(42, 56);
+            this.ButCustomerEdit.Location = new System.Drawing.Point(44, 56);
             this.ButCustomerEdit.Name = "ButCustomerEdit";
             this.ButCustomerEdit.Size = new System.Drawing.Size(234, 26);
             this.ButCustomerEdit.TabIndex = 1;
@@ -96,7 +91,7 @@
             // 
             this.ButCustomerAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButCustomerAdd.Location = new System.Drawing.Point(42, 24);
+            this.ButCustomerAdd.Location = new System.Drawing.Point(44, 24);
             this.ButCustomerAdd.Name = "ButCustomerAdd";
             this.ButCustomerAdd.Size = new System.Drawing.Size(234, 26);
             this.ButCustomerAdd.TabIndex = 0;
@@ -126,6 +121,7 @@
             this.ButAddressEdit.TabIndex = 3;
             this.ButAddressEdit.Text = "&Edit/View Address";
             this.ButAddressEdit.UseVisualStyleBackColor = true;
+            this.ButAddressEdit.Click += new System.EventHandler(this.ButAddressEdit_Click);
             // 
             // ButAddressAdd
             // 
@@ -138,39 +134,6 @@
             this.ButAddressAdd.Text = "&Add Address";
             this.ButAddressAdd.UseVisualStyleBackColor = true;
             this.ButAddressAdd.Click += new System.EventHandler(this.ButAddressAdd_Click);
-            // 
-            // ServicesTab
-            // 
-            this.ServicesTab.Controls.Add(this.ButServiceEdit);
-            this.ServicesTab.Controls.Add(this.ButServiceAdd);
-            this.ServicesTab.Location = new System.Drawing.Point(4, 22);
-            this.ServicesTab.Name = "ServicesTab";
-            this.ServicesTab.Size = new System.Drawing.Size(323, 189);
-            this.ServicesTab.TabIndex = 2;
-            this.ServicesTab.Text = "Services";
-            this.ServicesTab.UseVisualStyleBackColor = true;
-            // 
-            // ButServiceEdit
-            // 
-            this.ButServiceEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButServiceEdit.Location = new System.Drawing.Point(44, 56);
-            this.ButServiceEdit.Name = "ButServiceEdit";
-            this.ButServiceEdit.Size = new System.Drawing.Size(234, 26);
-            this.ButServiceEdit.TabIndex = 5;
-            this.ButServiceEdit.Text = "&Edit/View Service";
-            this.ButServiceEdit.UseVisualStyleBackColor = true;
-            // 
-            // ButServiceAdd
-            // 
-            this.ButServiceAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButServiceAdd.Location = new System.Drawing.Point(44, 24);
-            this.ButServiceAdd.Name = "ButServiceAdd";
-            this.ButServiceAdd.Size = new System.Drawing.Size(234, 26);
-            this.ButServiceAdd.TabIndex = 4;
-            this.ButServiceAdd.Text = "&Add Service";
-            this.ButServiceAdd.UseVisualStyleBackColor = true;
             // 
             // InstallationsTab
             // 
@@ -251,7 +214,6 @@
             this.tabControl1.ResumeLayout(false);
             this.CustomersTab.ResumeLayout(false);
             this.AddressesTab.ResumeLayout(false);
-            this.ServicesTab.ResumeLayout(false);
             this.InstallationsTab.ResumeLayout(false);
             this.CorrespondentsTab.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -267,9 +229,6 @@
         private System.Windows.Forms.TabPage AddressesTab;
         private System.Windows.Forms.Button ButAddressEdit;
         private System.Windows.Forms.Button ButAddressAdd;
-        private System.Windows.Forms.TabPage ServicesTab;
-        private System.Windows.Forms.Button ButServiceEdit;
-        private System.Windows.Forms.Button ButServiceAdd;
         private System.Windows.Forms.TabPage InstallationsTab;
         private System.Windows.Forms.Button ButInstallationEdit;
         private System.Windows.Forms.Button ButInstallationAdd;

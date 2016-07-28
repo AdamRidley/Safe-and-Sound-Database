@@ -318,6 +318,7 @@
             this.dataGridViewTextBoxColumn10});
             this.phone_NumbersDataGridView.DataSource = this.phone_NumbersBindingSource;
             this.phone_NumbersDataGridView.Location = new System.Drawing.Point(762, 52);
+            this.phone_NumbersDataGridView.MultiSelect = false;
             this.phone_NumbersDataGridView.Name = "phone_NumbersDataGridView";
             this.phone_NumbersDataGridView.RowHeadersWidth = 25;
             this.phone_NumbersDataGridView.Size = new System.Drawing.Size(156, 157);

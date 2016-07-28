@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class FormAddresses : Form
+    public partial class FormAddress : Form
     {
-        public FormAddresses()
+        public FormAddress()
         {
             InitializeComponent();
         }
 
-        private int PassedId;
-        private Form CallingForm;
+        private int passedId;
+        private Form callingForm;
 
-        public FormAddresses(Int32 id, Form newcallingform):this()
+        public FormAddress(Int32 id, Form newCallingForm):this()
         { 
-            PassedId = id;
-            CallingForm = newcallingform;
+            passedId = id;
+            callingForm = newCallingForm;
         }
 
         /*private void addressesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -44,19 +44,20 @@ namespace WindowsFormsApplication1
             this.prod_ModelTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Model);            
             this.prod_MakeTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Make);            
             this.prod_TypeTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Type);            
-            this.installation_Products_LinkTableAdapter.Fill(this.safeandsounddb1DataSet.Installation_Products_Link);
+            this.installation_Products_LinkTableAdapter.Fill(this.safeandsounddb1DataSet.Address_Product_Link);
+            this.servicesTableAdapter.Fill(this.safeandsounddb1DataSet.Services);
         }
-        private void FormAddresses_Load(object sender, EventArgs e)
+        private void FormAddress_Load(object sender, EventArgs e)
         {
             getData();
-            if (PassedId == 0)
+            if (passedId == 0)
             {
                 addressesBindingSource.AddNew();
                 addressesBindingSource.MoveLast();
             }
             else
             {
-                addressesBindingSource.Position = addressesBindingSource.Find("Address ID", PassedId);
+                addressesBindingSource.Position = addressesBindingSource.Find("Address ID", passedId);
             }
 
         }
@@ -139,7 +140,6 @@ namespace WindowsFormsApplication1
         private void zone_MappingsDataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
             zoneMappingsBindingSource.EndEdit();
-            bool flag = true;
             foreach (DataGridViewCell c in zone_MappingsDataGridView.Rows[e.RowIndex].Cells)
             {
               //  flag=flag&c.
@@ -149,7 +149,7 @@ namespace WindowsFormsApplication1
         private void butcancel_Click(object sender, EventArgs e)
         {
             safeandsounddb1DataSet.RejectChanges();
-            CallingForm.Show();
+            callingForm.Show();
             this.Dispose();
         }
 
@@ -165,7 +165,7 @@ namespace WindowsFormsApplication1
                 tableAdapterManager.UpdateAll(safeandsounddb1DataSet);
             }
             safeandsounddb1DataSet.AcceptChanges();
-            CallingForm.Show();
+            callingForm.Show();
             this.Dispose();
         }
 
@@ -178,6 +178,36 @@ namespace WindowsFormsApplication1
         private void zone_MappingsDataGridView_Enter(object sender, EventArgs e)
         {
             addressesBindingSource.EndEdit();
+        }
+
+        private void installation_Products_LinkBindingSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            foreach (DataGridViewRow row in installation_Products_LinkDataGridView.Rows)
+            {
+                if (row.Cells["productDataGridViewTextBoxColumn"].Value==null) { continue; }
+                productBindingSource.Filter = "[ProdId] = " + row.Cells["productDataGridViewTextBoxColumn"].Value.ToString();
+                row.Cells["Type"].Value = ((safeandsounddb1DataSet.ProductRow)((DataRowView)productBindingSource.List[0]).Row).Type;
+                row.Cells["Make"].Value = ((safeandsounddb1DataSet.ProductRow)((DataRowView)productBindingSource.List[0]).Row).Make; 
+                row.Cells["Model"].Value = ((safeandsounddb1DataSet.ProductRow)((DataRowView)productBindingSource.List[0]).Row).Model;
+
+
+            }
+        }
+
+        private void ButAddService_Click(object sender, EventArgs e)
+        {
+
+            FormService FormAddServ = new FormService(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID,0,this);
+            this.Hide();
+            FormAddServ.Show();
+        }
+
+        private void ButViewService_Click(object sender, EventArgs e)
+        {
+
+            FormService FormViewServ = new FormService(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, (int)servicesDataGridView.SelectedCells[0].OwningRow.Cells["dataGridViewTextBoxColumn1"].Value, this);
+            this.Hide();
+            FormViewServ.Show();
         }
     }
 }

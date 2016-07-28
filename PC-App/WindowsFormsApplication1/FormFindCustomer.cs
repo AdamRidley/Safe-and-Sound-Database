@@ -34,11 +34,6 @@ namespace WindowsFormsApplication1
             this.phone_NumbersTableAdapter.Fill(this.safeandsounddb1DataSet.Phone_Numbers);
         }
 
-        private void TitleComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           // FilterCustomers();
-        }
-
         private void FilterCustomers()
         {
             StringBuilder str = new StringBuilder();
@@ -85,36 +80,42 @@ namespace WindowsFormsApplication1
 
             FilterCustomers();
         }
-
-        private void CustomersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        
         private void CustomersDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            ButChooseSetVisibility();
-            if (CustomersDataGridView.SelectedCells.Count==0||CustomersDataGridView.SelectedCells[0].ColumnIndex==-1 ||CustomersDataGridView.SelectedCells[0].RowIndex==-1) { AddressesBindingSource.Filter = "[Address ID] = Null";return;}
+            if (CustomersDataGridView.SelectedCells.Count==0||CustomersDataGridView.SelectedCells[0].ColumnIndex==-1 ||CustomersDataGridView.SelectedCells[0].RowIndex==-1) { AddressesBindingSource.Filter = "[Address ID] = Null";Phone_NumbersBindingSource.Filter = "[ID] = Null"; ButChooseSetVisibility(); return;}
             custAddBindingSource.Filter = "[Customer ID] = " + CustomersDataGridView.SelectedCells[0].OwningRow.Cells["customerIDDataGridViewTextBoxColumn"].Value.ToString();
-            StringBuilder str = new StringBuilder("[Address ID] in (" );
+            StringBuilder addressIdStr = new StringBuilder("[Address ID] in (" );
+            StringBuilder custAddIdStr = new StringBuilder("[CustAdd ID] in (" );
             foreach (DataRowView a in custAddBindingSource.List)
             {
                 safeandsounddb1DataSet.CustAddRow b = (safeandsounddb1DataSet.CustAddRow)a.Row;
                 if (!b.IsAddress_IDNull())
                 {
-                    str.Append(((safeandsounddb1DataSet.CustAddRow)a.Row).Address_ID + ", ");
+                    addressIdStr.Append(b.Address_ID + ", ");
                 }
+                custAddIdStr.Append(b.CustAdd_ID+ ", ");
             }
-            if (str.Length> "[Address ID] in (".Length)
+            if (addressIdStr.Length> "[Address ID] in (".Length)
             {
-                str.Remove(str.Length - 2, 2);
-                AddressesBindingSource.Filter = str.ToString() + ")";
+                addressIdStr.Remove(addressIdStr.Length - 2, 2);
+                AddressesBindingSource.Filter = addressIdStr.ToString() + ")";
             }
             else
             {
                 AddressesBindingSource.Filter = "[Address ID] = Null";
             }
-                
+            if (custAddIdStr.Length > "[CustAdd ID] in (".Length)
+            {
+                custAddIdStr.Remove(custAddIdStr.Length - 2, 2);
+                Phone_NumbersBindingSource.Filter = custAddIdStr.ToString() + ")";
+            }
+            else
+            {
+                Phone_NumbersBindingSource.Filter = "[CustAdd ID] = Null";
+            }
+            ButChooseSetVisibility();
+
         }
 
         private void ButChooseSetVisibility()
@@ -125,11 +126,12 @@ namespace WindowsFormsApplication1
                 ButChoose.Enabled = true;
                 return;
             }
-            if (searchFor==2&&AddressesDataGridView.SelectedCells.Count>0 && !(AddressesDataGridView.SelectedCells[0].ColumnIndex == -1 || AddressesDataGridView.SelectedCells[0].RowIndex == -1))
+            else if (searchFor==2&&AddressesDataGridView.SelectedCells.Count>0 && !(AddressesDataGridView.SelectedCells[0].ColumnIndex == -1 || AddressesDataGridView.SelectedCells[0].RowIndex == -1))
             {
                 ButChoose.Enabled = true;
                 return;
             }
+            else
             ButChoose.Enabled = false;
         }
 
@@ -146,6 +148,11 @@ namespace WindowsFormsApplication1
                     this.DialogResult = DialogResult.OK;
                     return;
             }
+        }
+
+        private void ButCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

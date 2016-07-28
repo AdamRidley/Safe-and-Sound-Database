@@ -4,6 +4,10 @@
 
     partial class safeandsounddb1DataSet
     {
+        partial class Zone_Mappings_FriendlyDataTable
+        {
+        }
+
         partial class Zone_List_SortedDataTable
         {
         }

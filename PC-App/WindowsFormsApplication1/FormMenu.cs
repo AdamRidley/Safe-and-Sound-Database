@@ -38,9 +38,21 @@ namespace WindowsFormsApplication1
 
         private void ButAddressAdd_Click(object sender, EventArgs e)
         {
-            FormAddresses FormAddAddr = new FormAddresses(0, this);
+            FormAddress FormAddAddr = new FormAddress(0, this);
             this.Hide();
             FormAddAddr.Show();
+        }
+
+        private void ButAddressEdit_Click(object sender, EventArgs e)
+        {
+            Search_By f = new Search_By(2);
+            DialogResult resp = f.ShowDialog();
+            if (resp != DialogResult.OK) { return; }
+            FormAddress formAddr = new FormAddress(f.foundId, this);
+            formAddr.Show();
+            f.Dispose();
+            this.Hide();
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class FormAddresses
+    partial class FormAddress
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             this.safeandsounddb1DataSet = new WindowsFormsApplication1.safeandsounddb1DataSet();
             this.addressesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.addressesTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager();
-            this.installation_Products_LinkTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Installation_Products_LinkTableAdapter();
+            this.installation_Products_LinkTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Address_Product_LinkTableAdapter();
             this.prod_MakeTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Prod_MakeTableAdapter();
             this.prod_ModelTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Prod_ModelTableAdapter();
             this.prod_TypeTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Prod_TypeTableAdapter();
@@ -57,31 +57,41 @@
             this.installation_Products_LinkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressintallationfrgnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.installation_Products_LinkDataGridView = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.prodTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Make = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.prodMakeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Model = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.prodModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label2 = new System.Windows.Forms.Label();
             this.zone_MappingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zoneMappingsibfk1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zone_MappingsDataGridView = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zoneTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.zoneTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zoneDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.zoneListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zoneMappingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.butcancel = new System.Windows.Forms.Button();
             this.butsaveexit = new System.Windows.Forms.Button();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Make = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Model = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zoneTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.zoneDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.servicesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServicesTableAdapter();
+            this.servicesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ButAddService = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ButViewService = new System.Windows.Forms.Button();
+            this.ButDeleteService = new System.Windows.Forms.Button();
             address_Line_1Label = new System.Windows.Forms.Label();
             address_Line_2Label = new System.Windows.Forms.Label();
             address_Line_3Label = new System.Windows.Forms.Label();
@@ -103,6 +113,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.zoneListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoneMappingsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // address_Line_1Label
@@ -181,7 +193,7 @@
             this.tableAdapterManager.correspondentsTableAdapter = null;
             this.tableAdapterManager.CustAddTableAdapter = null;
             this.tableAdapterManager.CustomersTableAdapter = null;
-            this.tableAdapterManager.Installation_Products_LinkTableAdapter = this.installation_Products_LinkTableAdapter;
+            this.tableAdapterManager.Address_Product_LinkTableAdapter = this.installation_Products_LinkTableAdapter;
             this.tableAdapterManager.Phone_NumbersTableAdapter = null;
             this.tableAdapterManager.Prod_MakeTableAdapter = this.prod_MakeTableAdapter;
             this.tableAdapterManager.Prod_ModelTableAdapter = this.prod_ModelTableAdapter;
@@ -275,7 +287,7 @@
             this.notesTextBox.Location = new System.Drawing.Point(204, 35);
             this.notesTextBox.Multiline = true;
             this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.Size = new System.Drawing.Size(546, 101);
+            this.notesTextBox.Size = new System.Drawing.Size(675, 101);
             this.notesTextBox.TabIndex = 14;
             // 
             // Label1
@@ -291,6 +303,7 @@
             // 
             this.installation_Products_LinkBindingSource.AllowNew = true;
             this.installation_Products_LinkBindingSource.DataSource = this.addressintallationfrgnBindingSource;
+            this.installation_Products_LinkBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.installation_Products_LinkBindingSource_ListChanged);
             // 
             // addressintallationfrgnBindingSource
             // 
@@ -317,111 +330,13 @@
             this.installation_Products_LinkDataGridView.Location = new System.Drawing.Point(12, 165);
             this.installation_Products_LinkDataGridView.Name = "installation_Products_LinkDataGridView";
             this.installation_Products_LinkDataGridView.RowHeadersWidth = 25;
-            this.installation_Products_LinkDataGridView.Size = new System.Drawing.Size(738, 160);
+            this.installation_Products_LinkDataGridView.Size = new System.Drawing.Size(984, 208);
             this.installation_Products_LinkDataGridView.TabIndex = 36;
             this.installation_Products_LinkDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.installation_Products_LinkDataGridView_CellContentClick);
             this.installation_Products_LinkDataGridView.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.installation_Products_LinkDataGridView_CellValidated);
             this.installation_Products_LinkDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.installation_Products_LinkDataGridView_CellValueChanged);
             this.installation_Products_LinkDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.installation_Products_LinkDataGridView_RowValidating);
             this.installation_Products_LinkDataGridView.Enter += new System.EventHandler(this.installation_Products_LinkDataGridView_Enter);
-            // 
-            // prodTypeBindingSource
-            // 
-            this.prodTypeBindingSource.DataMember = "Prod Type";
-            this.prodTypeBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // prodMakeBindingSource
-            // 
-            this.prodMakeBindingSource.DataMember = "Prod Make";
-            this.prodMakeBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // prodModelBindingSource
-            // 
-            this.prodModelBindingSource.DataMember = "Prod Model";
-            this.prodModelBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // Label2
-            // 
-            this.Label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(22, 328);
-            this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(40, 13);
-            this.Label2.TabIndex = 37;
-            this.Label2.Text = "Zones:";
-            // 
-            // zone_MappingsBindingSource
-            // 
-            this.zone_MappingsBindingSource.AllowNew = true;
-            this.zone_MappingsBindingSource.DataSource = this.zoneMappingsibfk1BindingSource;
-            // 
-            // zoneMappingsibfk1BindingSource
-            // 
-            this.zoneMappingsibfk1BindingSource.DataMember = "zone mappings_ibfk_1";
-            this.zoneMappingsibfk1BindingSource.DataSource = this.addressesBindingSource;
-            // 
-            // zone_MappingsDataGridView
-            // 
-            this.zone_MappingsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.zone_MappingsDataGridView.AutoGenerateColumns = false;
-            this.zone_MappingsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.zone_MappingsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.zoneNumberDataGridViewTextBoxColumn,
-            this.zoneTypeDataGridViewTextBoxColumn,
-            this.zoneDescriptionDataGridViewTextBoxColumn});
-            this.zone_MappingsDataGridView.DataSource = this.zone_MappingsBindingSource;
-            this.zone_MappingsDataGridView.Location = new System.Drawing.Point(12, 344);
-            this.zone_MappingsDataGridView.Name = "zone_MappingsDataGridView";
-            this.zone_MappingsDataGridView.Size = new System.Drawing.Size(738, 151);
-            this.zone_MappingsDataGridView.TabIndex = 37;
-            this.zone_MappingsDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.zone_MappingsDataGridView_RowValidating);
-            this.zone_MappingsDataGridView.Enter += new System.EventHandler(this.zone_MappingsDataGridView_Enter);
-            // 
-            // zoneTypesBindingSource
-            // 
-            this.zoneTypesBindingSource.DataMember = "Zone Types";
-            this.zoneTypesBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // zoneListBindingSource
-            // 
-            this.zoneListBindingSource.DataMember = "Zone List";
-            this.zoneListBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // zoneMappingsBindingSource
-            // 
-            this.zoneMappingsBindingSource.DataMember = "Zone Mappings";
-            this.zoneMappingsBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // butcancel
-            // 
-            this.butcancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.butcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.butcancel.Location = new System.Drawing.Point(639, 501);
-            this.butcancel.Name = "butcancel";
-            this.butcancel.Size = new System.Drawing.Size(111, 26);
-            this.butcancel.TabIndex = 40;
-            this.butcancel.Text = "&Cancel";
-            this.butcancel.UseVisualStyleBackColor = true;
-            this.butcancel.Click += new System.EventHandler(this.butcancel_Click);
-            // 
-            // butsaveexit
-            // 
-            this.butsaveexit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.butsaveexit.Location = new System.Drawing.Point(522, 501);
-            this.butsaveexit.Name = "butsaveexit";
-            this.butsaveexit.Size = new System.Drawing.Size(111, 26);
-            this.butsaveexit.TabIndex = 39;
-            this.butsaveexit.Text = "&Save && Exit";
-            this.butsaveexit.UseVisualStyleBackColor = true;
-            this.butsaveexit.Click += new System.EventHandler(this.butsaveexit_Click);
             // 
             // iDDataGridViewTextBoxColumn1
             // 
@@ -455,6 +370,11 @@
             this.Type.Name = "Type";
             this.Type.ValueMember = "TypeID";
             // 
+            // prodTypeBindingSource
+            // 
+            this.prodTypeBindingSource.DataMember = "Prod Type";
+            this.prodTypeBindingSource.DataSource = this.safeandsounddb1DataSet;
+            // 
             // Make
             // 
             this.Make.DataSource = this.prodMakeBindingSource;
@@ -465,6 +385,11 @@
             this.Make.HeaderText = "Make";
             this.Make.Name = "Make";
             this.Make.ValueMember = "MakeID";
+            // 
+            // prodMakeBindingSource
+            // 
+            this.prodMakeBindingSource.DataMember = "Prod Make";
+            this.prodMakeBindingSource.DataSource = this.safeandsounddb1DataSet;
             // 
             // Model
             // 
@@ -477,12 +402,57 @@
             this.Model.Name = "Model";
             this.Model.ValueMember = "ModelID";
             // 
+            // prodModelBindingSource
+            // 
+            this.prodModelBindingSource.DataMember = "Prod Model";
+            this.prodModelBindingSource.DataSource = this.safeandsounddb1DataSet;
+            // 
             // quantityDataGridViewTextBoxColumn
             // 
             this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             this.quantityDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Label2
+            // 
+            this.Label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Label2.AutoSize = true;
+            this.Label2.Location = new System.Drawing.Point(22, 376);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(40, 13);
+            this.Label2.TabIndex = 37;
+            this.Label2.Text = "Zones:";
+            // 
+            // zone_MappingsBindingSource
+            // 
+            this.zone_MappingsBindingSource.AllowNew = true;
+            this.zone_MappingsBindingSource.DataSource = this.zoneMappingsibfk1BindingSource;
+            // 
+            // zoneMappingsibfk1BindingSource
+            // 
+            this.zoneMappingsibfk1BindingSource.DataMember = "zone mappings_ibfk_1";
+            this.zoneMappingsibfk1BindingSource.DataSource = this.addressesBindingSource;
+            // 
+            // zone_MappingsDataGridView
+            // 
+            this.zone_MappingsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.zone_MappingsDataGridView.AutoGenerateColumns = false;
+            this.zone_MappingsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.zone_MappingsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.zoneNumberDataGridViewTextBoxColumn,
+            this.zoneTypeDataGridViewTextBoxColumn,
+            this.zoneDescriptionDataGridViewTextBoxColumn});
+            this.zone_MappingsDataGridView.DataSource = this.zone_MappingsBindingSource;
+            this.zone_MappingsDataGridView.Location = new System.Drawing.Point(12, 392);
+            this.zone_MappingsDataGridView.Name = "zone_MappingsDataGridView";
+            this.zone_MappingsDataGridView.Size = new System.Drawing.Size(552, 151);
+            this.zone_MappingsDataGridView.TabIndex = 37;
+            this.zone_MappingsDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.zone_MappingsDataGridView_RowValidating);
+            this.zone_MappingsDataGridView.Enter += new System.EventHandler(this.zone_MappingsDataGridView_Enter);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -516,6 +486,11 @@
             this.zoneTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.zoneTypeDataGridViewTextBoxColumn.ValueMember = "ID";
             // 
+            // zoneTypesBindingSource
+            // 
+            this.zoneTypesBindingSource.DataMember = "Zone Types";
+            this.zoneTypesBindingSource.DataSource = this.safeandsounddb1DataSet;
+            // 
             // zoneDescriptionDataGridViewTextBoxColumn
             // 
             this.zoneDescriptionDataGridViewTextBoxColumn.DataPropertyName = "Zone Description";
@@ -530,11 +505,148 @@
             this.zoneDescriptionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.zoneDescriptionDataGridViewTextBoxColumn.ValueMember = "ID";
             // 
-            // FormAddresses
+            // zoneListBindingSource
+            // 
+            this.zoneListBindingSource.DataMember = "Zone List";
+            this.zoneListBindingSource.DataSource = this.safeandsounddb1DataSet;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataMember = "Product";
+            this.productBindingSource.DataSource = this.safeandsounddb1DataSet;
+            // 
+            // zoneMappingsBindingSource
+            // 
+            this.zoneMappingsBindingSource.DataMember = "Zone Mappings";
+            this.zoneMappingsBindingSource.DataSource = this.safeandsounddb1DataSet;
+            // 
+            // butcancel
+            // 
+            this.butcancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.butcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.butcancel.Location = new System.Drawing.Point(885, 67);
+            this.butcancel.Name = "butcancel";
+            this.butcancel.Size = new System.Drawing.Size(111, 26);
+            this.butcancel.TabIndex = 40;
+            this.butcancel.Text = "&Cancel";
+            this.butcancel.UseVisualStyleBackColor = true;
+            this.butcancel.Click += new System.EventHandler(this.butcancel_Click);
+            // 
+            // butsaveexit
+            // 
+            this.butsaveexit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.butsaveexit.Location = new System.Drawing.Point(885, 32);
+            this.butsaveexit.Name = "butsaveexit";
+            this.butsaveexit.Size = new System.Drawing.Size(111, 26);
+            this.butsaveexit.TabIndex = 39;
+            this.butsaveexit.Text = "&Save && Exit";
+            this.butsaveexit.UseVisualStyleBackColor = true;
+            this.butsaveexit.Click += new System.EventHandler(this.butsaveexit_Click);
+            // 
+            // servicesBindingSource
+            // 
+            this.servicesBindingSource.DataMember = "services_ibfk_1";
+            this.servicesBindingSource.DataSource = this.addressesBindingSource;
+            // 
+            // servicesTableAdapter
+            // 
+            this.servicesTableAdapter.ClearBeforeFill = true;
+            // 
+            // servicesDataGridView
+            // 
+            this.servicesDataGridView.AllowUserToAddRows = false;
+            this.servicesDataGridView.AllowUserToResizeColumns = false;
+            this.servicesDataGridView.AllowUserToResizeRows = false;
+            this.servicesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.servicesDataGridView.AutoGenerateColumns = false;
+            this.servicesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.servicesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.servicesDataGridView.DataSource = this.servicesBindingSource;
+            this.servicesDataGridView.Location = new System.Drawing.Point(570, 392);
+            this.servicesDataGridView.MultiSelect = false;
+            this.servicesDataGridView.Name = "servicesDataGridView";
+            this.servicesDataGridView.ReadOnly = true;
+            this.servicesDataGridView.Size = new System.Drawing.Size(309, 151);
+            this.servicesDataGridView.TabIndex = 40;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Service ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Service ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Date of Service";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Service Dates";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // ButAddService
+            // 
+            this.ButAddService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButAddService.Location = new System.Drawing.Point(885, 392);
+            this.ButAddService.Name = "ButAddService";
+            this.ButAddService.Size = new System.Drawing.Size(111, 26);
+            this.ButAddService.TabIndex = 41;
+            this.ButAddService.Text = "&Add Service";
+            this.ButAddService.UseVisualStyleBackColor = true;
+            this.ButAddService.Click += new System.EventHandler(this.ButAddService_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(580, 376);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Activities:";
+            // 
+            // ButViewService
+            // 
+            this.ButViewService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButViewService.Location = new System.Drawing.Point(885, 424);
+            this.ButViewService.Name = "ButViewService";
+            this.ButViewService.Size = new System.Drawing.Size(111, 26);
+            this.ButViewService.TabIndex = 43;
+            this.ButViewService.Text = "&View Service";
+            this.ButViewService.UseVisualStyleBackColor = true;
+            this.ButViewService.Click += new System.EventHandler(this.ButViewService_Click);
+            // 
+            // ButDeleteService
+            // 
+            this.ButDeleteService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButDeleteService.Location = new System.Drawing.Point(885, 456);
+            this.ButDeleteService.Name = "ButDeleteService";
+            this.ButDeleteService.Size = new System.Drawing.Size(111, 26);
+            this.ButDeleteService.TabIndex = 44;
+            this.ButDeleteService.Text = "&Delete Service";
+            this.ButDeleteService.UseVisualStyleBackColor = true;
+            // 
+            // FormAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 539);
+            this.ClientSize = new System.Drawing.Size(1008, 555);
+            this.Controls.Add(this.ButDeleteService);
+            this.Controls.Add(this.ButViewService);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ButAddService);
+            this.Controls.Add(this.servicesDataGridView);
             this.Controls.Add(this.butcancel);
             this.Controls.Add(this.butsaveexit);
             this.Controls.Add(this.zone_MappingsDataGridView);
@@ -555,9 +667,9 @@
             this.Controls.Add(this.notesTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "FormAddresses";
+            this.Name = "FormAddress";
             this.Text = "Addresses";
-            this.Load += new System.EventHandler(this.FormAddresses_Load);
+            this.Load += new System.EventHandler(this.FormAddress_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addressesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.installation_Products_LinkBindingSource)).EndInit();
@@ -573,6 +685,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.zoneListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoneMappingsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,7 +703,7 @@
         private System.Windows.Forms.TextBox post_CodeTextBox;
         private System.Windows.Forms.TextBox notesTextBox;
         internal System.Windows.Forms.Label Label1;
-        private safeandsounddb1DataSetTableAdapters.Installation_Products_LinkTableAdapter installation_Products_LinkTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.Address_Product_LinkTableAdapter installation_Products_LinkTableAdapter;
         private System.Windows.Forms.BindingSource installation_Products_LinkBindingSource;
         private safeandsounddb1DataSetTableAdapters.Prod_TypeTableAdapter prod_TypeTableAdapter;
         private System.Windows.Forms.BindingSource addressintallationfrgnBindingSource;
@@ -626,5 +740,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn zoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn zoneTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn zoneDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource servicesBindingSource;
+        private safeandsounddb1DataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
+        private System.Windows.Forms.DataGridView servicesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Button ButAddService;
+        internal System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button ButViewService;
+        private System.Windows.Forms.Button ButDeleteService;
     }
 }

@@ -33,12 +33,12 @@
             System.Windows.Forms.Label TitleLabel;
             System.Windows.Forms.Label First_NameLabel;
             System.Windows.Forms.Label Last_NameLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AddressesDataGridView = new System.Windows.Forms.DataGridView();
             this.addressIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressLine1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +51,8 @@
             this.safeandsounddb1DataSet = new WindowsFormsApplication1.safeandsounddb1DataSet();
             this.TitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Phone_NumbersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.phoneNumbersibfk1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.custAddBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Label2 = new System.Windows.Forms.Label();
             this.TitleComboBox = new System.Windows.Forms.ComboBox();
             this.First_NameTextBox = new System.Windows.Forms.TextBox();
@@ -75,7 +77,6 @@
             this.phone_NumbersTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Phone_NumbersTableAdapter();
             this.customersTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.CustomersTableAdapter();
             this.addressesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.addressesTableAdapter();
-            this.custAddBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.custAddTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.CustAddTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager();
             this.customers_Friendly_ViewTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Customers_Friendly_ViewTableAdapter();
@@ -88,10 +89,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TitlesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Phone_NumbersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phoneNumbersibfk1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Phone_NumbersDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // E_Mail_AddressLabel
@@ -223,8 +225,17 @@
             // 
             // Phone_NumbersBindingSource
             // 
-            this.Phone_NumbersBindingSource.DataMember = "Phone Numbers";
-            this.Phone_NumbersBindingSource.DataSource = this.safeandsounddb1DataSet;
+            this.Phone_NumbersBindingSource.DataSource = this.phoneNumbersibfk1BindingSource;
+            // 
+            // phoneNumbersibfk1BindingSource
+            // 
+            this.phoneNumbersibfk1BindingSource.DataMember = "phone numbers_ibfk_1";
+            this.phoneNumbersibfk1BindingSource.DataSource = this.custAddBindingSource;
+            // 
+            // custAddBindingSource
+            // 
+            this.custAddBindingSource.DataMember = "CustAdd";
+            this.custAddBindingSource.DataSource = this.safeandsounddb1DataSet;
             // 
             // Label2
             // 
@@ -246,7 +257,6 @@
             this.TitleComboBox.Size = new System.Drawing.Size(67, 21);
             this.TitleComboBox.TabIndex = 37;
             this.TitleComboBox.ValueMember = "ID";
-            this.TitleComboBox.SelectedIndexChanged += new System.EventHandler(this.TitleComboBox_SelectedIndexChanged);
             this.TitleComboBox.TextChanged += new System.EventHandler(this.TitleComboBox_TextChanged);
             // 
             // First_NameTextBox
@@ -273,14 +283,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomersDataGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CustomersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CustomersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.CustomersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CustomersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customerIDDataGridViewTextBoxColumn,
@@ -289,30 +299,29 @@
             this.lastNameDataGridViewTextBoxColumn,
             this.eMailAddressDataGridViewTextBoxColumn});
             this.CustomersDataGridView.DataSource = this.CustomersBindingSource;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CustomersDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CustomersDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.CustomersDataGridView.Location = new System.Drawing.Point(11, 111);
             this.CustomersDataGridView.MultiSelect = false;
             this.CustomersDataGridView.Name = "CustomersDataGridView";
             this.CustomersDataGridView.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CustomersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CustomersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.CustomersDataGridView.RowHeadersWidth = 25;
             this.CustomersDataGridView.Size = new System.Drawing.Size(496, 203);
             this.CustomersDataGridView.TabIndex = 42;
-            this.CustomersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomersDataGridView_CellContentClick);
             this.CustomersDataGridView.SelectionChanged += new System.EventHandler(this.CustomersDataGridView_SelectionChanged);
             // 
             // customerIDDataGridViewTextBoxColumn
@@ -369,6 +378,7 @@
             this.ButCancel.TabIndex = 51;
             this.ButCancel.Text = "&Cancel";
             this.ButCancel.UseVisualStyleBackColor = true;
+            this.ButCancel.Click += new System.EventHandler(this.ButCancel_Click);
             // 
             // Label1
             // 
@@ -416,40 +426,40 @@
             this.Phone_NumbersDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Phone_NumbersDataGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Phone_NumbersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Phone_NumbersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Phone_NumbersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Phone_NumbersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
             this.custAddIDDataGridViewTextBoxColumn,
             this.phoneNumberDataGridViewTextBoxColumn});
             this.Phone_NumbersDataGridView.DataSource = this.Phone_NumbersBindingSource;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Phone_NumbersDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Phone_NumbersDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.Phone_NumbersDataGridView.Location = new System.Drawing.Point(513, 111);
             this.Phone_NumbersDataGridView.MultiSelect = false;
             this.Phone_NumbersDataGridView.Name = "Phone_NumbersDataGridView";
             this.Phone_NumbersDataGridView.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Phone_NumbersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Phone_NumbersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.Phone_NumbersDataGridView.RowHeadersWidth = 25;
             this.Phone_NumbersDataGridView.Size = new System.Drawing.Size(147, 203);
             this.Phone_NumbersDataGridView.TabIndex = 44;
@@ -493,11 +503,6 @@
             // addressesTableAdapter
             // 
             this.addressesTableAdapter.ClearBeforeFill = true;
-            // 
-            // custAddBindingSource
-            // 
-            this.custAddBindingSource.DataMember = "CustAdd";
-            this.custAddBindingSource.DataSource = this.safeandsounddb1DataSet;
             // 
             // custAddTableAdapter
             // 
@@ -559,10 +564,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TitlesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Phone_NumbersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phoneNumbersibfk1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Phone_NumbersDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -610,5 +616,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eMailAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource phoneNumbersibfk1BindingSource;
     }
 }
