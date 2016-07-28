@@ -45,7 +45,6 @@ namespace WindowsFormsApplication1
             this.prod_MakeTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Make);            
             this.prod_TypeTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Type);            
             this.installation_Products_LinkTableAdapter.Fill(this.safeandsounddb1DataSet.Address_Product_Link);
-            this.servicesTableAdapter.Fill(this.safeandsounddb1DataSet.Services);
         }
         private void FormAddress_Load(object sender, EventArgs e)
         {
@@ -205,9 +204,14 @@ namespace WindowsFormsApplication1
         private void ButViewService_Click(object sender, EventArgs e)
         {
 
-            FormService FormViewServ = new FormService(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, (int)servicesDataGridView.SelectedCells[0].OwningRow.Cells["dataGridViewTextBoxColumn1"].Value, this);
+           // FormService FormViewServ = new FormService(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, (int)servicesDataGridView.SelectedCells[0].OwningRow.Cells["dataGridViewTextBoxColumn1"].Value, this);
             this.Hide();
-            FormViewServ.Show();
+            //FormViewServ.Show();
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

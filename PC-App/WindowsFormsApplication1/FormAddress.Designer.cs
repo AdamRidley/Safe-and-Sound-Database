@@ -82,16 +82,19 @@
             this.zoneMappingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.butcancel = new System.Windows.Forms.Button();
             this.butsaveexit = new System.Windows.Forms.Button();
-            this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.servicesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServicesTableAdapter();
-            this.servicesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ButAddService = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.ButViewService = new System.Windows.Forms.Button();
-            this.ButDeleteService = new System.Windows.Forms.Button();
+            this.ButDeleteActivity = new System.Windows.Forms.Button();
+            this.contextStripActivityAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextStripActivityAddService = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextStripActivityAddInstallation = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextStripActivityAddCallOut = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextStripActivityAddPhoneCall = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextStripActivityAddCorrespondent = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.actionTableAdapter1 = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ActionTableAdapter();
             address_Line_1Label = new System.Windows.Forms.Label();
             address_Line_2Label = new System.Windows.Forms.Label();
             address_Line_3Label = new System.Windows.Forms.Label();
@@ -113,8 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.zoneListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoneMappingsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicesDataGridView)).BeginInit();
+            this.contextStripActivityAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // address_Line_1Label
@@ -187,14 +189,21 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.ActionTableAdapter = null;
+            this.tableAdapterManager.ActionTypeTableAdapter = null;
+            this.tableAdapterManager.Address_Product_LinkTableAdapter = this.installation_Products_LinkTableAdapter;
             this.tableAdapterManager.addressesTableAdapter = this.addressesTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CallOutTableAdapter = null;
             this.tableAdapterManager.correspondent_products_linkTableAdapter = null;
             this.tableAdapterManager.correspondentsTableAdapter = null;
             this.tableAdapterManager.CustAddTableAdapter = null;
             this.tableAdapterManager.CustomersTableAdapter = null;
-            this.tableAdapterManager.Address_Product_LinkTableAdapter = this.installation_Products_LinkTableAdapter;
+            this.tableAdapterManager.InstallationProductTableAdapter = null;
+            this.tableAdapterManager.InstallationTableAdapter = null;
+            this.tableAdapterManager.InstallationTypeTableAdapter = null;
             this.tableAdapterManager.Phone_NumbersTableAdapter = null;
+            this.tableAdapterManager.PhoneCallTableAdapter = null;
             this.tableAdapterManager.Prod_MakeTableAdapter = this.prod_MakeTableAdapter;
             this.tableAdapterManager.Prod_ModelTableAdapter = this.prod_ModelTableAdapter;
             this.tableAdapterManager.Prod_TypeTableAdapter = this.prod_TypeTableAdapter;
@@ -543,58 +552,6 @@
             this.butsaveexit.UseVisualStyleBackColor = true;
             this.butsaveexit.Click += new System.EventHandler(this.butsaveexit_Click);
             // 
-            // servicesBindingSource
-            // 
-            this.servicesBindingSource.DataMember = "services_ibfk_1";
-            this.servicesBindingSource.DataSource = this.addressesBindingSource;
-            // 
-            // servicesTableAdapter
-            // 
-            this.servicesTableAdapter.ClearBeforeFill = true;
-            // 
-            // servicesDataGridView
-            // 
-            this.servicesDataGridView.AllowUserToAddRows = false;
-            this.servicesDataGridView.AllowUserToResizeColumns = false;
-            this.servicesDataGridView.AllowUserToResizeRows = false;
-            this.servicesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.servicesDataGridView.AutoGenerateColumns = false;
-            this.servicesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.servicesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.servicesDataGridView.DataSource = this.servicesBindingSource;
-            this.servicesDataGridView.Location = new System.Drawing.Point(570, 392);
-            this.servicesDataGridView.MultiSelect = false;
-            this.servicesDataGridView.Name = "servicesDataGridView";
-            this.servicesDataGridView.ReadOnly = true;
-            this.servicesDataGridView.Size = new System.Drawing.Size(309, 151);
-            this.servicesDataGridView.TabIndex = 40;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Service ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Service ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Date of Service";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Service Dates";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
             // ButAddService
             // 
             this.ButAddService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -602,7 +559,7 @@
             this.ButAddService.Name = "ButAddService";
             this.ButAddService.Size = new System.Drawing.Size(111, 26);
             this.ButAddService.TabIndex = 41;
-            this.ButAddService.Text = "&Add Service";
+            this.ButAddService.Text = "&Add Activity";
             this.ButAddService.UseVisualStyleBackColor = true;
             this.ButAddService.Click += new System.EventHandler(this.ButAddService_Click);
             // 
@@ -623,30 +580,88 @@
             this.ButViewService.Name = "ButViewService";
             this.ButViewService.Size = new System.Drawing.Size(111, 26);
             this.ButViewService.TabIndex = 43;
-            this.ButViewService.Text = "&View Service";
+            this.ButViewService.Text = "&View Activity";
             this.ButViewService.UseVisualStyleBackColor = true;
             this.ButViewService.Click += new System.EventHandler(this.ButViewService_Click);
             // 
-            // ButDeleteService
+            // ButDeleteActivity
             // 
-            this.ButDeleteService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButDeleteService.Location = new System.Drawing.Point(885, 456);
-            this.ButDeleteService.Name = "ButDeleteService";
-            this.ButDeleteService.Size = new System.Drawing.Size(111, 26);
-            this.ButDeleteService.TabIndex = 44;
-            this.ButDeleteService.Text = "&Delete Service";
-            this.ButDeleteService.UseVisualStyleBackColor = true;
+            this.ButDeleteActivity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButDeleteActivity.Location = new System.Drawing.Point(885, 456);
+            this.ButDeleteActivity.Name = "ButDeleteActivity";
+            this.ButDeleteActivity.Size = new System.Drawing.Size(111, 26);
+            this.ButDeleteActivity.TabIndex = 44;
+            this.ButDeleteActivity.Text = "&Delete Service";
+            this.ButDeleteActivity.UseVisualStyleBackColor = true;
+            // 
+            // contextStripActivityAdd
+            // 
+            this.contextStripActivityAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1,
+            this.toolStripSeparator1,
+            this.contextStripActivityAddService,
+            this.contextStripActivityAddInstallation,
+            this.contextStripActivityAddCallOut,
+            this.contextStripActivityAddPhoneCall,
+            this.contextStripActivityAddCorrespondent});
+            this.contextStripActivityAdd.Name = "contextStripActivityAdd";
+            this.contextStripActivityAdd.Size = new System.Drawing.Size(161, 145);
+            // 
+            // contextStripActivityAddService
+            // 
+            this.contextStripActivityAddService.Name = "contextStripActivityAddService";
+            this.contextStripActivityAddService.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddService.Text = "&Service";
+            // 
+            // contextStripActivityAddInstallation
+            // 
+            this.contextStripActivityAddInstallation.Name = "contextStripActivityAddInstallation";
+            this.contextStripActivityAddInstallation.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddInstallation.Text = "&Installation";
+            // 
+            // contextStripActivityAddCallOut
+            // 
+            this.contextStripActivityAddCallOut.Name = "contextStripActivityAddCallOut";
+            this.contextStripActivityAddCallOut.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddCallOut.Text = "&Call Out";
+            // 
+            // contextStripActivityAddPhoneCall
+            // 
+            this.contextStripActivityAddPhoneCall.Name = "contextStripActivityAddPhoneCall";
+            this.contextStripActivityAddPhoneCall.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddPhoneCall.Text = "&Phone Call";
+            // 
+            // contextStripActivityAddCorrespondent
+            // 
+            this.contextStripActivityAddCorrespondent.Name = "contextStripActivityAddCorrespondent";
+            this.contextStripActivityAddCorrespondent.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddCorrespondent.Text = "&Correspondent";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Text = "Add Activity";
+            this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
+            // 
+            // actionTableAdapter1
+            // 
+            this.actionTableAdapter1.ClearBeforeFill = true;
             // 
             // FormAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 555);
-            this.Controls.Add(this.ButDeleteService);
+            this.Controls.Add(this.ButDeleteActivity);
             this.Controls.Add(this.ButViewService);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ButAddService);
-            this.Controls.Add(this.servicesDataGridView);
             this.Controls.Add(this.butcancel);
             this.Controls.Add(this.butsaveexit);
             this.Controls.Add(this.zone_MappingsDataGridView);
@@ -685,8 +700,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.zoneListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoneMappingsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicesDataGridView)).EndInit();
+            this.contextStripActivityAdd.ResumeLayout(false);
+            this.contextStripActivityAdd.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -740,15 +755,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn zoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn zoneTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn zoneDescriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource servicesBindingSource;
         private safeandsounddb1DataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
-        private System.Windows.Forms.DataGridView servicesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button ButAddService;
         internal System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button ButViewService;
-        private System.Windows.Forms.Button ButDeleteService;
+        private System.Windows.Forms.Button ButDeleteActivity;
+        private System.Windows.Forms.ContextMenuStrip contextStripActivityAdd;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem contextStripActivityAddService;
+        private System.Windows.Forms.ToolStripMenuItem contextStripActivityAddInstallation;
+        private System.Windows.Forms.ToolStripMenuItem contextStripActivityAddCallOut;
+        private System.Windows.Forms.ToolStripMenuItem contextStripActivityAddPhoneCall;
+        private System.Windows.Forms.ToolStripMenuItem contextStripActivityAddCorrespondent;
+        private safeandsounddb1DataSetTableAdapters.ActionTableAdapter actionTableAdapter1;
     }
 }

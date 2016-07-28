@@ -462,7 +462,7 @@
             this.tableAdapterManager.correspondentsTableAdapter = null;
             this.tableAdapterManager.CustAddTableAdapter = this.custAddTableAdapter;
             this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
-            this.tableAdapterManager.Installation_Products_LinkTableAdapter = null;
+            this.tableAdapterManager.Address_Product_LinkTableAdapter = null;
             this.tableAdapterManager.Phone_NumbersTableAdapter = this.phone_NumbersTableAdapter;
             this.tableAdapterManager.Prod_MakeTableAdapter = null;
             this.tableAdapterManager.Prod_ModelTableAdapter = null;

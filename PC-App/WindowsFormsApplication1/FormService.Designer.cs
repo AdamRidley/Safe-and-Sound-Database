@@ -41,7 +41,6 @@
             System.Windows.Forms.Label label1;
             this.safeandsounddb1DataSet = new WindowsFormsApplication1.safeandsounddb1DataSet();
             this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.servicesibfk1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.servicesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServicesTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager();
@@ -60,16 +59,16 @@
             this.addressLabel = new System.Windows.Forms.Label();
             this.serviceZoneMesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.serviceZoneMesDataGridView = new System.Windows.Forms.DataGridView();
-            this.zoneMappingsFriendlyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.butcancel = new System.Windows.Forms.Button();
-            this.butsaveexit = new System.Windows.Forms.Button();
-            this.zone_Mappings_FriendlyTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Zone_Mappings_FriendlyTableAdapter();
             this.serviceZoneIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.zoneMappingsFriendlyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.resistanceOhmsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tamperResistanceOhmsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.voltageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.butcancel = new System.Windows.Forms.Button();
+            this.butsaveexit = new System.Windows.Forms.Button();
+            this.zone_Mappings_FriendlyTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Zone_Mappings_FriendlyTableAdapter();
             this.zone_MappingsTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Zone_MappingsTableAdapter();
             this.zone_ListTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Zone_ListTableAdapter();
             this.zone_TypesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Zone_TypesTableAdapter();
@@ -85,7 +84,6 @@
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicesibfk1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceZoneMesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceZoneMesDataGridView)).BeginInit();
@@ -191,13 +189,9 @@
             // servicesBindingSource
             // 
             this.servicesBindingSource.AllowNew = true;
-            this.servicesBindingSource.DataSource = this.servicesibfk1BindingSource;
+            this.servicesBindingSource.DataMember = "Services";
+            this.servicesBindingSource.DataSource = this.safeandsounddb1DataSet;
             this.servicesBindingSource.CurrentChanged += new System.EventHandler(this.servicesBindingSource_CurrentChanged);
-            // 
-            // servicesibfk1BindingSource
-            // 
-            this.servicesibfk1BindingSource.DataMember = "services_ibfk_1";
-            this.servicesibfk1BindingSource.DataSource = this.addressesBindingSource;
             // 
             // addressesBindingSource
             // 
@@ -211,14 +205,21 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.ActionTableAdapter = null;
+            this.tableAdapterManager.ActionTypeTableAdapter = null;
+            this.tableAdapterManager.Address_Product_LinkTableAdapter = null;
             this.tableAdapterManager.addressesTableAdapter = this.addressesTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CallOutTableAdapter = null;
             this.tableAdapterManager.correspondent_products_linkTableAdapter = null;
             this.tableAdapterManager.correspondentsTableAdapter = null;
             this.tableAdapterManager.CustAddTableAdapter = null;
             this.tableAdapterManager.CustomersTableAdapter = null;
-            this.tableAdapterManager.Address_Product_LinkTableAdapter = null;
+            this.tableAdapterManager.InstallationProductTableAdapter = null;
+            this.tableAdapterManager.InstallationTableAdapter = null;
+            this.tableAdapterManager.InstallationTypeTableAdapter = null;
             this.tableAdapterManager.Phone_NumbersTableAdapter = null;
+            this.tableAdapterManager.PhoneCallTableAdapter = null;
             this.tableAdapterManager.Prod_MakeTableAdapter = null;
             this.tableAdapterManager.Prod_ModelTableAdapter = null;
             this.tableAdapterManager.Prod_TypeTableAdapter = null;
@@ -365,37 +366,6 @@
             this.serviceZoneMesDataGridView.TabIndex = 22;
             this.serviceZoneMesDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.serviceZoneMesDataGridView_RowValidating);
             // 
-            // zoneMappingsFriendlyBindingSource
-            // 
-            this.zoneMappingsFriendlyBindingSource.AllowNew = false;
-            this.zoneMappingsFriendlyBindingSource.DataMember = "FK_addresses_Zone Mappings Friendly";
-            this.zoneMappingsFriendlyBindingSource.DataSource = this.addressesBindingSource;
-            // 
-            // butcancel
-            // 
-            this.butcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.butcancel.Location = new System.Drawing.Point(430, 114);
-            this.butcancel.Name = "butcancel";
-            this.butcancel.Size = new System.Drawing.Size(111, 26);
-            this.butcancel.TabIndex = 42;
-            this.butcancel.Text = "&Cancel";
-            this.butcancel.UseVisualStyleBackColor = true;
-            this.butcancel.Click += new System.EventHandler(this.butcancel_Click);
-            // 
-            // butsaveexit
-            // 
-            this.butsaveexit.Location = new System.Drawing.Point(430, 82);
-            this.butsaveexit.Name = "butsaveexit";
-            this.butsaveexit.Size = new System.Drawing.Size(111, 26);
-            this.butsaveexit.TabIndex = 41;
-            this.butsaveexit.Text = "&Save && Exit";
-            this.butsaveexit.UseVisualStyleBackColor = true;
-            this.butsaveexit.Click += new System.EventHandler(this.butsaveexit_Click);
-            // 
-            // zone_Mappings_FriendlyTableAdapter
-            // 
-            this.zone_Mappings_FriendlyTableAdapter.ClearBeforeFill = true;
-            // 
             // serviceZoneIDDataGridViewTextBoxColumn
             // 
             this.serviceZoneIDDataGridViewTextBoxColumn.DataPropertyName = "ServiceZoneID";
@@ -424,6 +394,12 @@
             this.zoneNumberDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.zoneNumberDataGridViewTextBoxColumn.ValueMember = "ID";
             // 
+            // zoneMappingsFriendlyBindingSource
+            // 
+            this.zoneMappingsFriendlyBindingSource.AllowNew = false;
+            this.zoneMappingsFriendlyBindingSource.DataMember = "FK_addresses_Zone Mappings Friendly";
+            this.zoneMappingsFriendlyBindingSource.DataSource = this.addressesBindingSource;
+            // 
             // resistanceOhmsDataGridViewTextBoxColumn
             // 
             this.resistanceOhmsDataGridViewTextBoxColumn.DataPropertyName = "Resistance Ohms";
@@ -444,6 +420,31 @@
             this.voltageDataGridViewTextBoxColumn.HeaderText = "Voltage (V)";
             this.voltageDataGridViewTextBoxColumn.Name = "voltageDataGridViewTextBoxColumn";
             this.voltageDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // butcancel
+            // 
+            this.butcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.butcancel.Location = new System.Drawing.Point(430, 114);
+            this.butcancel.Name = "butcancel";
+            this.butcancel.Size = new System.Drawing.Size(111, 26);
+            this.butcancel.TabIndex = 42;
+            this.butcancel.Text = "&Cancel";
+            this.butcancel.UseVisualStyleBackColor = true;
+            this.butcancel.Click += new System.EventHandler(this.butcancel_Click);
+            // 
+            // butsaveexit
+            // 
+            this.butsaveexit.Location = new System.Drawing.Point(430, 82);
+            this.butsaveexit.Name = "butsaveexit";
+            this.butsaveexit.Size = new System.Drawing.Size(111, 26);
+            this.butsaveexit.TabIndex = 41;
+            this.butsaveexit.Text = "&Save && Exit";
+            this.butsaveexit.UseVisualStyleBackColor = true;
+            this.butsaveexit.Click += new System.EventHandler(this.butsaveexit_Click);
+            // 
+            // zone_Mappings_FriendlyTableAdapter
+            // 
+            this.zone_Mappings_FriendlyTableAdapter.ClearBeforeFill = true;
             // 
             // zone_MappingsTableAdapter
             // 
@@ -494,7 +495,6 @@
             this.Load += new System.EventHandler(this.FormService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicesibfk1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceZoneMesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceZoneMesDataGridView)).EndInit();
@@ -530,7 +530,6 @@
         internal System.Windows.Forms.Button butsaveexit;
         private System.Windows.Forms.BindingSource zoneMappingsFriendlyBindingSource;
         private safeandsounddb1DataSetTableAdapters.Zone_Mappings_FriendlyTableAdapter zone_Mappings_FriendlyTableAdapter;
-        private System.Windows.Forms.BindingSource servicesibfk1BindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceZoneIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn zoneNumberDataGridViewTextBoxColumn;
