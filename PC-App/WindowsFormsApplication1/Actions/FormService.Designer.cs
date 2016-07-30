@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label service_IDLabel;
-            System.Windows.Forms.Label addressLabel2;
             System.Windows.Forms.Label battery_Charging_VoltageLabel;
             System.Windows.Forms.Label battery_Draining_VoltageLabel;
             System.Windows.Forms.Label charging_Current_AmpsLabel;
@@ -46,9 +44,8 @@
             this.tableAdapterManager = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager();
             this.addressesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.addressesTableAdapter();
             this.serviceZoneMesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServiceZoneMesTableAdapter();
-            this.service_IDTextBox = new System.Windows.Forms.TextBox();
-            this.addressTextBox = new System.Windows.Forms.TextBox();
             this.date_of_ServiceDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.actionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.battery_Charging_VoltageTextBox = new System.Windows.Forms.TextBox();
             this.battery_Draining_VoltageTextBox = new System.Windows.Forms.TextBox();
             this.charging_Current_AmpsTextBox = new System.Windows.Forms.TextBox();
@@ -59,21 +56,25 @@
             this.addressLabel = new System.Windows.Forms.Label();
             this.serviceZoneMesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.serviceZoneMesDataGridView = new System.Windows.Forms.DataGridView();
-            this.serviceZoneIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.zoneMappingsFriendlyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.resistanceOhmsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tamperResistanceOhmsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.voltageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.butcancel = new System.Windows.Forms.Button();
             this.butsaveexit = new System.Windows.Forms.Button();
             this.zone_Mappings_FriendlyTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Zone_Mappings_FriendlyTableAdapter();
             this.zone_MappingsTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Zone_MappingsTableAdapter();
             this.zone_ListTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Zone_ListTableAdapter();
             this.zone_TypesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Zone_TypesTableAdapter();
-            service_IDLabel = new System.Windows.Forms.Label();
-            addressLabel2 = new System.Windows.Forms.Label();
+            this.actionTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ActionTableAdapter();
+            this.custAddBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.custAddTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.CustAddTableAdapter();
+            this.customersTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.CustomersTableAdapter();
+            this.titlesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TitlesTableAdapter();
+            this.servicingTypeTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter();
+            this.serviceZoneIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.resistanceOhmsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tamperResistanceOhmsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.voltageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             battery_Charging_VoltageLabel = new System.Windows.Forms.Label();
             battery_Draining_VoltageLabel = new System.Windows.Forms.Label();
             charging_Current_AmpsLabel = new System.Windows.Forms.Label();
@@ -85,43 +86,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceZoneMesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceZoneMesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoneMappingsFriendlyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // service_IDLabel
-            // 
-            service_IDLabel.AutoSize = true;
-            service_IDLabel.Location = new System.Drawing.Point(405, 35);
-            service_IDLabel.Name = "service_IDLabel";
-            service_IDLabel.Size = new System.Drawing.Size(60, 13);
-            service_IDLabel.TabIndex = 1;
-            service_IDLabel.Text = "Service ID:";
-            // 
-            // addressLabel2
-            // 
-            addressLabel2.AutoSize = true;
-            addressLabel2.Location = new System.Drawing.Point(417, 61);
-            addressLabel2.Name = "addressLabel2";
-            addressLabel2.Size = new System.Drawing.Size(48, 13);
-            addressLabel2.TabIndex = 3;
-            addressLabel2.Text = "Address:";
             // 
             // battery_Charging_VoltageLabel
             // 
             battery_Charging_VoltageLabel.AutoSize = true;
-            battery_Charging_VoltageLabel.Location = new System.Drawing.Point(218, 41);
+            battery_Charging_VoltageLabel.Location = new System.Drawing.Point(218, 43);
             battery_Charging_VoltageLabel.Name = "battery_Charging_VoltageLabel";
             battery_Charging_VoltageLabel.Size = new System.Drawing.Size(104, 13);
             battery_Charging_VoltageLabel.TabIndex = 7;
             battery_Charging_VoltageLabel.Text = "Battery Charging (V):";
-            battery_Charging_VoltageLabel.Click += new System.EventHandler(this.battery_Charging_VoltageLabel_Click);
             // 
             // battery_Draining_VoltageLabel
             // 
             battery_Draining_VoltageLabel.AutoSize = true;
-            battery_Draining_VoltageLabel.Location = new System.Drawing.Point(218, 70);
+            battery_Draining_VoltageLabel.Location = new System.Drawing.Point(221, 69);
             battery_Draining_VoltageLabel.Name = "battery_Draining_VoltageLabel";
             battery_Draining_VoltageLabel.Size = new System.Drawing.Size(101, 13);
             battery_Draining_VoltageLabel.TabIndex = 9;
@@ -130,7 +114,7 @@
             // charging_Current_AmpsLabel
             // 
             charging_Current_AmpsLabel.AutoSize = true;
-            charging_Current_AmpsLabel.Location = new System.Drawing.Point(214, 96);
+            charging_Current_AmpsLabel.Location = new System.Drawing.Point(217, 95);
             charging_Current_AmpsLabel.Name = "charging_Current_AmpsLabel";
             charging_Current_AmpsLabel.Size = new System.Drawing.Size(105, 13);
             charging_Current_AmpsLabel.TabIndex = 11;
@@ -139,7 +123,7 @@
             // resting_Current_AmpsLabel
             // 
             resting_Current_AmpsLabel.AutoSize = true;
-            resting_Current_AmpsLabel.Location = new System.Drawing.Point(220, 122);
+            resting_Current_AmpsLabel.Location = new System.Drawing.Point(223, 121);
             resting_Current_AmpsLabel.Name = "resting_Current_AmpsLabel";
             resting_Current_AmpsLabel.Size = new System.Drawing.Size(99, 13);
             resting_Current_AmpsLabel.TabIndex = 13;
@@ -191,7 +175,6 @@
             this.servicesBindingSource.AllowNew = true;
             this.servicesBindingSource.DataMember = "Services";
             this.servicesBindingSource.DataSource = this.safeandsounddb1DataSet;
-            this.servicesBindingSource.CurrentChanged += new System.EventHandler(this.servicesBindingSource_CurrentChanged);
             // 
             // addressesBindingSource
             // 
@@ -226,6 +209,7 @@
             this.tableAdapterManager.ProductTableAdapter = null;
             this.tableAdapterManager.ServicesTableAdapter = this.servicesTableAdapter;
             this.tableAdapterManager.ServiceZoneMesTableAdapter = this.serviceZoneMesTableAdapter;
+            this.tableAdapterManager.ServicingTypeTableAdapter = null;
             this.tableAdapterManager.TitlesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.Zone_ListTableAdapter = null;
@@ -240,32 +224,20 @@
             // 
             this.serviceZoneMesTableAdapter.ClearBeforeFill = true;
             // 
-            // service_IDTextBox
-            // 
-            this.service_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.servicesBindingSource, "Service ID", true));
-            this.service_IDTextBox.Location = new System.Drawing.Point(471, 32);
-            this.service_IDTextBox.Name = "service_IDTextBox";
-            this.service_IDTextBox.Size = new System.Drawing.Size(70, 20);
-            this.service_IDTextBox.TabIndex = 2;
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.servicesBindingSource, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(471, 58);
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(70, 20);
-            this.addressTextBox.TabIndex = 4;
-            // 
             // date_of_ServiceDateTimePicker
             // 
             this.date_of_ServiceDateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.date_of_ServiceDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.servicesBindingSource, "Date of Service", true));
+            this.date_of_ServiceDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.actionBindingSource, "Date", true));
             this.date_of_ServiceDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.date_of_ServiceDateTimePicker.Location = new System.Drawing.Point(102, 35);
             this.date_of_ServiceDateTimePicker.Name = "date_of_ServiceDateTimePicker";
             this.date_of_ServiceDateTimePicker.Size = new System.Drawing.Size(96, 20);
             this.date_of_ServiceDateTimePicker.TabIndex = 6;
-            this.date_of_ServiceDateTimePicker.ValueChanged += new System.EventHandler(this.date_of_ServiceDateTimePicker_ValueChanged);
+            // 
+            // actionBindingSource
+            // 
+            this.actionBindingSource.DataMember = "action_ibfk_2";
+            this.actionBindingSource.DataSource = this.servicesBindingSource;
             // 
             // battery_Charging_VoltageTextBox
             // 
@@ -274,7 +246,6 @@
             this.battery_Charging_VoltageTextBox.Name = "battery_Charging_VoltageTextBox";
             this.battery_Charging_VoltageTextBox.Size = new System.Drawing.Size(52, 20);
             this.battery_Charging_VoltageTextBox.TabIndex = 8;
-            this.battery_Charging_VoltageTextBox.TextChanged += new System.EventHandler(this.battery_Charging_VoltageTextBox_TextChanged);
             // 
             // battery_Draining_VoltageTextBox
             // 
@@ -283,7 +254,6 @@
             this.battery_Draining_VoltageTextBox.Name = "battery_Draining_VoltageTextBox";
             this.battery_Draining_VoltageTextBox.Size = new System.Drawing.Size(52, 20);
             this.battery_Draining_VoltageTextBox.TabIndex = 10;
-            this.battery_Draining_VoltageTextBox.TextChanged += new System.EventHandler(this.battery_Draining_VoltageTextBox_TextChanged);
             // 
             // charging_Current_AmpsTextBox
             // 
@@ -362,37 +332,10 @@
             this.serviceZoneMesDataGridView.MultiSelect = false;
             this.serviceZoneMesDataGridView.Name = "serviceZoneMesDataGridView";
             this.serviceZoneMesDataGridView.RowHeadersWidth = 25;
-            this.serviceZoneMesDataGridView.Size = new System.Drawing.Size(550, 254);
+            this.serviceZoneMesDataGridView.Size = new System.Drawing.Size(380, 263);
             this.serviceZoneMesDataGridView.TabIndex = 22;
             this.serviceZoneMesDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.serviceZoneMesDataGridView_RowValidating);
-            // 
-            // serviceZoneIDDataGridViewTextBoxColumn
-            // 
-            this.serviceZoneIDDataGridViewTextBoxColumn.DataPropertyName = "ServiceZoneID";
-            this.serviceZoneIDDataGridViewTextBoxColumn.HeaderText = "ServiceZoneID";
-            this.serviceZoneIDDataGridViewTextBoxColumn.Name = "serviceZoneIDDataGridViewTextBoxColumn";
-            this.serviceZoneIDDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // serviceDataGridViewTextBoxColumn
-            // 
-            this.serviceDataGridViewTextBoxColumn.DataPropertyName = "Service";
-            this.serviceDataGridViewTextBoxColumn.HeaderText = "Service";
-            this.serviceDataGridViewTextBoxColumn.Name = "serviceDataGridViewTextBoxColumn";
-            this.serviceDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // zoneNumberDataGridViewTextBoxColumn
-            // 
-            this.zoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Zone Number";
-            this.zoneNumberDataGridViewTextBoxColumn.DataSource = this.zoneMappingsFriendlyBindingSource;
-            this.zoneNumberDataGridViewTextBoxColumn.DisplayMember = "Zone";
-            this.zoneNumberDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.zoneNumberDataGridViewTextBoxColumn.DisplayStyleForCurrentCellOnly = true;
-            this.zoneNumberDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.zoneNumberDataGridViewTextBoxColumn.HeaderText = "Zone Number";
-            this.zoneNumberDataGridViewTextBoxColumn.Name = "zoneNumberDataGridViewTextBoxColumn";
-            this.zoneNumberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.zoneNumberDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.zoneNumberDataGridViewTextBoxColumn.ValueMember = "ID";
+            this.serviceZoneMesDataGridView.Enter += new System.EventHandler(this.serviceZoneMesDataGridView_Enter);
             // 
             // zoneMappingsFriendlyBindingSource
             // 
@@ -400,31 +343,11 @@
             this.zoneMappingsFriendlyBindingSource.DataMember = "FK_addresses_Zone Mappings Friendly";
             this.zoneMappingsFriendlyBindingSource.DataSource = this.addressesBindingSource;
             // 
-            // resistanceOhmsDataGridViewTextBoxColumn
-            // 
-            this.resistanceOhmsDataGridViewTextBoxColumn.DataPropertyName = "Resistance Ohms";
-            this.resistanceOhmsDataGridViewTextBoxColumn.HeaderText = "Resistance (Ω)";
-            this.resistanceOhmsDataGridViewTextBoxColumn.Name = "resistanceOhmsDataGridViewTextBoxColumn";
-            this.resistanceOhmsDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // tamperResistanceOhmsDataGridViewTextBoxColumn
-            // 
-            this.tamperResistanceOhmsDataGridViewTextBoxColumn.DataPropertyName = "Tamper Resistance Ohms";
-            this.tamperResistanceOhmsDataGridViewTextBoxColumn.HeaderText = "Tamper (Ω)";
-            this.tamperResistanceOhmsDataGridViewTextBoxColumn.Name = "tamperResistanceOhmsDataGridViewTextBoxColumn";
-            this.tamperResistanceOhmsDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // voltageDataGridViewTextBoxColumn
-            // 
-            this.voltageDataGridViewTextBoxColumn.DataPropertyName = "Voltage";
-            this.voltageDataGridViewTextBoxColumn.HeaderText = "Voltage (V)";
-            this.voltageDataGridViewTextBoxColumn.Name = "voltageDataGridViewTextBoxColumn";
-            this.voltageDataGridViewTextBoxColumn.Width = 70;
-            // 
             // butcancel
             // 
+            this.butcancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.butcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.butcancel.Location = new System.Drawing.Point(430, 114);
+            this.butcancel.Location = new System.Drawing.Point(281, 415);
             this.butcancel.Name = "butcancel";
             this.butcancel.Size = new System.Drawing.Size(111, 26);
             this.butcancel.TabIndex = 42;
@@ -434,7 +357,8 @@
             // 
             // butsaveexit
             // 
-            this.butsaveexit.Location = new System.Drawing.Point(430, 82);
+            this.butsaveexit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.butsaveexit.Location = new System.Drawing.Point(164, 415);
             this.butsaveexit.Name = "butsaveexit";
             this.butsaveexit.Size = new System.Drawing.Size(111, 26);
             this.butsaveexit.TabIndex = 41;
@@ -458,21 +382,93 @@
             // 
             this.zone_TypesTableAdapter.ClearBeforeFill = true;
             // 
+            // actionTableAdapter
+            // 
+            this.actionTableAdapter.ClearBeforeFill = true;
+            // 
+            // custAddBindingSource
+            // 
+            this.custAddBindingSource.DataMember = "addressidfrgn";
+            this.custAddBindingSource.DataSource = this.addressesBindingSource;
+            // 
+            // custAddTableAdapter
+            // 
+            this.custAddTableAdapter.ClearBeforeFill = true;
+            // 
+            // customersTableAdapter
+            // 
+            this.customersTableAdapter.ClearBeforeFill = true;
+            // 
+            // titlesTableAdapter
+            // 
+            this.titlesTableAdapter.ClearBeforeFill = true;
+            // 
+            // servicingTypeTableAdapter
+            // 
+            this.servicingTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // serviceZoneIDDataGridViewTextBoxColumn
+            // 
+            this.serviceZoneIDDataGridViewTextBoxColumn.DataPropertyName = "ServiceZoneID";
+            this.serviceZoneIDDataGridViewTextBoxColumn.HeaderText = "ServiceZoneID";
+            this.serviceZoneIDDataGridViewTextBoxColumn.Name = "serviceZoneIDDataGridViewTextBoxColumn";
+            this.serviceZoneIDDataGridViewTextBoxColumn.Visible = false;
+            this.serviceZoneIDDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // serviceDataGridViewTextBoxColumn
+            // 
+            this.serviceDataGridViewTextBoxColumn.DataPropertyName = "Service";
+            this.serviceDataGridViewTextBoxColumn.HeaderText = "Service";
+            this.serviceDataGridViewTextBoxColumn.Name = "serviceDataGridViewTextBoxColumn";
+            this.serviceDataGridViewTextBoxColumn.Visible = false;
+            this.serviceDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // zoneNumberDataGridViewTextBoxColumn
+            // 
+            this.zoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Zone Number";
+            this.zoneNumberDataGridViewTextBoxColumn.DataSource = this.zoneMappingsFriendlyBindingSource;
+            this.zoneNumberDataGridViewTextBoxColumn.DisplayMember = "Zone";
+            this.zoneNumberDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.zoneNumberDataGridViewTextBoxColumn.DisplayStyleForCurrentCellOnly = true;
+            this.zoneNumberDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.zoneNumberDataGridViewTextBoxColumn.HeaderText = "Zone Number";
+            this.zoneNumberDataGridViewTextBoxColumn.Name = "zoneNumberDataGridViewTextBoxColumn";
+            this.zoneNumberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.zoneNumberDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.zoneNumberDataGridViewTextBoxColumn.ValueMember = "ID";
+            // 
+            // resistanceOhmsDataGridViewTextBoxColumn
+            // 
+            this.resistanceOhmsDataGridViewTextBoxColumn.DataPropertyName = "Resistance Ohms";
+            this.resistanceOhmsDataGridViewTextBoxColumn.HeaderText = "Resistance (Ω)";
+            this.resistanceOhmsDataGridViewTextBoxColumn.Name = "resistanceOhmsDataGridViewTextBoxColumn";
+            this.resistanceOhmsDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // tamperResistanceOhmsDataGridViewTextBoxColumn
+            // 
+            this.tamperResistanceOhmsDataGridViewTextBoxColumn.DataPropertyName = "Tamper Resistance Ohms";
+            this.tamperResistanceOhmsDataGridViewTextBoxColumn.HeaderText = "Tamper (Ω)";
+            this.tamperResistanceOhmsDataGridViewTextBoxColumn.Name = "tamperResistanceOhmsDataGridViewTextBoxColumn";
+            this.tamperResistanceOhmsDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // voltageDataGridViewTextBoxColumn
+            // 
+            this.voltageDataGridViewTextBoxColumn.DataPropertyName = "Voltage";
+            this.voltageDataGridViewTextBoxColumn.HeaderText = "Voltage (V)";
+            this.voltageDataGridViewTextBoxColumn.Name = "voltageDataGridViewTextBoxColumn";
+            this.voltageDataGridViewTextBoxColumn.Width = 70;
+            // 
             // FormService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.butcancel;
-            this.ClientSize = new System.Drawing.Size(574, 412);
+            this.ClientSize = new System.Drawing.Size(404, 451);
             this.Controls.Add(this.butcancel);
             this.Controls.Add(this.butsaveexit);
             this.Controls.Add(this.serviceZoneMesDataGridView);
             this.Controls.Add(this.addressLabel);
             this.Controls.Add(label1);
-            this.Controls.Add(service_IDLabel);
-            this.Controls.Add(this.service_IDTextBox);
-            this.Controls.Add(addressLabel2);
-            this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.date_of_ServiceDateTimePicker);
             this.Controls.Add(battery_Charging_VoltageLabel);
             this.Controls.Add(this.battery_Charging_VoltageTextBox);
@@ -492,13 +488,16 @@
             this.MaximizeBox = false;
             this.Name = "FormService";
             this.Text = "Service";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormService_FormClosing);
             this.Load += new System.EventHandler(this.FormService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceZoneMesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceZoneMesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoneMappingsFriendlyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,8 +509,6 @@
         private System.Windows.Forms.BindingSource servicesBindingSource;
         private safeandsounddb1DataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
         private safeandsounddb1DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox service_IDTextBox;
-        private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.TextBox battery_Charging_VoltageTextBox;
         private System.Windows.Forms.TextBox battery_Draining_VoltageTextBox;
         private System.Windows.Forms.TextBox charging_Current_AmpsTextBox;
@@ -530,14 +527,21 @@
         internal System.Windows.Forms.Button butsaveexit;
         private System.Windows.Forms.BindingSource zoneMappingsFriendlyBindingSource;
         private safeandsounddb1DataSetTableAdapters.Zone_Mappings_FriendlyTableAdapter zone_Mappings_FriendlyTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.Zone_MappingsTableAdapter zone_MappingsTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.Zone_ListTableAdapter zone_ListTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.Zone_TypesTableAdapter zone_TypesTableAdapter;
+        private System.Windows.Forms.BindingSource actionBindingSource;
+        private safeandsounddb1DataSetTableAdapters.ActionTableAdapter actionTableAdapter;
+        private System.Windows.Forms.BindingSource custAddBindingSource;
+        private safeandsounddb1DataSetTableAdapters.CustAddTableAdapter custAddTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.TitlesTableAdapter titlesTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter servicingTypeTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceZoneIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn zoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resistanceOhmsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tamperResistanceOhmsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn voltageDataGridViewTextBoxColumn;
-        private safeandsounddb1DataSetTableAdapters.Zone_MappingsTableAdapter zone_MappingsTableAdapter;
-        private safeandsounddb1DataSetTableAdapters.Zone_ListTableAdapter zone_ListTableAdapter;
-        private safeandsounddb1DataSetTableAdapters.Zone_TypesTableAdapter zone_TypesTableAdapter;
     }
 }

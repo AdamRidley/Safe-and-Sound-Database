@@ -44,6 +44,15 @@ namespace WindowsFormsApplication1
             {
                 servicesBindingSource.AddNew();
                 servicesBindingSource.MoveLast();
+                servicesBindingSource.EndEdit();
+                actionBindingSource.AddNew();
+                actionBindingSource.MoveLast();
+                //safeandsounddb1DataSet.ServicesRow serviceRow = (safeandsounddb1DataSet.ServicesRow)((DataRowView)servicesBindingSource.Current).Row;
+                safeandsounddb1DataSet.ActionRow actionRow = (safeandsounddb1DataSet.ActionRow)((DataRowView)actionBindingSource.Current).Row;
+                safeandsounddb1DataSet.CustAddRow custAddRow = (safeandsounddb1DataSet.CustAddRow)((DataRowView)custAddBindingSource.List[0]).Row;
+                actionRow.Date = DateTime.Today;
+                date_of_ServiceDateTimePicker.Value = actionRow.Date;
+                actionRow.CustAddID = custAddRow.CustAdd_ID;
             }
             else
             {
@@ -53,48 +62,41 @@ namespace WindowsFormsApplication1
 
         private void getData()
         {
+            this.servicingTypeTableAdapter.Fill(this.safeandsounddb1DataSet.ServicingType);
             this.addressesTableAdapter.Fill(this.safeandsounddb1DataSet.addresses);
             this.zone_Mappings_FriendlyTableAdapter.Fill(this.safeandsounddb1DataSet.Zone_Mappings_Friendly);
-            this.serviceZoneMesTableAdapter.Fill(this.safeandsounddb1DataSet.ServiceZoneMes);
-            this.servicesTableAdapter.Fill(this.safeandsounddb1DataSet.Services);
             this.zone_ListTableAdapter.Fill(this.safeandsounddb1DataSet.Zone_List);
             this.zone_TypesTableAdapter.Fill(this.safeandsounddb1DataSet.Zone_Types);
             this.zone_MappingsTableAdapter.Fill(this.safeandsounddb1DataSet.Zone_Mappings);
+            this.servicesTableAdapter.Fill(this.safeandsounddb1DataSet.Services);
+            this.serviceZoneMesTableAdapter.Fill(this.safeandsounddb1DataSet.ServiceZoneMes);
+            this.actionTableAdapter.Fill(this.safeandsounddb1DataSet.Action);
+            this.titlesTableAdapter.Fill(this.safeandsounddb1DataSet.Titles);
+            this.customersTableAdapter.Fill(this.safeandsounddb1DataSet.Customers);
+            this.custAddTableAdapter.Fill(this.safeandsounddb1DataSet.CustAdd);
         }
-
-        private void date_of_ServiceDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void battery_Charging_VoltageTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void battery_Draining_VoltageTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void battery_Charging_VoltageLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void servicesBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void butcancel_Click(object sender, EventArgs e)
         {
-
+            safeandsounddb1DataSet.RejectChanges();
+            callingForm.Show();
+            this.Dispose();
         }
 
         private void butsaveexit_Click(object sender, EventArgs e)
         {
-
+            this.Validate();
+            serviceZoneMesBindingSource.EndEdit();
+            servicesBindingSource.EndEdit();
+            actionBindingSource.EndEdit();
+            if (safeandsounddb1DataSet.HasChanges())
+            {
+                tableAdapterManager.UpdateAll(safeandsounddb1DataSet);
+            }
+            safeandsounddb1DataSet.AcceptChanges();
+            callingForm.Show();
+            this.Dispose();
         }
 
         private void addressesBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -129,5 +131,19 @@ namespace WindowsFormsApplication1
         {
             //MessageBox.Show("Test");
         }
+
+        private void FormService_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                butcancel_Click(sender, e);
+            }
+        }
+
+        private void serviceZoneMesDataGridView_Enter(object sender, EventArgs e)
+        {
+            servicesBindingSource.EndEdit();
+        }
+        
     }
 }

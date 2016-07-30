@@ -33,6 +33,7 @@
             System.Windows.Forms.Label first_NameLabel;
             System.Windows.Forms.Label last_NameLabel;
             System.Windows.Forms.Label e_Mail_AddressLabel;
+            System.Windows.Forms.Label service_IntervalLabel;
             this.safeandsounddb1DataSet = new WindowsFormsApplication1.safeandsounddb1DataSet();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customersTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.CustomersTableAdapter();
@@ -67,10 +68,13 @@
             this.ButSaveExit = new System.Windows.Forms.Button();
             this.ButNumberCustomerAdd = new System.Windows.Forms.Button();
             this.custAddBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.servicingTypeTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter();
+            this.service_IntervalTextBox = new System.Windows.Forms.TextBox();
             titleLabel = new System.Windows.Forms.Label();
             first_NameLabel = new System.Windows.Forms.Label();
             last_NameLabel = new System.Windows.Forms.Label();
             e_Mail_AddressLabel = new System.Windows.Forms.Label();
+            service_IntervalLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titlesBindingSource)).BeginInit();
@@ -119,6 +123,15 @@
             e_Mail_AddressLabel.Text = "E-Mail Address:";
             e_Mail_AddressLabel.Click += new System.EventHandler(this.e_Mail_AddressLabel_Click);
             // 
+            // service_IntervalLabel
+            // 
+            service_IntervalLabel.AutoSize = true;
+            service_IntervalLabel.Location = new System.Drawing.Point(555, 9);
+            service_IntervalLabel.Name = "service_IntervalLabel";
+            service_IntervalLabel.Size = new System.Drawing.Size(120, 13);
+            service_IntervalLabel.TabIndex = 16;
+            service_IntervalLabel.Text = "Service Interval (Years):";
+            // 
             // safeandsounddb1DataSet
             // 
             this.safeandsounddb1DataSet.DataSetName = "safeandsounddb1DataSet";
@@ -136,20 +149,28 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.ActionTableAdapter = null;
+            this.tableAdapterManager.ActionTypeTableAdapter = null;
+            this.tableAdapterManager.Address_Product_LinkTableAdapter = null;
             this.tableAdapterManager.addressesTableAdapter = this.addressesTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CallOutTableAdapter = null;
             this.tableAdapterManager.correspondent_products_linkTableAdapter = null;
             this.tableAdapterManager.correspondentsTableAdapter = null;
             this.tableAdapterManager.CustAddTableAdapter = this.custAddTableAdapter;
             this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
-            this.tableAdapterManager.Address_Product_LinkTableAdapter = null;
+            this.tableAdapterManager.InstallationProductTableAdapter = null;
+            this.tableAdapterManager.InstallationTableAdapter = null;
+            this.tableAdapterManager.InstallationTypeTableAdapter = null;
             this.tableAdapterManager.Phone_NumbersTableAdapter = this.phone_NumbersTableAdapter;
+            this.tableAdapterManager.PhoneCallTableAdapter = null;
             this.tableAdapterManager.Prod_MakeTableAdapter = null;
             this.tableAdapterManager.Prod_ModelTableAdapter = null;
             this.tableAdapterManager.Prod_TypeTableAdapter = null;
             this.tableAdapterManager.ProductTableAdapter = null;
             this.tableAdapterManager.ServicesTableAdapter = null;
             this.tableAdapterManager.ServiceZoneMesTableAdapter = null;
+            this.tableAdapterManager.ServicingTypeTableAdapter = null;
             this.tableAdapterManager.TitlesTableAdapter = this.titlesTableAdapter;
             this.tableAdapterManager.UpdateOrder = WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.Zone_ListTableAdapter = null;
@@ -245,7 +266,7 @@
             this.addressesDataGridView.Name = "addressesDataGridView";
             this.addressesDataGridView.RowHeadersWidth = 25;
             this.addressesDataGridView.RowTemplate.Height = 33;
-            this.addressesDataGridView.Size = new System.Drawing.Size(741, 247);
+            this.addressesDataGridView.Size = new System.Drawing.Size(749, 255);
             this.addressesDataGridView.TabIndex = 8;
             this.addressesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.addressesDataGridView_CellContentClick);
             this.addressesDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.addressesDataGridView_CellMouseDoubleClick);
@@ -253,6 +274,7 @@
             this.addressesDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.addressesDataGridView_CellValidating);
             this.addressesDataGridView.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.addressesDataGridView_RowValidated);
             this.addressesDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.addressesDataGridView_RowValidating);
+            this.addressesDataGridView.SelectionChanged += new System.EventHandler(this.addressesDataGridView_SelectionChanged);
             this.addressesDataGridView.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.addressesDataGridView_UserAddedRow);
             this.addressesDataGridView.Leave += new System.EventHandler(this.addressesDataGridView_Leave);
             // 
@@ -317,11 +339,11 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
             this.phone_NumbersDataGridView.DataSource = this.phone_NumbersBindingSource;
-            this.phone_NumbersDataGridView.Location = new System.Drawing.Point(762, 52);
+            this.phone_NumbersDataGridView.Location = new System.Drawing.Point(770, 52);
             this.phone_NumbersDataGridView.MultiSelect = false;
             this.phone_NumbersDataGridView.Name = "phone_NumbersDataGridView";
             this.phone_NumbersDataGridView.RowHeadersWidth = 25;
-            this.phone_NumbersDataGridView.Size = new System.Drawing.Size(156, 157);
+            this.phone_NumbersDataGridView.Size = new System.Drawing.Size(156, 165);
             this.phone_NumbersDataGridView.TabIndex = 9;
             // 
             // dataGridViewTextBoxColumn8
@@ -348,7 +370,7 @@
             // ButAddressView
             // 
             this.ButAddressView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButAddressView.Location = new System.Drawing.Point(762, 264);
+            this.ButAddressView.Location = new System.Drawing.Point(770, 272);
             this.ButAddressView.Name = "ButAddressView";
             this.ButAddressView.Size = new System.Drawing.Size(75, 35);
             this.ButAddressView.TabIndex = 10;
@@ -359,17 +381,18 @@
             // ButNumbersViewAll
             // 
             this.ButNumbersViewAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButNumbersViewAll.Location = new System.Drawing.Point(762, 223);
+            this.ButNumbersViewAll.Location = new System.Drawing.Point(770, 231);
             this.ButNumbersViewAll.Name = "ButNumbersViewAll";
             this.ButNumbersViewAll.Size = new System.Drawing.Size(75, 35);
             this.ButNumbersViewAll.TabIndex = 11;
             this.ButNumbersViewAll.Text = "View All &Numbers";
             this.ButNumbersViewAll.UseVisualStyleBackColor = true;
+            this.ButNumbersViewAll.Click += new System.EventHandler(this.ButNumbersViewAll_Click);
             // 
             // ButNumberAddressAdd
             // 
             this.ButNumberAddressAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButNumberAddressAdd.Location = new System.Drawing.Point(843, 223);
+            this.ButNumberAddressAdd.Location = new System.Drawing.Point(851, 231);
             this.ButNumberAddressAdd.Name = "ButNumberAddressAdd";
             this.ButNumberAddressAdd.Size = new System.Drawing.Size(75, 35);
             this.ButNumberAddressAdd.TabIndex = 12;
@@ -380,7 +403,7 @@
             // 
             this.ButCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.ButCancel.Location = new System.Drawing.Point(807, 17);
+            this.ButCancel.Location = new System.Drawing.Point(815, 17);
             this.ButCancel.Name = "ButCancel";
             this.ButCancel.Size = new System.Drawing.Size(111, 29);
             this.ButCancel.TabIndex = 13;
@@ -391,7 +414,7 @@
             // ButSaveExit
             // 
             this.ButSaveExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButSaveExit.Location = new System.Drawing.Point(690, 16);
+            this.ButSaveExit.Location = new System.Drawing.Point(698, 16);
             this.ButSaveExit.Name = "ButSaveExit";
             this.ButSaveExit.Size = new System.Drawing.Size(111, 29);
             this.ButSaveExit.TabIndex = 14;
@@ -402,7 +425,7 @@
             // ButNumberCustomerAdd
             // 
             this.ButNumberCustomerAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButNumberCustomerAdd.Location = new System.Drawing.Point(843, 264);
+            this.ButNumberCustomerAdd.Location = new System.Drawing.Point(851, 272);
             this.ButNumberCustomerAdd.Name = "ButNumberCustomerAdd";
             this.ButNumberCustomerAdd.Size = new System.Drawing.Size(75, 35);
             this.ButNumberCustomerAdd.TabIndex = 15;
@@ -414,11 +437,25 @@
             this.custAddBindingSource.DataMember = "CustAdd";
             this.custAddBindingSource.DataSource = this.safeandsounddb1DataSet;
             // 
+            // servicingTypeTableAdapter
+            // 
+            this.servicingTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // service_IntervalTextBox
+            // 
+            this.service_IntervalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Service Interval", true));
+            this.service_IntervalTextBox.Location = new System.Drawing.Point(558, 25);
+            this.service_IntervalTextBox.Name = "service_IntervalTextBox";
+            this.service_IntervalTextBox.Size = new System.Drawing.Size(100, 20);
+            this.service_IntervalTextBox.TabIndex = 17;
+            // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 311);
+            this.ClientSize = new System.Drawing.Size(938, 319);
+            this.Controls.Add(service_IntervalLabel);
+            this.Controls.Add(this.service_IntervalTextBox);
             this.Controls.Add(this.ButNumberCustomerAdd);
             this.Controls.Add(this.ButSaveExit);
             this.Controls.Add(this.ButCancel);
@@ -488,5 +525,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn townDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
+        private safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter servicingTypeTableAdapter;
+        private System.Windows.Forms.TextBox service_IntervalTextBox;
     }
 }

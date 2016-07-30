@@ -35,6 +35,7 @@
             System.Windows.Forms.Label townLabel;
             System.Windows.Forms.Label post_CodeLabel;
             System.Windows.Forms.Label notesLabel;
+            System.Windows.Forms.Label servicing_TypeLabel;
             this.addressesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.safeandsounddb1DataSet = new WindowsFormsApplication1.safeandsounddb1DataSet();
             this.addressesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.addressesTableAdapter();
@@ -57,26 +58,14 @@
             this.installation_Products_LinkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressintallationfrgnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.installation_Products_LinkDataGridView = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.prodTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Make = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.prodMakeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Model = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.prodModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label2 = new System.Windows.Forms.Label();
             this.zone_MappingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zoneMappingsibfk1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zone_MappingsDataGridView = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zoneTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.zoneTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zoneDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.zoneListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zoneMappingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -87,20 +76,50 @@
             this.ButViewService = new System.Windows.Forms.Button();
             this.ButDeleteActivity = new System.Windows.Forms.Button();
             this.contextStripActivityAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextStripActivityAddService = new System.Windows.Forms.ToolStripMenuItem();
             this.contextStripActivityAddInstallation = new System.Windows.Forms.ToolStripMenuItem();
             this.contextStripActivityAddCallOut = new System.Windows.Forms.ToolStripMenuItem();
             this.contextStripActivityAddPhoneCall = new System.Windows.Forms.ToolStripMenuItem();
             this.contextStripActivityAddCorrespondent = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.actionTableAdapter1 = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ActionTableAdapter();
+            this.actionFriendlyViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.custAddBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.actionFriendlyViewTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ActionFriendlyViewTableAdapter();
+            this.actionFriendlyViewDataGridView = new System.Windows.Forms.DataGridView();
+            this.actionTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.actionTypeTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ActionTypeTableAdapter();
+            this.custAddTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.CustAddTableAdapter();
+            this.customersTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.CustomersTableAdapter();
+            this.titlesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TitlesTableAdapter();
+            this.servicingTypeTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter();
+            this.servicing_TypeComboBox = new System.Windows.Forms.ComboBox();
+            this.servicingTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Make = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.custAddIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActionSubID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zoneTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.zoneDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             address_Line_1Label = new System.Windows.Forms.Label();
             address_Line_2Label = new System.Windows.Forms.Label();
             address_Line_3Label = new System.Windows.Forms.Label();
             townLabel = new System.Windows.Forms.Label();
             post_CodeLabel = new System.Windows.Forms.Label();
             notesLabel = new System.Windows.Forms.Label();
+            servicing_TypeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.addressesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.installation_Products_LinkBindingSource)).BeginInit();
@@ -117,6 +136,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoneMappingsBindingSource)).BeginInit();
             this.contextStripActivityAdd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.actionFriendlyViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actionFriendlyViewDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actionTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicingTypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // address_Line_1Label
@@ -167,7 +191,7 @@
             // notesLabel
             // 
             notesLabel.AutoSize = true;
-            notesLabel.Location = new System.Drawing.Point(204, 19);
+            notesLabel.Location = new System.Drawing.Point(253, 38);
             notesLabel.Name = "notesLabel";
             notesLabel.Size = new System.Drawing.Size(38, 13);
             notesLabel.TabIndex = 13;
@@ -210,6 +234,7 @@
             this.tableAdapterManager.ProductTableAdapter = this.productTableAdapter;
             this.tableAdapterManager.ServicesTableAdapter = null;
             this.tableAdapterManager.ServiceZoneMesTableAdapter = null;
+            this.tableAdapterManager.ServicingTypeTableAdapter = null;
             this.tableAdapterManager.TitlesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.Zone_ListTableAdapter = this.zone_ListTableAdapter;
@@ -293,10 +318,10 @@
             this.notesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.notesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addressesBindingSource, "Notes", true));
-            this.notesTextBox.Location = new System.Drawing.Point(204, 35);
+            this.notesTextBox.Location = new System.Drawing.Point(297, 35);
             this.notesTextBox.Multiline = true;
             this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.Size = new System.Drawing.Size(675, 101);
+            this.notesTextBox.Size = new System.Drawing.Size(261, 101);
             this.notesTextBox.TabIndex = 14;
             // 
             // Label1
@@ -339,7 +364,7 @@
             this.installation_Products_LinkDataGridView.Location = new System.Drawing.Point(12, 165);
             this.installation_Products_LinkDataGridView.Name = "installation_Products_LinkDataGridView";
             this.installation_Products_LinkDataGridView.RowHeadersWidth = 25;
-            this.installation_Products_LinkDataGridView.Size = new System.Drawing.Size(984, 208);
+            this.installation_Products_LinkDataGridView.Size = new System.Drawing.Size(663, 227);
             this.installation_Products_LinkDataGridView.TabIndex = 36;
             this.installation_Products_LinkDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.installation_Products_LinkDataGridView_CellContentClick);
             this.installation_Products_LinkDataGridView.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.installation_Products_LinkDataGridView_CellValidated);
@@ -347,87 +372,26 @@
             this.installation_Products_LinkDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.installation_Products_LinkDataGridView_RowValidating);
             this.installation_Products_LinkDataGridView.Enter += new System.EventHandler(this.installation_Products_LinkDataGridView_Enter);
             // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // addressDataGridViewTextBoxColumn1
-            // 
-            this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
-            this.addressDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // productDataGridViewTextBoxColumn
-            // 
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            this.productDataGridViewTextBoxColumn.HeaderText = "Product";
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            this.productDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Type
-            // 
-            this.Type.DataSource = this.prodTypeBindingSource;
-            this.Type.DisplayMember = "Type";
-            this.Type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Type.DisplayStyleForCurrentCellOnly = true;
-            this.Type.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.ValueMember = "TypeID";
-            // 
             // prodTypeBindingSource
             // 
             this.prodTypeBindingSource.DataMember = "Prod Type";
             this.prodTypeBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // Make
-            // 
-            this.Make.DataSource = this.prodMakeBindingSource;
-            this.Make.DisplayMember = "Make";
-            this.Make.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Make.DisplayStyleForCurrentCellOnly = true;
-            this.Make.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Make.HeaderText = "Make";
-            this.Make.Name = "Make";
-            this.Make.ValueMember = "MakeID";
             // 
             // prodMakeBindingSource
             // 
             this.prodMakeBindingSource.DataMember = "Prod Make";
             this.prodMakeBindingSource.DataSource = this.safeandsounddb1DataSet;
             // 
-            // Model
-            // 
-            this.Model.DataSource = this.prodModelBindingSource;
-            this.Model.DisplayMember = "Model";
-            this.Model.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Model.DisplayStyleForCurrentCellOnly = true;
-            this.Model.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Model.HeaderText = "Model";
-            this.Model.Name = "Model";
-            this.Model.ValueMember = "ModelID";
-            // 
             // prodModelBindingSource
             // 
             this.prodModelBindingSource.DataMember = "Prod Model";
             this.prodModelBindingSource.DataSource = this.safeandsounddb1DataSet;
             // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // Label2
             // 
             this.Label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(22, 376);
+            this.Label2.Location = new System.Drawing.Point(22, 395);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(40, 13);
             this.Label2.TabIndex = 37;
@@ -456,63 +420,17 @@
             this.zoneTypeDataGridViewTextBoxColumn,
             this.zoneDescriptionDataGridViewTextBoxColumn});
             this.zone_MappingsDataGridView.DataSource = this.zone_MappingsBindingSource;
-            this.zone_MappingsDataGridView.Location = new System.Drawing.Point(12, 392);
+            this.zone_MappingsDataGridView.Location = new System.Drawing.Point(12, 411);
             this.zone_MappingsDataGridView.Name = "zone_MappingsDataGridView";
-            this.zone_MappingsDataGridView.Size = new System.Drawing.Size(552, 151);
+            this.zone_MappingsDataGridView.Size = new System.Drawing.Size(345, 151);
             this.zone_MappingsDataGridView.TabIndex = 37;
             this.zone_MappingsDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.zone_MappingsDataGridView_RowValidating);
             this.zone_MappingsDataGridView.Enter += new System.EventHandler(this.zone_MappingsDataGridView_Enter);
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // zoneNumberDataGridViewTextBoxColumn
-            // 
-            this.zoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Zone Number";
-            this.zoneNumberDataGridViewTextBoxColumn.HeaderText = "Zone Number";
-            this.zoneNumberDataGridViewTextBoxColumn.Name = "zoneNumberDataGridViewTextBoxColumn";
-            // 
-            // zoneTypeDataGridViewTextBoxColumn
-            // 
-            this.zoneTypeDataGridViewTextBoxColumn.DataPropertyName = "Zone Type";
-            this.zoneTypeDataGridViewTextBoxColumn.DataSource = this.zoneTypesBindingSource;
-            this.zoneTypeDataGridViewTextBoxColumn.DisplayMember = "Type";
-            this.zoneTypeDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.zoneTypeDataGridViewTextBoxColumn.DisplayStyleForCurrentCellOnly = true;
-            this.zoneTypeDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.zoneTypeDataGridViewTextBoxColumn.HeaderText = "Zone Type";
-            this.zoneTypeDataGridViewTextBoxColumn.Name = "zoneTypeDataGridViewTextBoxColumn";
-            this.zoneTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.zoneTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.zoneTypeDataGridViewTextBoxColumn.ValueMember = "ID";
             // 
             // zoneTypesBindingSource
             // 
             this.zoneTypesBindingSource.DataMember = "Zone Types";
             this.zoneTypesBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // zoneDescriptionDataGridViewTextBoxColumn
-            // 
-            this.zoneDescriptionDataGridViewTextBoxColumn.DataPropertyName = "Zone Description";
-            this.zoneDescriptionDataGridViewTextBoxColumn.DataSource = this.zoneListBindingSource;
-            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayMember = "Zone Description";
-            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayStyleForCurrentCellOnly = true;
-            this.zoneDescriptionDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.zoneDescriptionDataGridViewTextBoxColumn.HeaderText = "Zone Description";
-            this.zoneDescriptionDataGridViewTextBoxColumn.Name = "zoneDescriptionDataGridViewTextBoxColumn";
-            this.zoneDescriptionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.zoneDescriptionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.zoneDescriptionDataGridViewTextBoxColumn.ValueMember = "ID";
             // 
             // zoneListBindingSource
             // 
@@ -533,7 +451,7 @@
             // 
             this.butcancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.butcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.butcancel.Location = new System.Drawing.Point(885, 67);
+            this.butcancel.Location = new System.Drawing.Point(564, 67);
             this.butcancel.Name = "butcancel";
             this.butcancel.Size = new System.Drawing.Size(111, 26);
             this.butcancel.TabIndex = 40;
@@ -544,7 +462,7 @@
             // butsaveexit
             // 
             this.butsaveexit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butsaveexit.Location = new System.Drawing.Point(885, 32);
+            this.butsaveexit.Location = new System.Drawing.Point(564, 32);
             this.butsaveexit.Name = "butsaveexit";
             this.butsaveexit.Size = new System.Drawing.Size(111, 26);
             this.butsaveexit.TabIndex = 39;
@@ -555,7 +473,7 @@
             // ButAddService
             // 
             this.ButAddService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButAddService.Location = new System.Drawing.Point(885, 392);
+            this.ButAddService.Location = new System.Drawing.Point(564, 411);
             this.ButAddService.Name = "ButAddService";
             this.ButAddService.Size = new System.Drawing.Size(111, 26);
             this.ButAddService.TabIndex = 41;
@@ -567,7 +485,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(580, 376);
+            this.label3.Location = new System.Drawing.Point(360, 395);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 42;
@@ -576,7 +494,7 @@
             // ButViewService
             // 
             this.ButViewService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButViewService.Location = new System.Drawing.Point(885, 424);
+            this.ButViewService.Location = new System.Drawing.Point(564, 443);
             this.ButViewService.Name = "ButViewService";
             this.ButViewService.Size = new System.Drawing.Size(111, 26);
             this.ButViewService.TabIndex = 43;
@@ -587,12 +505,13 @@
             // ButDeleteActivity
             // 
             this.ButDeleteActivity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButDeleteActivity.Location = new System.Drawing.Point(885, 456);
+            this.ButDeleteActivity.Location = new System.Drawing.Point(564, 475);
             this.ButDeleteActivity.Name = "ButDeleteActivity";
             this.ButDeleteActivity.Size = new System.Drawing.Size(111, 26);
             this.ButDeleteActivity.TabIndex = 44;
-            this.ButDeleteActivity.Text = "&Delete Service";
+            this.ButDeleteActivity.Text = "&Delete Activity";
             this.ButDeleteActivity.UseVisualStyleBackColor = true;
+            this.ButDeleteActivity.Click += new System.EventHandler(this.ButDeleteActivity_Click);
             // 
             // contextStripActivityAdd
             // 
@@ -607,57 +526,321 @@
             this.contextStripActivityAdd.Name = "contextStripActivityAdd";
             this.contextStripActivityAdd.Size = new System.Drawing.Size(161, 145);
             // 
-            // contextStripActivityAddService
+            // toolStripTextBox1
             // 
-            this.contextStripActivityAddService.Name = "contextStripActivityAddService";
-            this.contextStripActivityAddService.Size = new System.Drawing.Size(160, 22);
-            this.contextStripActivityAddService.Text = "&Service";
-            // 
-            // contextStripActivityAddInstallation
-            // 
-            this.contextStripActivityAddInstallation.Name = "contextStripActivityAddInstallation";
-            this.contextStripActivityAddInstallation.Size = new System.Drawing.Size(160, 22);
-            this.contextStripActivityAddInstallation.Text = "&Installation";
-            // 
-            // contextStripActivityAddCallOut
-            // 
-            this.contextStripActivityAddCallOut.Name = "contextStripActivityAddCallOut";
-            this.contextStripActivityAddCallOut.Size = new System.Drawing.Size(160, 22);
-            this.contextStripActivityAddCallOut.Text = "&Call Out";
-            // 
-            // contextStripActivityAddPhoneCall
-            // 
-            this.contextStripActivityAddPhoneCall.Name = "contextStripActivityAddPhoneCall";
-            this.contextStripActivityAddPhoneCall.Size = new System.Drawing.Size(160, 22);
-            this.contextStripActivityAddPhoneCall.Text = "&Phone Call";
-            // 
-            // contextStripActivityAddCorrespondent
-            // 
-            this.contextStripActivityAddCorrespondent.Name = "contextStripActivityAddCorrespondent";
-            this.contextStripActivityAddCorrespondent.Size = new System.Drawing.Size(160, 22);
-            this.contextStripActivityAddCorrespondent.Text = "&Correspondent";
+            this.toolStripTextBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripTextBox1.Enabled = false;
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.ReadOnly = true;
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Text = "Add Activity";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
-            // toolStripTextBox1
+            // contextStripActivityAddService
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox1.Text = "Add Activity";
-            this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
+            this.contextStripActivityAddService.Name = "contextStripActivityAddService";
+            this.contextStripActivityAddService.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddService.Text = "&Service";
+            this.contextStripActivityAddService.Click += new System.EventHandler(this.contextStripActivityAddService_Click);
+            // 
+            // contextStripActivityAddInstallation
+            // 
+            this.contextStripActivityAddInstallation.Name = "contextStripActivityAddInstallation";
+            this.contextStripActivityAddInstallation.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddInstallation.Text = "&Installation";
+            this.contextStripActivityAddInstallation.Click += new System.EventHandler(this.contextStripActivityAddInstallation_Click);
+            // 
+            // contextStripActivityAddCallOut
+            // 
+            this.contextStripActivityAddCallOut.Name = "contextStripActivityAddCallOut";
+            this.contextStripActivityAddCallOut.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddCallOut.Text = "&Call Out";
+            this.contextStripActivityAddCallOut.Click += new System.EventHandler(this.contextStripActivityAddCallOut_Click);
+            // 
+            // contextStripActivityAddPhoneCall
+            // 
+            this.contextStripActivityAddPhoneCall.Name = "contextStripActivityAddPhoneCall";
+            this.contextStripActivityAddPhoneCall.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddPhoneCall.Text = "&Phone Call";
+            this.contextStripActivityAddPhoneCall.Click += new System.EventHandler(this.contextStripActivityAddPhoneCall_Click);
+            // 
+            // contextStripActivityAddCorrespondent
+            // 
+            this.contextStripActivityAddCorrespondent.Name = "contextStripActivityAddCorrespondent";
+            this.contextStripActivityAddCorrespondent.Size = new System.Drawing.Size(160, 22);
+            this.contextStripActivityAddCorrespondent.Text = "&Correspondent";
+            this.contextStripActivityAddCorrespondent.Click += new System.EventHandler(this.contextStripActivityAddCorrespondent_Click);
             // 
             // actionTableAdapter1
             // 
             this.actionTableAdapter1.ClearBeforeFill = true;
             // 
+            // actionFriendlyViewBindingSource
+            // 
+            this.actionFriendlyViewBindingSource.DataMember = "FK_CustAdd_ActionFriendlyView";
+            this.actionFriendlyViewBindingSource.DataSource = this.custAddBindingSource;
+            // 
+            // custAddBindingSource
+            // 
+            this.custAddBindingSource.DataMember = "addressidfrgn";
+            this.custAddBindingSource.DataSource = this.addressesBindingSource;
+            // 
+            // actionFriendlyViewTableAdapter
+            // 
+            this.actionFriendlyViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // actionFriendlyViewDataGridView
+            // 
+            this.actionFriendlyViewDataGridView.AllowUserToAddRows = false;
+            this.actionFriendlyViewDataGridView.AllowUserToDeleteRows = false;
+            this.actionFriendlyViewDataGridView.AllowUserToOrderColumns = true;
+            this.actionFriendlyViewDataGridView.AllowUserToResizeColumns = false;
+            this.actionFriendlyViewDataGridView.AllowUserToResizeRows = false;
+            this.actionFriendlyViewDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.actionFriendlyViewDataGridView.AutoGenerateColumns = false;
+            this.actionFriendlyViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.actionFriendlyViewDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn2,
+            this.custAddIDDataGridViewTextBoxColumn,
+            this.ActionSubID,
+            this.dataGridViewComboBoxColumn1,
+            this.dateDataGridViewTextBoxColumn});
+            this.actionFriendlyViewDataGridView.DataSource = this.actionFriendlyViewBindingSource;
+            this.actionFriendlyViewDataGridView.Location = new System.Drawing.Point(363, 411);
+            this.actionFriendlyViewDataGridView.MultiSelect = false;
+            this.actionFriendlyViewDataGridView.Name = "actionFriendlyViewDataGridView";
+            this.actionFriendlyViewDataGridView.ReadOnly = true;
+            this.actionFriendlyViewDataGridView.RowHeadersWidth = 25;
+            this.actionFriendlyViewDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.actionFriendlyViewDataGridView.Size = new System.Drawing.Size(195, 151);
+            this.actionFriendlyViewDataGridView.TabIndex = 44;
+            // 
+            // actionTypeBindingSource
+            // 
+            this.actionTypeBindingSource.DataMember = "ActionType";
+            this.actionTypeBindingSource.DataSource = this.safeandsounddb1DataSet;
+            // 
+            // actionTypeTableAdapter
+            // 
+            this.actionTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // custAddTableAdapter
+            // 
+            this.custAddTableAdapter.ClearBeforeFill = true;
+            // 
+            // customersTableAdapter
+            // 
+            this.customersTableAdapter.ClearBeforeFill = true;
+            // 
+            // titlesTableAdapter
+            // 
+            this.titlesTableAdapter.ClearBeforeFill = true;
+            // 
+            // servicingTypeTableAdapter
+            // 
+            this.servicingTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // servicing_TypeLabel
+            // 
+            servicing_TypeLabel.AutoSize = true;
+            servicing_TypeLabel.Location = new System.Drawing.Point(210, 12);
+            servicing_TypeLabel.Name = "servicing_TypeLabel";
+            servicing_TypeLabel.Size = new System.Drawing.Size(81, 13);
+            servicing_TypeLabel.TabIndex = 44;
+            servicing_TypeLabel.Text = "Servicing Type:";
+            // 
+            // servicing_TypeComboBox
+            // 
+            this.servicing_TypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.addressesBindingSource, "Servicing Type", true));
+            this.servicing_TypeComboBox.DataSource = this.servicingTypeBindingSource;
+            this.servicing_TypeComboBox.DisplayMember = "Type";
+            this.servicing_TypeComboBox.FormattingEnabled = true;
+            this.servicing_TypeComboBox.Location = new System.Drawing.Point(297, 9);
+            this.servicing_TypeComboBox.Name = "servicing_TypeComboBox";
+            this.servicing_TypeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.servicing_TypeComboBox.TabIndex = 45;
+            this.servicing_TypeComboBox.ValueMember = "ID";
+            // 
+            // servicingTypeBindingSource
+            // 
+            this.servicingTypeBindingSource.DataMember = "ServicingType";
+            this.servicingTypeBindingSource.DataSource = this.safeandsounddb1DataSet;
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.iDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // addressDataGridViewTextBoxColumn1
+            // 
+            this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
+            this.addressDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.addressDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // productDataGridViewTextBoxColumn
+            // 
+            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
+            this.productDataGridViewTextBoxColumn.HeaderText = "Product";
+            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            this.productDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.productDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Type
+            // 
+            this.Type.DataSource = this.prodTypeBindingSource;
+            this.Type.DisplayMember = "Type";
+            this.Type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Type.DisplayStyleForCurrentCellOnly = true;
+            this.Type.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ValueMember = "TypeID";
+            // 
+            // Make
+            // 
+            this.Make.DataSource = this.prodMakeBindingSource;
+            this.Make.DisplayMember = "Make";
+            this.Make.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Make.DisplayStyleForCurrentCellOnly = true;
+            this.Make.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Make.HeaderText = "Make";
+            this.Make.Name = "Make";
+            this.Make.ValueMember = "MakeID";
+            // 
+            // Model
+            // 
+            this.Model.DataSource = this.prodModelBindingSource;
+            this.Model.DisplayMember = "Model";
+            this.Model.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Model.DisplayStyleForCurrentCellOnly = true;
+            this.Model.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Model.HeaderText = "Model";
+            this.Model.Name = "Model";
+            this.Model.ValueMember = "ModelID";
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // iDDataGridViewTextBoxColumn2
+            // 
+            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn2.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
+            this.iDDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn2.Visible = false;
+            this.iDDataGridViewTextBoxColumn2.Width = 50;
+            // 
+            // custAddIDDataGridViewTextBoxColumn
+            // 
+            this.custAddIDDataGridViewTextBoxColumn.DataPropertyName = "CustAddID";
+            this.custAddIDDataGridViewTextBoxColumn.HeaderText = "CustAddID";
+            this.custAddIDDataGridViewTextBoxColumn.Name = "custAddIDDataGridViewTextBoxColumn";
+            this.custAddIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.custAddIDDataGridViewTextBoxColumn.Visible = false;
+            this.custAddIDDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // ActionSubID
+            // 
+            this.ActionSubID.DataPropertyName = "ActionSubID";
+            this.ActionSubID.HeaderText = "ActionSubID";
+            this.ActionSubID.Name = "ActionSubID";
+            this.ActionSubID.ReadOnly = true;
+            this.ActionSubID.Visible = false;
+            this.ActionSubID.Width = 50;
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.DataPropertyName = "Type";
+            this.dataGridViewComboBoxColumn1.DataSource = this.actionTypeBindingSource;
+            this.dataGridViewComboBoxColumn1.DisplayMember = "Type";
+            this.dataGridViewComboBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dataGridViewComboBoxColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.dataGridViewComboBoxColumn1.HeaderText = "Type";
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            this.dataGridViewComboBoxColumn1.ReadOnly = true;
+            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewComboBoxColumn1.ValueMember = "ID";
+            this.dataGridViewComboBoxColumn1.Width = 70;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // zoneNumberDataGridViewTextBoxColumn
+            // 
+            this.zoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Zone Number";
+            this.zoneNumberDataGridViewTextBoxColumn.HeaderText = "Zone Number";
+            this.zoneNumberDataGridViewTextBoxColumn.Name = "zoneNumberDataGridViewTextBoxColumn";
+            this.zoneNumberDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // zoneTypeDataGridViewTextBoxColumn
+            // 
+            this.zoneTypeDataGridViewTextBoxColumn.DataPropertyName = "Zone Type";
+            this.zoneTypeDataGridViewTextBoxColumn.DataSource = this.zoneTypesBindingSource;
+            this.zoneTypeDataGridViewTextBoxColumn.DisplayMember = "Type";
+            this.zoneTypeDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.zoneTypeDataGridViewTextBoxColumn.DisplayStyleForCurrentCellOnly = true;
+            this.zoneTypeDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.zoneTypeDataGridViewTextBoxColumn.HeaderText = "Zone Type";
+            this.zoneTypeDataGridViewTextBoxColumn.Name = "zoneTypeDataGridViewTextBoxColumn";
+            this.zoneTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.zoneTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.zoneTypeDataGridViewTextBoxColumn.ValueMember = "ID";
+            // 
+            // zoneDescriptionDataGridViewTextBoxColumn
+            // 
+            this.zoneDescriptionDataGridViewTextBoxColumn.DataPropertyName = "Zone Description";
+            this.zoneDescriptionDataGridViewTextBoxColumn.DataSource = this.zoneListBindingSource;
+            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayMember = "Zone Description";
+            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.zoneDescriptionDataGridViewTextBoxColumn.DisplayStyleForCurrentCellOnly = true;
+            this.zoneDescriptionDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.zoneDescriptionDataGridViewTextBoxColumn.HeaderText = "Zone Description";
+            this.zoneDescriptionDataGridViewTextBoxColumn.Name = "zoneDescriptionDataGridViewTextBoxColumn";
+            this.zoneDescriptionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.zoneDescriptionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.zoneDescriptionDataGridViewTextBoxColumn.ValueMember = "ID";
+            // 
             // FormAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 555);
+            this.ClientSize = new System.Drawing.Size(687, 574);
+            this.Controls.Add(servicing_TypeLabel);
+            this.Controls.Add(this.servicing_TypeComboBox);
+            this.Controls.Add(this.actionFriendlyViewDataGridView);
             this.Controls.Add(this.ButDeleteActivity);
             this.Controls.Add(this.ButViewService);
             this.Controls.Add(this.label3);
@@ -684,6 +867,7 @@
             this.MaximizeBox = false;
             this.Name = "FormAddress";
             this.Text = "Addresses";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAddress_FormClosing);
             this.Load += new System.EventHandler(this.FormAddress_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addressesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.safeandsounddb1DataSet)).EndInit();
@@ -702,6 +886,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.zoneMappingsBindingSource)).EndInit();
             this.contextStripActivityAdd.ResumeLayout(false);
             this.contextStripActivityAdd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.actionFriendlyViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actionFriendlyViewDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actionTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicingTypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -743,22 +932,6 @@
         private safeandsounddb1DataSet safeandsounddb1DataSet;
         internal System.Windows.Forms.Button butcancel;
         internal System.Windows.Forms.Button butsaveexit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Type;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Make;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Model;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zoneNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn zoneTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn zoneDescriptionDataGridViewTextBoxColumn;
-        private safeandsounddb1DataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button ButAddService;
         internal System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button ButViewService;
@@ -772,5 +945,34 @@
         private System.Windows.Forms.ToolStripMenuItem contextStripActivityAddPhoneCall;
         private System.Windows.Forms.ToolStripMenuItem contextStripActivityAddCorrespondent;
         private safeandsounddb1DataSetTableAdapters.ActionTableAdapter actionTableAdapter1;
+        private System.Windows.Forms.BindingSource actionFriendlyViewBindingSource;
+        private safeandsounddb1DataSetTableAdapters.ActionFriendlyViewTableAdapter actionFriendlyViewTableAdapter;
+        private System.Windows.Forms.DataGridView actionFriendlyViewDataGridView;
+        private System.Windows.Forms.BindingSource actionTypeBindingSource;
+        private safeandsounddb1DataSetTableAdapters.ActionTypeTableAdapter actionTypeTableAdapter;
+        private System.Windows.Forms.BindingSource custAddBindingSource;
+        private safeandsounddb1DataSetTableAdapters.CustAddTableAdapter custAddTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.TitlesTableAdapter titlesTableAdapter;
+        private safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter servicingTypeTableAdapter;
+        private System.Windows.Forms.ComboBox servicing_TypeComboBox;
+        private System.Windows.Forms.BindingSource servicingTypeBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Make;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn zoneTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn zoneDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn custAddIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ActionSubID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
     }
 }

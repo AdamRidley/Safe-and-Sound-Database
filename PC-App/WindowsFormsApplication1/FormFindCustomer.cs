@@ -26,6 +26,7 @@ namespace WindowsFormsApplication1
 
         private void FormFindCustomer_Load(object sender, EventArgs e)
         {
+            this.servicingTypeTableAdapter.Fill(this.safeandsounddb1DataSet.ServicingType);
             this.addressesTableAdapter.Fill(this.safeandsounddb1DataSet.addresses);
             this.titlesTableAdapter.Fill(this.safeandsounddb1DataSet.Titles);
             this.customers_Friendly_ViewTableAdapter.Fill(this.safeandsounddb1DataSet.Customers_Friendly_View);
@@ -153,6 +154,14 @@ namespace WindowsFormsApplication1
         private void ButCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void FormFindCustomer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                ButCancel_Click(sender, e);
+            }
         }
     }
 }

@@ -35,16 +35,21 @@ namespace WindowsFormsApplication1
         }*/
         private void getData()
         {
-            
+            this.actionTypeTableAdapter.Fill(this.safeandsounddb1DataSet.ActionType);
+            this.titlesTableAdapter.Fill(this.safeandsounddb1DataSet.Titles);
+            this.customersTableAdapter.Fill(this.safeandsounddb1DataSet.Customers);
             this.zone_ListTableAdapter.Fill(this.safeandsounddb1DataSet.Zone_List);            
-            this.zone_TypesTableAdapter.Fill(this.safeandsounddb1DataSet.Zone_Types);            
+            this.zone_TypesTableAdapter.Fill(this.safeandsounddb1DataSet.Zone_Types);
+            this.prod_ModelTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Model);
+            this.prod_MakeTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Make);
+            this.prod_TypeTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Type);
             this.productTableAdapter.Fill(this.safeandsounddb1DataSet.Product);
+            this.servicingTypeTableAdapter.Fill(this.safeandsounddb1DataSet.ServicingType);
             this.addressesTableAdapter.Fill(this.safeandsounddb1DataSet.addresses);
-            this.zone_MappingsTableAdapter.Fill(this.safeandsounddb1DataSet.Zone_Mappings);            
-            this.prod_ModelTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Model);            
-            this.prod_MakeTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Make);            
-            this.prod_TypeTableAdapter.Fill(this.safeandsounddb1DataSet.Prod_Type);            
+            this.zone_MappingsTableAdapter.Fill(this.safeandsounddb1DataSet.Zone_Mappings);         
             this.installation_Products_LinkTableAdapter.Fill(this.safeandsounddb1DataSet.Address_Product_Link);
+            this.custAddTableAdapter.Fill(this.safeandsounddb1DataSet.CustAdd);
+            this.actionFriendlyViewTableAdapter.Fill(this.safeandsounddb1DataSet.ActionFriendlyView);
         }
         private void FormAddress_Load(object sender, EventArgs e)
         {
@@ -195,23 +200,93 @@ namespace WindowsFormsApplication1
 
         private void ButAddService_Click(object sender, EventArgs e)
         {
+            contextStripActivityAdd.Show((Control)sender,new Point(0,0));
+        }
 
+        private void ButViewService_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = (DataGridViewRow)actionFriendlyViewDataGridView.SelectedCells[0].OwningRow;
+            /*
+            MessageBox.Show(row.Cells["dataGridViewComboBoxColumn1"].Value.ToString());
+            return;
+            */
+            switch ((int)row.Cells["dataGridViewComboBoxColumn1"].Value)
+            {
+                case 1:
+                    FormService FormAddServ = new FormService(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, (int)row.Cells["ActionSubID"].Value, this);
+                    this.Hide();
+                    FormAddServ.Show();
+                    return;
+                case 2:
+                 /*   FormInstallation FormAddInst = new FormInstallation(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, (int)row.Cells["ActionSubID"].Value, this);
+                    this.Hide();
+                    FormAddInst.Show(); */
+                    return;
+                case 3:
+                    FormCallOut FormAddCallOut = new FormCallOut(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, (int)row.Cells["ActionSubID"].Value, this);
+                    this.Hide();
+                    FormAddCallOut.Show();
+                    return;
+                case 4:
+                    FormPhoneCall FormAddPhoneCall = new FormPhoneCall(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, (int)row.Cells["ActionSubID"].Value, this);
+                    this.Hide();
+                    FormAddPhoneCall.Show();
+                    return;
+                case 5:
+                    /*FormCorrespondent FormAddCorrespondent = new FormCorrespondent(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, (int)row.Cells["ActionSubID"].Value, this);
+                    this.Hide();
+                    FormAddCorrespondent.Show();*/
+                    return;
+            }
+        }
+        
+
+        private void contextStripActivityAddService_Click(object sender, EventArgs e)
+        {
             FormService FormAddServ = new FormService(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID,0,this);
             this.Hide();
             FormAddServ.Show();
         }
 
-        private void ButViewService_Click(object sender, EventArgs e)
-        {
-
-           // FormService FormViewServ = new FormService(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, (int)servicesDataGridView.SelectedCells[0].OwningRow.Cells["dataGridViewTextBoxColumn1"].Value, this);
+        private void contextStripActivityAddInstallation_Click(object sender, EventArgs e)
+        {/*
+            FormInstallation FormAddInst = new FormInstallation(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, 0, this);
             this.Hide();
-            //FormViewServ.Show();
+            FormAddInst.Show();*/
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        private void contextStripActivityAddCallOut_Click(object sender, EventArgs e)
         {
+            FormCallOut FormAddCallOut = new FormCallOut(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, 0, this);
+            this.Hide();
+            FormAddCallOut.Show();
+        }
 
+        private void contextStripActivityAddPhoneCall_Click(object sender, EventArgs e)
+        {
+            FormPhoneCall FormAddPhoneCall = new FormPhoneCall(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, 0, this);
+            this.Hide();
+            FormAddPhoneCall.Show();
+        }
+
+        private void contextStripActivityAddCorrespondent_Click(object sender, EventArgs e)
+        {/*
+            FormCorrespondent FormAddCorrespondent = new FormCorrespondent(((safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row).Address_ID, 0, this);
+            this.Hide();
+            FormAddCorrespondent.Show();*/
+        }
+
+        private void FormAddress_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                butcancel_Click(sender, e);
+            }
+        }
+
+        private void ButDeleteActivity_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not Yet Implemented");
         }
     }
 }

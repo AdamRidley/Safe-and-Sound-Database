@@ -80,6 +80,7 @@
             this.custAddTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.CustAddTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager();
             this.customers_Friendly_ViewTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Customers_Friendly_ViewTableAdapter();
+            this.servicingTypeTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter();
             E_Mail_AddressLabel = new System.Windows.Forms.Label();
             TitleLabel = new System.Windows.Forms.Label();
             First_NameLabel = new System.Windows.Forms.Label();
@@ -510,20 +511,28 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.ActionTableAdapter = null;
+            this.tableAdapterManager.ActionTypeTableAdapter = null;
+            this.tableAdapterManager.Address_Product_LinkTableAdapter = null;
             this.tableAdapterManager.addressesTableAdapter = this.addressesTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CallOutTableAdapter = null;
             this.tableAdapterManager.correspondent_products_linkTableAdapter = null;
             this.tableAdapterManager.correspondentsTableAdapter = null;
             this.tableAdapterManager.CustAddTableAdapter = this.custAddTableAdapter;
             this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
-            this.tableAdapterManager.Address_Product_LinkTableAdapter = null;
+            this.tableAdapterManager.InstallationProductTableAdapter = null;
+            this.tableAdapterManager.InstallationTableAdapter = null;
+            this.tableAdapterManager.InstallationTypeTableAdapter = null;
             this.tableAdapterManager.Phone_NumbersTableAdapter = this.phone_NumbersTableAdapter;
+            this.tableAdapterManager.PhoneCallTableAdapter = null;
             this.tableAdapterManager.Prod_MakeTableAdapter = null;
             this.tableAdapterManager.Prod_ModelTableAdapter = null;
             this.tableAdapterManager.Prod_TypeTableAdapter = null;
             this.tableAdapterManager.ProductTableAdapter = null;
             this.tableAdapterManager.ServicesTableAdapter = null;
             this.tableAdapterManager.ServiceZoneMesTableAdapter = null;
+            this.tableAdapterManager.ServicingTypeTableAdapter = null;
             this.tableAdapterManager.TitlesTableAdapter = this.titlesTableAdapter;
             this.tableAdapterManager.UpdateOrder = WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.Zone_ListTableAdapter = null;
@@ -533,6 +542,10 @@
             // customers_Friendly_ViewTableAdapter
             // 
             this.customers_Friendly_ViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // servicingTypeTableAdapter
+            // 
+            this.servicingTypeTableAdapter.ClearBeforeFill = true;
             // 
             // FormFindCustomer
             // 
@@ -558,6 +571,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormFindCustomer";
             this.Text = "Find Customer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormFindCustomer_FormClosing);
             this.Load += new System.EventHandler(this.FormFindCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AddressesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddressesBindingSource)).EndInit();
@@ -617,5 +631,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eMailAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource phoneNumbersibfk1BindingSource;
+        private safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter servicingTypeTableAdapter;
     }
 }

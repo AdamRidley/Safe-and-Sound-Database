@@ -38,6 +38,7 @@ namespace WindowsFormsApplication1
         {
             this.titlesTableAdapter.Fill(this.safeandsounddb1DataSet.Titles);
             this.customersTableAdapter.Fill(this.safeandsounddb1DataSet.Customers);
+            this.servicingTypeTableAdapter.Fill(this.safeandsounddb1DataSet.ServicingType);
             this.addressesTableAdapter.Fill(this.safeandsounddb1DataSet.addresses);
             this.custAddTableAdapter.Fill(this.safeandsounddb1DataSet.CustAdd);
             this.phone_NumbersTableAdapter.Fill(this.safeandsounddb1DataSet.Phone_Numbers);
@@ -172,7 +173,10 @@ namespace WindowsFormsApplication1
 
         private void FormCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ButCancel_Click(sender, e);
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                ButCancel_Click(sender, e);
+            }
         }
 
         private void customersBindingSource_PositionChanged(object sender, EventArgs e)
@@ -283,6 +287,18 @@ namespace WindowsFormsApplication1
         private void addressesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void ButNumbersViewAll_Click(object sender, EventArgs e)
+        {
+            addressesDataGridView.ClearSelection();
+        }
+
+        private void addressesDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            bool flag = addressesDataGridView.SelectedCells.Count > 0;
+            ButNumberAddressAdd.Enabled = flag;
+            ButAddressView.Enabled = flag;
         }
     }
 }
