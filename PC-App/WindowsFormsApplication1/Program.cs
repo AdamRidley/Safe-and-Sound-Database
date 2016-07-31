@@ -19,5 +19,9 @@ namespace WindowsFormsApplication1
             Application.SetCompatibleTextRenderingDefault(false);
            Application.Run(new FormMenu());
         }
+        public static string GetDigits(string input)
+        {
+            return new string(input.Where(c => char.IsDigit(c)).ToArray());
+        }
     }
 }

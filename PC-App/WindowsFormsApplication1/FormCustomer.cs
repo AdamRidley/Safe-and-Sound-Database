@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace WindowsFormsApplication1
 {
@@ -299,6 +300,95 @@ namespace WindowsFormsApplication1
             bool flag = addressesDataGridView.SelectedCells.Count > 0;
             ButNumberAddressAdd.Enabled = flag;
             ButAddressView.Enabled = flag;
+        }
+
+        private void ButNumberAddressAdd_Click(object sender, EventArgs e)
+        {
+            if (addressesDataGridView.SelectedCells.Count == 0 || addressesDataGridView.SelectedCells[0].ColumnIndex == -1 || addressesDataGridView.SelectedCells[0].RowIndex == -1) return;
+            customersBindingSource.EndEdit();
+            addressesBindingSource.EndEdit();
+            custAddBindingSource.EndEdit();
+            custAddBindingSource.Filter = "[Address ID] = " + addressesDataGridView.SelectedCells[0].OwningRow.Cells[0].Value.ToString() + " AND [Customer ID] = " + ((safeandsounddb1DataSet.CustomersRow)((DataRowView)customersBindingSource.Current).Row).Customer_ID.ToString();
+            if (custAddBindingSource.Count == 0)
+            {
+                MessageBox.Show("Error, CustAdd binding source does not contain the entry");
+                return;
+            }
+                string defVal = "";
+                retryInput:
+                string newNumber = Interaction.InputBox("Enter telephone number to add", "Enter telephone number", defVal);
+                if (newNumber == "") return;
+                newNumber = Program.GetDigits(newNumber);
+
+                if (!(newNumber.Length == 10 || newNumber.Length == 11)) {
+                    MessageBox.Show("Invalid telephone number length", "Try Again",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                         defVal = newNumber;
+                    goto retryInput;
+                        }
+                bool found = false;
+                safeandsounddb1DataSet.Phone_NumbersRow foundRow
+            foreach (safeandsounddb1DataSet.Phone_NumbersRow row in safeandsounddb1DataSet.Phone_Numbers.Rows)
+                {
+                    if (row.Phone_Number == newNumber)
+                    {
+                        found = true;
+                        foundRow = row;
+                        break;
+                    }
+                }
+                if (found)
+                {
+                    //Loop through dataset to find correct address that matches foundRow not the bindingsoruce current, the same for the customer.
+                    safeandsounddb1DataSet.addressesRow address = (safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row;
+                    string strCustomer = titleComboBox.DisplayMember + " " + first_NameTextBox.Text + " " + last_NameTextBox.Text;
+                    StringBuilder strAddress = new StringBuilder();
+                    if (!address.IsAddress_Line_1Null() && address.Address_Line_1 != "")
+                    {
+                        strAddress.Append(address.Address_Line_1 + ", ");
+                    }
+                    if (!address.IsAddress_Line_2Null() && address.Address_Line_2 != "")
+                    {
+                        strAddress.Append(address.Address_Line_2 + ", ");
+                    }
+                    if (!address.IsAddress_Line_3Null() && address.Address_Line_3 != "")
+                    {
+                        strAddress.Append(address.Address_Line_3 + ", ");
+                    }
+                    if (!address.IsTownNull() && address.Town != "")
+                    {
+                        strAddress.Append(address.Town + ", ");
+                    }
+                    if (!address.IsPost_CodeNull() && address.Post_Code != "")
+                    {
+                        strAddress.Append(address.Post_Code + ", ");
+                    }
+                    if (strAddress.Length > 2) strAddress = strAddress.Remove(strAddress.Length - 2, 2);
+                    DialogResult resp =  MessageBox.Show("Phone number already is use for: \n"+strCustomer+"\n"+strAddress.ToString()+ "\nPlease enter a new number.","Phone number already in use",MessageBoxButtons.RetryCancel,MessageBoxIcon.Information);
+                    if (resp == DialogResult.Retry)
+                    {
+                        defVal = newNumber;
+                        goto retryInput;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            custAddID = ((safeandsounddb1DataSet.CustAddRow)((DataRowView)custAddBindingSource.Current).Row).CustAdd_ID;
+            phone_NumbersBindingSource.AddNew();
+            phone_NumbersBindingSource.MoveLast();
+            ((safeandsounddb1DataSet.Phone_NumbersRow)((DataRowView)phone_NumbersBindingSource.Current).Row).CustAdd_ID = custAddID;
+            ((safeandsounddb1DataSet.Phone_NumbersRow)((DataRowView)phone_NumbersBindingSource.Current).Row).Phone_Number = newNumber;
+            phone_NumbersBindingSource.EndEdit();
+            
+        }
+
+        private void ButNumberCustomerAdd_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.EndEdit();
+            addressesBindingSource.EndEdit();
+            custAddBindingSource.EndEdit();
+
         }
     }
 }
