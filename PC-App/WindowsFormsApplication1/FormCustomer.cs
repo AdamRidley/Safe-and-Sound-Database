@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
@@ -20,6 +16,7 @@ namespace WindowsFormsApplication1
 
         private int PassedId;
         private Form CallingForm;
+        private bool dataFilled;
 
         public FormCustomer(int id, Form newcallingform) : this()
         {
@@ -37,12 +34,14 @@ namespace WindowsFormsApplication1
 
         private void GetData()
         {
+            dataFilled = false;
             this.titlesTableAdapter.Fill(this.safeandsounddb1DataSet.Titles);
             this.customersTableAdapter.Fill(this.safeandsounddb1DataSet.Customers);
             this.servicingTypeTableAdapter.Fill(this.safeandsounddb1DataSet.ServicingType);
             this.addressesTableAdapter.Fill(this.safeandsounddb1DataSet.addresses);
             this.custAddTableAdapter.Fill(this.safeandsounddb1DataSet.CustAdd);
             this.phone_NumbersTableAdapter.Fill(this.safeandsounddb1DataSet.Phone_Numbers);
+            dataFilled = true;
         }
         private void ClearData()
         {
@@ -63,110 +62,136 @@ namespace WindowsFormsApplication1
             FilterAddresses();
             DeselectAddresses();
         }
-        
+
 
         private void DeselectAddresses()
         {
             foreach (DataGridViewCell a in addressesDataGridView.SelectedCells)
-            { 
+            {
                 a.Selected = false;
             }
-            PhoneFilter();
+            FilterPhoneNumbers();
         }
 
-        private void PhoneFilter()
+       /* private void PhoneFilter()
         {
             if (customersBindingSource.Current == null) return;
             int CustId;
-            string AddrId=null;
+            string AddrId = null;
             string PFilt = "";
             bool FilterAds = true;
             //List<int> CustAddrIds = new List<int>();
-            if (addressesDataGridView.SelectedRows.Count==0) { FilterAds = false; }
+            if (addressesDataGridView.SelectedRows.Count == 0) { FilterAds = false; }
             CustId = ((safeandsounddb1DataSet.CustomersRow)((DataRowView)customersBindingSource.Current).Row).Customer_ID;
             if (FilterAds) { AddrId = addressesDataGridView.SelectedCells[0].OwningRow.Cells[0].Value.ToString(); }
-            if (FilterAds & AddrId==null) { FilterAds = false; }
+            if (FilterAds & AddrId == null) { FilterAds = false; }
             foreach (DataRowView b in custAddBindingSource.List)
             {
                 safeandsounddb1DataSet.CustAddRow a = (safeandsounddb1DataSet.CustAddRow)b.Row;
-                if (a.IsCustomer_IDNull()|(FilterAds&a.IsAddress_IDNull())) { continue; }
-                if (a.Customer_ID == CustId && (!FilterAds|| (FilterAds & a.Address_ID.ToString() == AddrId)))
+                if (a.IsCustomer_IDNull() | (FilterAds & a.IsAddress_IDNull())) { continue; }
+                if (a.Customer_ID == CustId && (!FilterAds || (FilterAds & a.Address_ID.ToString() == AddrId)))
                 {
                     //      CustAddrIds.Add(a.CustAdd_ID);
                     PFilt += ", " + a.CustAdd_ID;
-                }  
-            }
-            /*
-            if (CustAddrIds.Count > 0)
-            {
-                foreach(safeandsounddb1DataSet.Phone_NumbersRow b in safeandsounddb1DataSet.Phone_Numbers)
-                {
-                    if (b.RowState!=DataRowState.Deleted)
-                    {
-
-                    }
                 }
             }
-            */
+            //
+            //if (CustAddrIds.Count > 0)
+            //{
+            //    foreach(safeandsounddb1DataSet.Phone_NumbersRow b in safeandsounddb1DataSet.Phone_Numbers)
+            //    {
+            //        if (b.RowState!=DataRowState.Deleted)
+            //        {
+
+            //        }
+            //    }
+            //}
+            
             PFilt = PFilt.Substring(Math.Min(PFilt.Length, 2));
-            PFilt = (PFilt == "")? "[CustAdd ID] = Null": "[CustAdd ID] in (" + PFilt + ")";
+            PFilt = (PFilt == "") ? "[CustAdd ID] = Null" : "[CustAdd ID] in (" + PFilt + ")";
             phone_NumbersBindingSource.Filter = PFilt;
         }
-
+        */
         private void FilterAddresses()
         {
             if (customersBindingSource.Current == null) return;
             int custId;
             string adFilt = "";
-            
+
             custId = ((safeandsounddb1DataSet.CustomersRow)((DataRowView)customersBindingSource.Current).Row).Customer_ID;
+            custAddBindingSource.Filter = "[Customer ID] = " + custId.ToString();
             foreach (DataRowView b in custAddBindingSource.List)
             {
                 safeandsounddb1DataSet.CustAddRow a = (safeandsounddb1DataSet.CustAddRow)b.Row;
                 if (!a.IsAddress_IDNull() & !a.IsCustomer_IDNull())
                 {
-                    if (a.Customer_ID==custId)
+                    if (a.Customer_ID == custId)
                     {
                         adFilt += a.Address_ID.ToString() + ", ";
                     }
                 }
             }
             adFilt = adFilt.Substring(0, Math.Max(adFilt.Length - 2, 0));
-            adFilt = (adFilt == "") ? "[Address ID] = Null": "[Address ID] in (" + adFilt + ")";
+            adFilt = (adFilt == "") ? "[Address ID] = Null" : "[Address ID] in (" + adFilt + ")";
             addressesBindingSource.Filter = adFilt;
-            /*for (int a =0;a<custAddBindingSource.Count;a++)
-            {
-                if (!((safeandsounddb1DataSet.CustAddRow) custAddBindingSource.List[a]).IsAddress_IDNull() & !((safeandsounddb1DataSet.CustAddRow)custAddBindingSource.List[a]).IsCustomer_IDNull())
-                {
 
+        }
+        private void addressesDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            bool flag = addressesDataGridView.SelectedCells.Count > 0;
+            ButNumberAddressAdd.Enabled = flag;
+            ButAddressView.Enabled = flag;
+            if (dataFilled)
+            {
+                if (addressesDataGridView.SelectedCells.Count == 0 || addressesDataGridView.SelectedCells[0].ColumnIndex == -1 || addressesDataGridView.SelectedCells[0].RowIndex == -1)
+                {
+                    custAddBindingSource.Filter = "[Customer ID] = " + ((safeandsounddb1DataSet.CustomersRow)((DataRowView)customersBindingSource.Current).Row).Customer_ID.ToString();
+                    //FilterAddresses();
+                    //addressesDataGridView.ClearSelection();
+                    FilterPhoneNumbers();
+                }
+                else
+                {
+                    if (addressesDataGridView.SelectedCells[0].OwningRow.Cells[addressIDDataGridViewTextBoxColumn.Index].Value != null)
+                    {
+
+                        custAddBindingSource.Filter = "[Customer ID] = " + ((safeandsounddb1DataSet.CustomersRow)((DataRowView)customersBindingSource.Current).Row).Customer_ID.ToString()
+                            + " AND [Address ID] = " + addressesDataGridView.SelectedCells[0].OwningRow.Cells[addressIDDataGridViewTextBoxColumn.Index].Value.ToString();
+                    }
+                    else
+                    {
+
+                        System.Diagnostics.Debug.Print("Addresses row error/n" + addressesDataGridView.RowCount.ToString());
+                    }
+                    //FilterAddresses();
+                    FilterPhoneNumbers();
                 }
             }
-            */
-
         }
 
-        private void e_Mail_AddressLabel_Click(object sender, EventArgs e)
+        private void FilterPhoneNumbers()
         {
+            StringBuilder custAddIdStr = new StringBuilder("[CustAdd ID] in (");
+            foreach (DataRowView a in custAddBindingSource.List)
+            {
+                safeandsounddb1DataSet.CustAddRow b = (safeandsounddb1DataSet.CustAddRow)a.Row;
 
-        }
-
-        private void e_Mail_AddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void last_NameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void last_NameLabel_Click(object sender, EventArgs e)
-        {
-
+                custAddIdStr.Append(b.CustAdd_ID + ", ");
+            }
+            if (custAddIdStr.Length > "[CustAdd ID] in (".Length)
+            {
+                custAddIdStr.Remove(custAddIdStr.Length - 2, 2);
+                phone_NumbersBindingSource.Filter = custAddIdStr.ToString() + ")";
+            }
+            else
+            {
+                phone_NumbersBindingSource.Filter = "[CustAdd ID] = Null";
+            }
+            phone_NumbersDataGridView.ClearSelection();
         }
 
         private void ButCancel_Click(object sender, EventArgs e)
-        { 
+        {
             safeandsounddb1DataSet.RejectChanges();
             CallingForm.Show();
             this.Dispose();
@@ -202,12 +227,12 @@ namespace WindowsFormsApplication1
             custAddBindingSource.EndEdit();
             phone_NumbersBindingSource.EndEdit();
             if (safeandsounddb1DataSet.HasChanges())
-            { 
+            {
                 tableAdapterManager.UpdateAll(safeandsounddb1DataSet);
             }
             safeandsounddb1DataSet.AcceptChanges();
             FilterAddresses();
-            PhoneFilter();
+            FilterPhoneNumbers();
         }
 
         private void addressesBindingSource_AddingNew(object sender, AddingNewEventArgs e)
@@ -217,7 +242,7 @@ namespace WindowsFormsApplication1
 
         private void addressesDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (addressesDataGridView.SelectedCells.Count>0) { ButAddressView_Click(sender, e); }
+            if (addressesDataGridView.SelectedCells.Count > 0) { ButAddressView_Click(sender, e); }
         }
 
         private void ButAddressView_Click(object sender, EventArgs e)
@@ -227,8 +252,8 @@ namespace WindowsFormsApplication1
             UpdateDataSet();
 
             //Merge Changes
-           // addressesTableAdapter.ClearBeforeFill = false;
-           // addressesTableAdapter.Fill(safeandsounddb1DataSet.addresses);
+            // addressesTableAdapter.ClearBeforeFill = false;
+            // addressesTableAdapter.Fill(safeandsounddb1DataSet.addresses);
             //addressesTableAdapter.ClearBeforeFill = true;
             //safeandsounddb1DataSet.Clear();
             //GetData();
@@ -284,23 +309,13 @@ namespace WindowsFormsApplication1
 
             System.Diagnostics.Debug.WriteLine(System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
-
-        private void addressesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private void ButNumbersViewAll_Click(object sender, EventArgs e)
         {
             addressesDataGridView.ClearSelection();
         }
 
-        private void addressesDataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            bool flag = addressesDataGridView.SelectedCells.Count > 0;
-            ButNumberAddressAdd.Enabled = flag;
-            ButAddressView.Enabled = flag;
-        }
 
         private void ButNumberAddressAdd_Click(object sender, EventArgs e)
         {
@@ -314,73 +329,14 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Error, CustAdd binding source does not contain the entry");
                 return;
             }
-                string defVal = "";
-                retryInput:
-                string newNumber = Interaction.InputBox("Enter telephone number to add", "Enter telephone number", defVal);
-                if (newNumber == "") return;
-                newNumber = Program.GetDigits(newNumber);
-
-                if (!(newNumber.Length == 10 || newNumber.Length == 11)) {
-                    MessageBox.Show("Invalid telephone number length", "Try Again",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                         defVal = newNumber;
-                    goto retryInput;
-                        }
-                bool found = false;
-                safeandsounddb1DataSet.Phone_NumbersRow foundRow
-            foreach (safeandsounddb1DataSet.Phone_NumbersRow row in safeandsounddb1DataSet.Phone_Numbers.Rows)
-                {
-                    if (row.Phone_Number == newNumber)
-                    {
-                        found = true;
-                        foundRow = row;
-                        break;
-                    }
-                }
-                if (found)
-                {
-                    //Loop through dataset to find correct address that matches foundRow not the bindingsoruce current, the same for the customer.
-                    safeandsounddb1DataSet.addressesRow address = (safeandsounddb1DataSet.addressesRow)((DataRowView)addressesBindingSource.Current).Row;
-                    string strCustomer = titleComboBox.DisplayMember + " " + first_NameTextBox.Text + " " + last_NameTextBox.Text;
-                    StringBuilder strAddress = new StringBuilder();
-                    if (!address.IsAddress_Line_1Null() && address.Address_Line_1 != "")
-                    {
-                        strAddress.Append(address.Address_Line_1 + ", ");
-                    }
-                    if (!address.IsAddress_Line_2Null() && address.Address_Line_2 != "")
-                    {
-                        strAddress.Append(address.Address_Line_2 + ", ");
-                    }
-                    if (!address.IsAddress_Line_3Null() && address.Address_Line_3 != "")
-                    {
-                        strAddress.Append(address.Address_Line_3 + ", ");
-                    }
-                    if (!address.IsTownNull() && address.Town != "")
-                    {
-                        strAddress.Append(address.Town + ", ");
-                    }
-                    if (!address.IsPost_CodeNull() && address.Post_Code != "")
-                    {
-                        strAddress.Append(address.Post_Code + ", ");
-                    }
-                    if (strAddress.Length > 2) strAddress = strAddress.Remove(strAddress.Length - 2, 2);
-                    DialogResult resp =  MessageBox.Show("Phone number already is use for: \n"+strCustomer+"\n"+strAddress.ToString()+ "\nPlease enter a new number.","Phone number already in use",MessageBoxButtons.RetryCancel,MessageBoxIcon.Information);
-                    if (resp == DialogResult.Retry)
-                    {
-                        defVal = newNumber;
-                        goto retryInput;
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-            custAddID = ((safeandsounddb1DataSet.CustAddRow)((DataRowView)custAddBindingSource.Current).Row).CustAdd_ID;
+            string newNumber = GetNewUniqueNumber();
+            if (newNumber == "") return;
+            int custAddID = ((safeandsounddb1DataSet.CustAddRow)((DataRowView)custAddBindingSource.Current).Row).CustAdd_ID;
             phone_NumbersBindingSource.AddNew();
             phone_NumbersBindingSource.MoveLast();
             ((safeandsounddb1DataSet.Phone_NumbersRow)((DataRowView)phone_NumbersBindingSource.Current).Row).CustAdd_ID = custAddID;
             ((safeandsounddb1DataSet.Phone_NumbersRow)((DataRowView)phone_NumbersBindingSource.Current).Row).Phone_Number = newNumber;
             phone_NumbersBindingSource.EndEdit();
-            
         }
 
         private void ButNumberCustomerAdd_Click(object sender, EventArgs e)
@@ -388,7 +344,134 @@ namespace WindowsFormsApplication1
             customersBindingSource.EndEdit();
             addressesBindingSource.EndEdit();
             custAddBindingSource.EndEdit();
+            custAddBindingSource.Filter = "[Address ID] is NULL AND [Customer ID] = " + ((safeandsounddb1DataSet.CustomersRow)((DataRowView)customersBindingSource.Current).Row).Customer_ID.ToString();
+            if (custAddBindingSource.Count == 0)
+            {
+                custAddBindingSource.Filter = "";
+                custAddBindingSource.AddNew();
+                custAddBindingSource.MoveLast();
+                ((safeandsounddb1DataSet.CustAddRow)((DataRowView)custAddBindingSource.Current).Row).Customer_ID = ((safeandsounddb1DataSet.CustomersRow)((DataRowView)customersBindingSource.Current).Row).Customer_ID;
+                custAddBindingSource.EndEdit();
+            }
+            custAddBindingSource.Filter = "[Address ID] is NULL AND [Customer ID] = " + ((safeandsounddb1DataSet.CustomersRow)((DataRowView)customersBindingSource.Current).Row).Customer_ID.ToString();
+            if (custAddBindingSource.Count == 0)
+            {
+                MessageBox.Show("Error, CustAdd binding source does not contain the entry, failed to add correctly!");
+                return;
+            }
+            string newNumber = GetNewUniqueNumber();
+            if (newNumber == "") return;
+            int custAddID = ((safeandsounddb1DataSet.CustAddRow)((DataRowView)custAddBindingSource.Current).Row).CustAdd_ID;
+            phone_NumbersBindingSource.AddNew();
+            phone_NumbersBindingSource.MoveLast();
+            ((safeandsounddb1DataSet.Phone_NumbersRow)((DataRowView)phone_NumbersBindingSource.Current).Row).CustAdd_ID = custAddID;
+            ((safeandsounddb1DataSet.Phone_NumbersRow)((DataRowView)phone_NumbersBindingSource.Current).Row).Phone_Number = newNumber;
+            phone_NumbersBindingSource.EndEdit();
 
         }
+        private string GetNewUniqueNumber()
+        {
+            string newNumber = "";
+            string defVal = "";
+            bool validNumber = false;
+            while (!validNumber)
+            {
+                newNumber = Interaction.InputBox("Enter telephone number to add", "Enter telephone number", defVal);
+                if (newNumber == "")
+                {
+                    validNumber = true;
+                    continue;
+                }
+                newNumber = Program.GetDigits(newNumber);
+
+                if (!(newNumber.Length == 10 || newNumber.Length == 11))
+                {
+                    MessageBox.Show("Invalid telephone number length", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    defVal = newNumber;
+                    continue;
+                }
+                bool foundDuplicate = false;
+                safeandsounddb1DataSet.Phone_NumbersRow foundRow = null;
+                foreach (safeandsounddb1DataSet.Phone_NumbersRow row in safeandsounddb1DataSet.Phone_Numbers.Rows)
+                {
+                    if (row.Phone_Number == newNumber)
+                    {
+                        foundDuplicate = true;
+                        foundRow = row;
+                        break;
+                    }
+                }
+                if (foundDuplicate)
+                {
+                    BindingSource tempAddressBindingSource = new BindingSource(safeandsounddb1DataSet, safeandsounddb1DataSet.addresses.ToString());
+                    BindingSource tempCustomerBindingSource = new BindingSource(safeandsounddb1DataSet, safeandsounddb1DataSet.Customers.ToString());
+                    BindingSource tempCustAddBindingSource = new BindingSource(safeandsounddb1DataSet, safeandsounddb1DataSet.CustAdd.ToString());
+                    tempCustAddBindingSource.Filter = "[CustAdd ID] = " + foundRow.CustAdd_ID.ToString();
+
+                    //Customer String
+                    string strCustomer = GenerateCustomerString(tempCustomerBindingSource, tempCustAddBindingSource);
+
+                    //Address String
+                    string strAddress = GenerateAddressString(tempAddressBindingSource, tempCustAddBindingSource);
+                    DialogResult resp = MessageBox.Show("Phone number already is use for: \n" + strCustomer + "\n" + strAddress + "\nPlease enter a new number.", "Phone number already in use", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
+                    if (resp == DialogResult.Retry)
+                    {
+                        defVal = newNumber;
+                        continue;
+                    }
+                    else
+                    {
+                        newNumber = "";
+                        continue;
+                    }
+                }
+                else
+                {
+                    validNumber = true;
+                }
+            }
+
+            return newNumber;
+        }
+
+        private static String GenerateAddressString(BindingSource tempAddressBindingSource, BindingSource tempCustAddBindingSource)
+        {
+            StringBuilder strAddress = new StringBuilder("");
+            if (!((safeandsounddb1DataSet.CustAddRow)((DataRowView)tempCustAddBindingSource.List[0]).Row).IsAddress_IDNull())
+            {
+                int tempAddressID = ((safeandsounddb1DataSet.CustAddRow)((DataRowView)tempCustAddBindingSource.List[0]).Row).Address_ID;
+                tempAddressBindingSource.Filter = "[Address ID] = " + tempAddressID;
+                safeandsounddb1DataSet.addressesRow address = (safeandsounddb1DataSet.addressesRow)((DataRowView)tempAddressBindingSource.List[0]).Row;
+
+                if (!address.IsAddress_Line_1Null() && address.Address_Line_1 != "") strAddress.Append(address.Address_Line_1 + ", ");
+                if (!address.IsAddress_Line_2Null() && address.Address_Line_2 != "") strAddress.Append(address.Address_Line_2 + ", ");
+                if (!address.IsAddress_Line_3Null() && address.Address_Line_3 != "") strAddress.Append(address.Address_Line_3 + ", ");
+                if (!address.IsTownNull() && address.Town != "") strAddress.Append(address.Town + ", ");
+                if (!address.IsPost_CodeNull() && address.Post_Code != "") strAddress.Append(address.Post_Code + ", ");
+                if (strAddress.Length > 2) strAddress = strAddress.Remove(strAddress.Length - 2, 2);
+            }
+
+            return strAddress.ToString();
+        }
+
+        private static string GenerateCustomerString(BindingSource tempCustomerBindingSource, BindingSource tempCustAddBindingSource)
+        {
+            string strCustomer;
+            if (!((safeandsounddb1DataSet.CustAddRow)((DataRowView)tempCustAddBindingSource.List[0]).Row).IsCustomer_IDNull())
+            {
+                int tempCustomerID = ((safeandsounddb1DataSet.CustAddRow)((DataRowView)tempCustAddBindingSource.List[0]).Row).Customer_ID;
+                tempCustomerBindingSource.Filter = "[Customer ID] = " + tempCustomerID;
+                safeandsounddb1DataSet.CustomersRow customer = (safeandsounddb1DataSet.CustomersRow)((DataRowView)tempCustomerBindingSource.List[0]).Row;
+                strCustomer = (customer.IsFirst_NameNull() ? "" : customer.First_Name + " ") + (customer.IsLast_NameNull() ? "" : customer.Last_Name);
+                strCustomer = strCustomer.Trim();
+            }
+            else
+            {
+                strCustomer = "";
+            }
+
+            return strCustomer;
+        }
+
     }
 }

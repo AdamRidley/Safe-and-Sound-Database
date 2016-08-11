@@ -180,7 +180,7 @@
             this.AddressesDataGridView.ReadOnly = true;
             this.AddressesDataGridView.RowHeadersWidth = 25;
             this.AddressesDataGridView.Size = new System.Drawing.Size(749, 195);
-            this.AddressesDataGridView.TabIndex = 48;
+            this.AddressesDataGridView.TabIndex = 7;
             this.AddressesDataGridView.SelectionChanged += new System.EventHandler(this.AddressesDataGridView_SelectionChanged);
             // 
             // addressIDDataGridViewTextBoxColumn
@@ -249,7 +249,7 @@
             this.Address_Line_1TextBox.Location = new System.Drawing.Point(147, 29);
             this.Address_Line_1TextBox.Name = "Address_Line_1TextBox";
             this.Address_Line_1TextBox.Size = new System.Drawing.Size(100, 20);
-            this.Address_Line_1TextBox.TabIndex = 38;
+            this.Address_Line_1TextBox.TabIndex = 1;
             this.Address_Line_1TextBox.TextChanged += new System.EventHandler(this.Address_Line_1TextBox_TextChanged);
             // 
             // Address_Line_2TextBox
@@ -257,7 +257,7 @@
             this.Address_Line_2TextBox.Location = new System.Drawing.Point(371, 29);
             this.Address_Line_2TextBox.Name = "Address_Line_2TextBox";
             this.Address_Line_2TextBox.Size = new System.Drawing.Size(100, 20);
-            this.Address_Line_2TextBox.TabIndex = 40;
+            this.Address_Line_2TextBox.TabIndex = 2;
             this.Address_Line_2TextBox.TextChanged += new System.EventHandler(this.Address_Line_2TextBox_TextChanged);
             // 
             // Address_Line_3TextBox
@@ -265,7 +265,7 @@
             this.Address_Line_3TextBox.Location = new System.Drawing.Point(595, 29);
             this.Address_Line_3TextBox.Name = "Address_Line_3TextBox";
             this.Address_Line_3TextBox.Size = new System.Drawing.Size(100, 20);
-            this.Address_Line_3TextBox.TabIndex = 42;
+            this.Address_Line_3TextBox.TabIndex = 3;
             this.Address_Line_3TextBox.TextChanged += new System.EventHandler(this.Address_Line_3TextBox_TextChanged);
             // 
             // TownTextBox
@@ -273,7 +273,7 @@
             this.TownTextBox.Location = new System.Drawing.Point(147, 55);
             this.TownTextBox.Name = "TownTextBox";
             this.TownTextBox.Size = new System.Drawing.Size(100, 20);
-            this.TownTextBox.TabIndex = 44;
+            this.TownTextBox.TabIndex = 4;
             this.TownTextBox.TextChanged += new System.EventHandler(this.TownTextBox_TextChanged);
             // 
             // NotesTextBox
@@ -281,7 +281,7 @@
             this.NotesTextBox.Location = new System.Drawing.Point(595, 55);
             this.NotesTextBox.Name = "NotesTextBox";
             this.NotesTextBox.Size = new System.Drawing.Size(100, 20);
-            this.NotesTextBox.TabIndex = 49;
+            this.NotesTextBox.TabIndex = 6;
             this.NotesTextBox.TextChanged += new System.EventHandler(this.NotesTextBox_TextChanged);
             // 
             // Phone_NumbersDataGridView
@@ -303,7 +303,7 @@
             this.Phone_NumbersDataGridView.ReadOnly = true;
             this.Phone_NumbersDataGridView.RowHeadersWidth = 25;
             this.Phone_NumbersDataGridView.Size = new System.Drawing.Size(137, 195);
-            this.Phone_NumbersDataGridView.TabIndex = 54;
+            this.Phone_NumbersDataGridView.TabIndex = 9;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -346,7 +346,7 @@
             this.ButChoose.Location = new System.Drawing.Point(766, 301);
             this.ButChoose.Name = "ButChoose";
             this.ButChoose.Size = new System.Drawing.Size(65, 32);
-            this.ButChoose.TabIndex = 53;
+            this.ButChoose.TabIndex = 10;
             this.ButChoose.Text = "C&hoose";
             this.ButChoose.UseVisualStyleBackColor = true;
             this.ButChoose.Click += new System.EventHandler(this.ButChoose_Click);
@@ -358,7 +358,7 @@
             this.ButCancel.Location = new System.Drawing.Point(838, 301);
             this.ButCancel.Name = "ButCancel";
             this.ButCancel.Size = new System.Drawing.Size(65, 32);
-            this.ButCancel.TabIndex = 52;
+            this.ButCancel.TabIndex = 11;
             this.ButCancel.Text = "&Cancel";
             this.ButCancel.UseVisualStyleBackColor = true;
             this.ButCancel.Click += new System.EventHandler(this.ButCancel_Click);
@@ -390,7 +390,7 @@
             this.CustomersDataGridView.ReadOnly = true;
             this.CustomersDataGridView.RowHeadersWidth = 25;
             this.CustomersDataGridView.Size = new System.Drawing.Size(749, 43);
-            this.CustomersDataGridView.TabIndex = 50;
+            this.CustomersDataGridView.TabIndex = 8;
             // 
             // customerIDDataGridViewTextBoxColumn
             // 
@@ -506,7 +506,7 @@
             this.Post_CodeTextBox.Location = new System.Drawing.Point(371, 55);
             this.Post_CodeTextBox.Name = "Post_CodeTextBox";
             this.Post_CodeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.Post_CodeTextBox.TabIndex = 55;
+            this.Post_CodeTextBox.TabIndex = 5;
             this.Post_CodeTextBox.TextChanged += new System.EventHandler(this.Post_CodeTextBox_TextChanged);
             // 
             // servicingTypeTableAdapter

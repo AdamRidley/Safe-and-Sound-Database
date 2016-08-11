@@ -70,9 +70,6 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.ButChoose = new System.Windows.Forms.Button();
             this.Phone_NumbersDataGridView = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.custAddIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titlesTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TitlesTableAdapter();
             this.phone_NumbersTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Phone_NumbersTableAdapter();
             this.customersTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.CustomersTableAdapter();
@@ -81,6 +78,7 @@
             this.tableAdapterManager = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.TableAdapterManager();
             this.customers_Friendly_ViewTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.Customers_Friendly_ViewTableAdapter();
             this.servicingTypeTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             E_Mail_AddressLabel = new System.Windows.Forms.Label();
             TitleLabel = new System.Windows.Forms.Label();
             First_NameLabel = new System.Windows.Forms.Label();
@@ -103,7 +101,7 @@
             E_Mail_AddressLabel.Location = new System.Drawing.Point(22, 76);
             E_Mail_AddressLabel.Name = "E_Mail_AddressLabel";
             E_Mail_AddressLabel.Size = new System.Drawing.Size(80, 13);
-            E_Mail_AddressLabel.TabIndex = 47;
+            E_Mail_AddressLabel.TabIndex = 8;
             E_Mail_AddressLabel.Text = "E-Mail Address:";
             // 
             // TitleLabel
@@ -112,7 +110,7 @@
             TitleLabel.Location = new System.Drawing.Point(8, 39);
             TitleLabel.Name = "TitleLabel";
             TitleLabel.Size = new System.Drawing.Size(30, 13);
-            TitleLabel.TabIndex = 36;
+            TitleLabel.TabIndex = 2;
             TitleLabel.Text = "Title:";
             // 
             // First_NameLabel
@@ -121,7 +119,7 @@
             First_NameLabel.Location = new System.Drawing.Point(123, 39);
             First_NameLabel.Name = "First_NameLabel";
             First_NameLabel.Size = new System.Drawing.Size(60, 13);
-            First_NameLabel.TabIndex = 38;
+            First_NameLabel.TabIndex = 4;
             First_NameLabel.Text = "First Name:";
             // 
             // Last_NameLabel
@@ -130,7 +128,7 @@
             Last_NameLabel.Location = new System.Drawing.Point(373, 39);
             Last_NameLabel.Name = "Last_NameLabel";
             Last_NameLabel.Size = new System.Drawing.Size(61, 13);
-            Last_NameLabel.TabIndex = 40;
+            Last_NameLabel.TabIndex = 6;
             Last_NameLabel.Text = "Last Name:";
             // 
             // AddressesDataGridView
@@ -157,7 +155,8 @@
             this.AddressesDataGridView.RowHeadersWidth = 25;
             this.AddressesDataGridView.RowTemplate.Height = 33;
             this.AddressesDataGridView.Size = new System.Drawing.Size(649, 142);
-            this.AddressesDataGridView.TabIndex = 45;
+            this.AddressesDataGridView.TabIndex = 12;
+            this.AddressesDataGridView.SelectionChanged += new System.EventHandler(this.AddressesDataGridView_SelectionChanged);
             // 
             // addressIDDataGridViewTextBoxColumn
             // 
@@ -226,7 +225,8 @@
             // 
             // Phone_NumbersBindingSource
             // 
-            this.Phone_NumbersBindingSource.DataSource = this.phoneNumbersibfk1BindingSource;
+            this.Phone_NumbersBindingSource.DataMember = "Phone Numbers";
+            this.Phone_NumbersBindingSource.DataSource = this.safeandsounddb1DataSet;
             // 
             // phoneNumbersibfk1BindingSource
             // 
@@ -245,7 +245,7 @@
             this.Label2.Location = new System.Drawing.Point(429, 95);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(231, 13);
-            this.Label2.TabIndex = 43;
+            this.Label2.TabIndex = 13;
             this.Label2.Text = "Select a customer to view their phone numbers:";
             // 
             // TitleComboBox
@@ -256,7 +256,7 @@
             this.TitleComboBox.Location = new System.Drawing.Point(44, 36);
             this.TitleComboBox.Name = "TitleComboBox";
             this.TitleComboBox.Size = new System.Drawing.Size(67, 21);
-            this.TitleComboBox.TabIndex = 37;
+            this.TitleComboBox.TabIndex = 3;
             this.TitleComboBox.ValueMember = "ID";
             this.TitleComboBox.TextChanged += new System.EventHandler(this.TitleComboBox_TextChanged);
             // 
@@ -265,7 +265,7 @@
             this.First_NameTextBox.Location = new System.Drawing.Point(189, 36);
             this.First_NameTextBox.Name = "First_NameTextBox";
             this.First_NameTextBox.Size = new System.Drawing.Size(173, 20);
-            this.First_NameTextBox.TabIndex = 39;
+            this.First_NameTextBox.TabIndex = 5;
             this.First_NameTextBox.TextChanged += new System.EventHandler(this.First_NameTextBox_TextChanged);
             // 
             // Last_NameTextBox
@@ -273,7 +273,7 @@
             this.Last_NameTextBox.Location = new System.Drawing.Point(440, 36);
             this.Last_NameTextBox.Name = "Last_NameTextBox";
             this.Last_NameTextBox.Size = new System.Drawing.Size(173, 20);
-            this.Last_NameTextBox.TabIndex = 41;
+            this.Last_NameTextBox.TabIndex = 7;
             this.Last_NameTextBox.TextChanged += new System.EventHandler(this.Last_NameTextBox_TextChanged);
             // 
             // CustomersDataGridView
@@ -322,7 +322,7 @@
             this.CustomersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.CustomersDataGridView.RowHeadersWidth = 25;
             this.CustomersDataGridView.Size = new System.Drawing.Size(496, 203);
-            this.CustomersDataGridView.TabIndex = 42;
+            this.CustomersDataGridView.TabIndex = 10;
             this.CustomersDataGridView.SelectionChanged += new System.EventHandler(this.CustomersDataGridView_SelectionChanged);
             // 
             // customerIDDataGridViewTextBoxColumn
@@ -376,7 +376,7 @@
             this.ButCancel.Location = new System.Drawing.Point(567, 481);
             this.ButCancel.Name = "ButCancel";
             this.ButCancel.Size = new System.Drawing.Size(90, 25);
-            this.ButCancel.TabIndex = 51;
+            this.ButCancel.TabIndex = 15;
             this.ButCancel.Text = "&Cancel";
             this.ButCancel.UseVisualStyleBackColor = true;
             this.ButCancel.Click += new System.EventHandler(this.ButCancel_Click);
@@ -387,7 +387,7 @@
             this.Label1.Location = new System.Drawing.Point(8, 9);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(103, 13);
-            this.Label1.TabIndex = 50;
+            this.Label1.TabIndex = 1;
             this.Label1.Text = "Enter search details:";
             // 
             // E_Mail_AddressTextBox
@@ -395,7 +395,7 @@
             this.E_Mail_AddressTextBox.Location = new System.Drawing.Point(108, 73);
             this.E_Mail_AddressTextBox.Name = "E_Mail_AddressTextBox";
             this.E_Mail_AddressTextBox.Size = new System.Drawing.Size(213, 20);
-            this.E_Mail_AddressTextBox.TabIndex = 49;
+            this.E_Mail_AddressTextBox.TabIndex = 9;
             this.E_Mail_AddressTextBox.TextChanged += new System.EventHandler(this.E_Mail_AddressTextBox_TextChanged);
             // 
             // Label3
@@ -405,7 +405,7 @@
             this.Label3.Location = new System.Drawing.Point(11, 317);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(206, 13);
-            this.Label3.TabIndex = 46;
+            this.Label3.TabIndex = 11;
             this.Label3.Text = "Select a customer to view their addresses:";
             // 
             // ButChoose
@@ -415,7 +415,7 @@
             this.ButChoose.Location = new System.Drawing.Point(471, 481);
             this.ButChoose.Name = "ButChoose";
             this.ButChoose.Size = new System.Drawing.Size(90, 25);
-            this.ButChoose.TabIndex = 48;
+            this.ButChoose.TabIndex = 14;
             this.ButChoose.Text = "C&hoose";
             this.ButChoose.UseVisualStyleBackColor = true;
             this.ButChoose.Click += new System.EventHandler(this.ButChoose_Click);
@@ -437,8 +437,6 @@
             this.Phone_NumbersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Phone_NumbersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Phone_NumbersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.custAddIDDataGridViewTextBoxColumn,
             this.phoneNumberDataGridViewTextBoxColumn});
             this.Phone_NumbersDataGridView.DataSource = this.Phone_NumbersBindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -464,30 +462,6 @@
             this.Phone_NumbersDataGridView.RowHeadersWidth = 25;
             this.Phone_NumbersDataGridView.Size = new System.Drawing.Size(147, 203);
             this.Phone_NumbersDataGridView.TabIndex = 44;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // custAddIDDataGridViewTextBoxColumn
-            // 
-            this.custAddIDDataGridViewTextBoxColumn.DataPropertyName = "CustAdd ID";
-            this.custAddIDDataGridViewTextBoxColumn.HeaderText = "CustAdd ID";
-            this.custAddIDDataGridViewTextBoxColumn.Name = "custAddIDDataGridViewTextBoxColumn";
-            this.custAddIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.custAddIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Phone Number";
-            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
-            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.phoneNumberDataGridViewTextBoxColumn.Width = 120;
             // 
             // titlesTableAdapter
             // 
@@ -546,6 +520,14 @@
             // servicingTypeTableAdapter
             // 
             this.servicingTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Phone Number";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.phoneNumberDataGridViewTextBoxColumn.Width = 120;
             // 
             // FormFindCustomer
             // 
@@ -618,9 +600,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn townDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn custAddIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource custAddBindingSource;
         private safeandsounddb1DataSetTableAdapters.CustAddTableAdapter custAddTableAdapter;
         private safeandsounddb1DataSetTableAdapters.TableAdapterManager tableAdapterManager;
@@ -632,5 +611,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eMailAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource phoneNumbersibfk1BindingSource;
         private safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter servicingTypeTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
     }
 }

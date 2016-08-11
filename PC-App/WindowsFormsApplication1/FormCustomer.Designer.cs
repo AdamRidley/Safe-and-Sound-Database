@@ -49,6 +49,15 @@
             this.e_Mail_AddressTextBox = new System.Windows.Forms.TextBox();
             this.addressesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressesDataGridView = new System.Windows.Forms.DataGridView();
+            this.addressIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressLine1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressLine2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressLine3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.townDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.servicingTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone_NumbersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.phone_NumbersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,15 +72,6 @@
             this.custAddBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.servicingTypeTableAdapter = new WindowsFormsApplication1.safeandsounddb1DataSetTableAdapters.ServicingTypeTableAdapter();
             this.service_IntervalTextBox = new System.Windows.Forms.TextBox();
-            this.servicingTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.addressIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressLine1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressLine2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressLine3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.townDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             titleLabel = new System.Windows.Forms.Label();
             first_NameLabel = new System.Windows.Forms.Label();
             last_NameLabel = new System.Windows.Forms.Label();
@@ -82,10 +82,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.titlesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicingTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phone_NumbersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phone_NumbersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicingTypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -114,7 +114,6 @@
             last_NameLabel.Size = new System.Drawing.Size(61, 13);
             last_NameLabel.TabIndex = 4;
             last_NameLabel.Text = "Last Name:";
-            last_NameLabel.Click += new System.EventHandler(this.last_NameLabel_Click);
             // 
             // e_Mail_AddressLabel
             // 
@@ -124,7 +123,6 @@
             e_Mail_AddressLabel.Size = new System.Drawing.Size(80, 13);
             e_Mail_AddressLabel.TabIndex = 6;
             e_Mail_AddressLabel.Text = "E-Mail Address:";
-            e_Mail_AddressLabel.Click += new System.EventHandler(this.e_Mail_AddressLabel_Click);
             // 
             // service_IntervalLabel
             // 
@@ -230,7 +228,6 @@
             this.last_NameTextBox.Name = "last_NameTextBox";
             this.last_NameTextBox.Size = new System.Drawing.Size(124, 20);
             this.last_NameTextBox.TabIndex = 5;
-            this.last_NameTextBox.TextChanged += new System.EventHandler(this.last_NameTextBox_TextChanged);
             // 
             // e_Mail_AddressTextBox
             // 
@@ -239,7 +236,6 @@
             this.e_Mail_AddressTextBox.Name = "e_Mail_AddressTextBox";
             this.e_Mail_AddressTextBox.Size = new System.Drawing.Size(215, 20);
             this.e_Mail_AddressTextBox.TabIndex = 7;
-            this.e_Mail_AddressTextBox.TextChanged += new System.EventHandler(this.e_Mail_AddressTextBox_TextChanged);
             // 
             // addressesBindingSource
             // 
@@ -272,7 +268,6 @@
             this.addressesDataGridView.RowTemplate.Height = 33;
             this.addressesDataGridView.Size = new System.Drawing.Size(773, 255);
             this.addressesDataGridView.TabIndex = 8;
-            this.addressesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.addressesDataGridView_CellContentClick);
             this.addressesDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.addressesDataGridView_CellMouseDoubleClick);
             this.addressesDataGridView.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.addressesDataGridView_CellValidated);
             this.addressesDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.addressesDataGridView_CellValidating);
@@ -282,6 +277,70 @@
             this.addressesDataGridView.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.addressesDataGridView_UserAddedRow);
             this.addressesDataGridView.Leave += new System.EventHandler(this.addressesDataGridView_Leave);
             // 
+            // addressIDDataGridViewTextBoxColumn
+            // 
+            this.addressIDDataGridViewTextBoxColumn.DataPropertyName = "Address ID";
+            this.addressIDDataGridViewTextBoxColumn.HeaderText = "Address ID";
+            this.addressIDDataGridViewTextBoxColumn.Name = "addressIDDataGridViewTextBoxColumn";
+            this.addressIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // addressLine1DataGridViewTextBoxColumn
+            // 
+            this.addressLine1DataGridViewTextBoxColumn.DataPropertyName = "Address Line 1";
+            this.addressLine1DataGridViewTextBoxColumn.HeaderText = "Address Line 1";
+            this.addressLine1DataGridViewTextBoxColumn.Name = "addressLine1DataGridViewTextBoxColumn";
+            // 
+            // addressLine2DataGridViewTextBoxColumn
+            // 
+            this.addressLine2DataGridViewTextBoxColumn.DataPropertyName = "Address Line 2";
+            this.addressLine2DataGridViewTextBoxColumn.HeaderText = "Address Line 2";
+            this.addressLine2DataGridViewTextBoxColumn.Name = "addressLine2DataGridViewTextBoxColumn";
+            // 
+            // addressLine3DataGridViewTextBoxColumn
+            // 
+            this.addressLine3DataGridViewTextBoxColumn.DataPropertyName = "Address Line 3";
+            this.addressLine3DataGridViewTextBoxColumn.HeaderText = "Address Line 3";
+            this.addressLine3DataGridViewTextBoxColumn.Name = "addressLine3DataGridViewTextBoxColumn";
+            // 
+            // townDataGridViewTextBoxColumn
+            // 
+            this.townDataGridViewTextBoxColumn.DataPropertyName = "Town";
+            this.townDataGridViewTextBoxColumn.HeaderText = "Town";
+            this.townDataGridViewTextBoxColumn.Name = "townDataGridViewTextBoxColumn";
+            // 
+            // postCodeDataGridViewTextBoxColumn
+            // 
+            this.postCodeDataGridViewTextBoxColumn.DataPropertyName = "Post Code";
+            this.postCodeDataGridViewTextBoxColumn.HeaderText = "Post Code";
+            this.postCodeDataGridViewTextBoxColumn.Name = "postCodeDataGridViewTextBoxColumn";
+            this.postCodeDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Servicing Type";
+            this.dataGridViewTextBoxColumn1.DataSource = this.servicingTypeBindingSource;
+            this.dataGridViewTextBoxColumn1.DisplayMember = "Type";
+            this.dataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.dataGridViewTextBoxColumn1.DisplayStyleForCurrentCellOnly = true;
+            this.dataGridViewTextBoxColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Servicing Type";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn1.ValueMember = "ID";
+            // 
+            // servicingTypeBindingSource
+            // 
+            this.servicingTypeBindingSource.DataMember = "ServicingType";
+            this.servicingTypeBindingSource.DataSource = this.safeandsounddb1DataSet;
+            // 
+            // notesDataGridViewTextBoxColumn
+            // 
+            this.notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
+            this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
+            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
+            this.notesDataGridViewTextBoxColumn.Width = 150;
+            // 
             // phone_NumbersBindingSource
             // 
             this.phone_NumbersBindingSource.DataMember = "Phone Numbers";
@@ -290,6 +349,9 @@
             // phone_NumbersDataGridView
             // 
             this.phone_NumbersDataGridView.AllowUserToAddRows = false;
+            this.phone_NumbersDataGridView.AllowUserToDeleteRows = false;
+            this.phone_NumbersDataGridView.AllowUserToResizeColumns = false;
+            this.phone_NumbersDataGridView.AllowUserToResizeRows = false;
             this.phone_NumbersDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.phone_NumbersDataGridView.AutoGenerateColumns = false;
@@ -302,6 +364,7 @@
             this.phone_NumbersDataGridView.Location = new System.Drawing.Point(794, 52);
             this.phone_NumbersDataGridView.MultiSelect = false;
             this.phone_NumbersDataGridView.Name = "phone_NumbersDataGridView";
+            this.phone_NumbersDataGridView.ReadOnly = true;
             this.phone_NumbersDataGridView.RowHeadersWidth = 25;
             this.phone_NumbersDataGridView.Size = new System.Drawing.Size(156, 165);
             this.phone_NumbersDataGridView.TabIndex = 9;
@@ -311,6 +374,7 @@
             this.dataGridViewTextBoxColumn8.DataPropertyName = "ID";
             this.dataGridViewTextBoxColumn8.HeaderText = "ID";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Visible = false;
             // 
             // dataGridViewTextBoxColumn9
@@ -318,6 +382,7 @@
             this.dataGridViewTextBoxColumn9.DataPropertyName = "CustAdd ID";
             this.dataGridViewTextBoxColumn9.HeaderText = "CustAdd ID";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.Visible = false;
             // 
             // dataGridViewTextBoxColumn10
@@ -325,6 +390,7 @@
             this.dataGridViewTextBoxColumn10.DataPropertyName = "Phone Number";
             this.dataGridViewTextBoxColumn10.HeaderText = "Phone Number";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Width = 120;
             // 
             // ButAddressView
@@ -411,70 +477,6 @@
             this.service_IntervalTextBox.Size = new System.Drawing.Size(100, 20);
             this.service_IntervalTextBox.TabIndex = 17;
             // 
-            // servicingTypeBindingSource
-            // 
-            this.servicingTypeBindingSource.DataMember = "ServicingType";
-            this.servicingTypeBindingSource.DataSource = this.safeandsounddb1DataSet;
-            // 
-            // addressIDDataGridViewTextBoxColumn
-            // 
-            this.addressIDDataGridViewTextBoxColumn.DataPropertyName = "Address ID";
-            this.addressIDDataGridViewTextBoxColumn.HeaderText = "Address ID";
-            this.addressIDDataGridViewTextBoxColumn.Name = "addressIDDataGridViewTextBoxColumn";
-            this.addressIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // addressLine1DataGridViewTextBoxColumn
-            // 
-            this.addressLine1DataGridViewTextBoxColumn.DataPropertyName = "Address Line 1";
-            this.addressLine1DataGridViewTextBoxColumn.HeaderText = "Address Line 1";
-            this.addressLine1DataGridViewTextBoxColumn.Name = "addressLine1DataGridViewTextBoxColumn";
-            // 
-            // addressLine2DataGridViewTextBoxColumn
-            // 
-            this.addressLine2DataGridViewTextBoxColumn.DataPropertyName = "Address Line 2";
-            this.addressLine2DataGridViewTextBoxColumn.HeaderText = "Address Line 2";
-            this.addressLine2DataGridViewTextBoxColumn.Name = "addressLine2DataGridViewTextBoxColumn";
-            // 
-            // addressLine3DataGridViewTextBoxColumn
-            // 
-            this.addressLine3DataGridViewTextBoxColumn.DataPropertyName = "Address Line 3";
-            this.addressLine3DataGridViewTextBoxColumn.HeaderText = "Address Line 3";
-            this.addressLine3DataGridViewTextBoxColumn.Name = "addressLine3DataGridViewTextBoxColumn";
-            // 
-            // townDataGridViewTextBoxColumn
-            // 
-            this.townDataGridViewTextBoxColumn.DataPropertyName = "Town";
-            this.townDataGridViewTextBoxColumn.HeaderText = "Town";
-            this.townDataGridViewTextBoxColumn.Name = "townDataGridViewTextBoxColumn";
-            // 
-            // postCodeDataGridViewTextBoxColumn
-            // 
-            this.postCodeDataGridViewTextBoxColumn.DataPropertyName = "Post Code";
-            this.postCodeDataGridViewTextBoxColumn.HeaderText = "Post Code";
-            this.postCodeDataGridViewTextBoxColumn.Name = "postCodeDataGridViewTextBoxColumn";
-            this.postCodeDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Servicing Type";
-            this.dataGridViewTextBoxColumn1.DataSource = this.servicingTypeBindingSource;
-            this.dataGridViewTextBoxColumn1.DisplayMember = "Type";
-            this.dataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.dataGridViewTextBoxColumn1.DisplayStyleForCurrentCellOnly = true;
-            this.dataGridViewTextBoxColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Servicing Type";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn1.ValueMember = "ID";
-            // 
-            // notesDataGridViewTextBoxColumn
-            // 
-            this.notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
-            this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
-            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
-            this.notesDataGridViewTextBoxColumn.Width = 150;
-            // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -507,10 +509,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.titlesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicingTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phone_NumbersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phone_NumbersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.custAddBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicingTypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

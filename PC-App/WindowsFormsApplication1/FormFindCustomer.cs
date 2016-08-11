@@ -14,6 +14,7 @@ namespace WindowsFormsApplication1
     {
         private int searchFor;
         public int foundId;
+        private bool dataFilled;
 
         public FormFindCustomer()
         {
@@ -26,6 +27,8 @@ namespace WindowsFormsApplication1
 
         private void FormFindCustomer_Load(object sender, EventArgs e)
         {
+            dataFilled = false;
+            // TODO: This line of code loads data into the 'safeandsounddb1DataSet.PhoneCall' table. You can move, or remove it, as needed.
             this.servicingTypeTableAdapter.Fill(this.safeandsounddb1DataSet.ServicingType);
             this.addressesTableAdapter.Fill(this.safeandsounddb1DataSet.addresses);
             this.titlesTableAdapter.Fill(this.safeandsounddb1DataSet.Titles);
@@ -33,6 +36,9 @@ namespace WindowsFormsApplication1
             this.customersTableAdapter.Fill(this.safeandsounddb1DataSet.Customers);
             this.custAddTableAdapter.Fill(this.safeandsounddb1DataSet.CustAdd);
             this.phone_NumbersTableAdapter.Fill(this.safeandsounddb1DataSet.Phone_Numbers);
+            dataFilled = true;
+            TitleComboBox.SelectedIndex = -1;
+            ApplyFilters(1);
         }
 
         private void FilterCustomers()
@@ -84,10 +90,56 @@ namespace WindowsFormsApplication1
         
         private void CustomersDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (CustomersDataGridView.SelectedCells.Count==0||CustomersDataGridView.SelectedCells[0].ColumnIndex==-1 ||CustomersDataGridView.SelectedCells[0].RowIndex==-1) { AddressesBindingSource.Filter = "[Address ID] = Null";Phone_NumbersBindingSource.Filter = "[ID] = Null"; ButChooseSetVisibility(); return;}
-            custAddBindingSource.Filter = "[Customer ID] = " + CustomersDataGridView.SelectedCells[0].OwningRow.Cells["customerIDDataGridViewTextBoxColumn"].Value.ToString();
-            StringBuilder addressIdStr = new StringBuilder("[Address ID] in (" );
-            StringBuilder custAddIdStr = new StringBuilder("[CustAdd ID] in (" );
+            if (dataFilled)
+            {
+                ApplyFilters(1);
+            }
+        }
+        private void AddressesDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataFilled)
+            {
+                ApplyFilters(2);
+            }           
+        }
+        private void ApplyFilters(int calledFrom) // calledFrom 1 for CustomersDataGridView, 2 for AddressesDataGridView
+        {
+            if (CustomersDataGridView.SelectedCells.Count == 0 || CustomersDataGridView.SelectedCells[0].ColumnIndex == -1 || CustomersDataGridView.SelectedCells[0].RowIndex == -1)
+            {
+                AddressesBindingSource.Filter = "[Address ID] = Null";
+                Phone_NumbersBindingSource.Filter = "[ID] = Null";
+                ButChooseSetVisibility();
+                return;
+            }
+            if (calledFrom==1 || AddressesDataGridView.SelectedCells.Count == 0 || AddressesDataGridView.SelectedCells[0].ColumnIndex == -1 || AddressesDataGridView.SelectedCells[0].RowIndex == -1)
+            {
+                custAddBindingSource.Filter = "[Customer ID] = " + CustomersDataGridView.SelectedCells[0].OwningRow.Cells[customerIDDataGridViewTextBoxColumn.Index].Value.ToString();
+                FilterAddresses();
+                AddressesDataGridView.ClearSelection();
+                FilterPhoneNumbers();
+            }
+            else
+            {
+                if(AddressesDataGridView.SelectedCells[0].OwningRow.Cells[addressIDDataGridViewTextBoxColumn.Index].Value!=null)
+                {
+
+                    custAddBindingSource.Filter = "[Customer ID] = " + CustomersDataGridView.SelectedCells[0].OwningRow.Cells[customerIDDataGridViewTextBoxColumn.Index].Value.ToString()
+                        + " AND [Address ID] = " + AddressesDataGridView.SelectedCells[0].OwningRow.Cells[addressIDDataGridViewTextBoxColumn.Index].Value.ToString();
+                }
+                else
+                {
+
+                    System.Diagnostics.Debug.Print("Addresses row error/n" + AddressesDataGridView.RowCount.ToString());
+                }
+                FilterAddresses();
+                FilterPhoneNumbers();
+            }
+            ButChooseSetVisibility();
+        }
+
+        private void FilterAddresses()
+        {
+            StringBuilder addressIdStr = new StringBuilder("[Address ID] in (");
             foreach (DataRowView a in custAddBindingSource.List)
             {
                 safeandsounddb1DataSet.CustAddRow b = (safeandsounddb1DataSet.CustAddRow)a.Row;
@@ -95,9 +147,8 @@ namespace WindowsFormsApplication1
                 {
                     addressIdStr.Append(b.Address_ID + ", ");
                 }
-                custAddIdStr.Append(b.CustAdd_ID+ ", ");
             }
-            if (addressIdStr.Length> "[Address ID] in (".Length)
+            if (addressIdStr.Length > "[Address ID] in (".Length)
             {
                 addressIdStr.Remove(addressIdStr.Length - 2, 2);
                 AddressesBindingSource.Filter = addressIdStr.ToString() + ")";
@@ -105,6 +156,17 @@ namespace WindowsFormsApplication1
             else
             {
                 AddressesBindingSource.Filter = "[Address ID] = Null";
+            }
+        }
+
+        private void FilterPhoneNumbers()
+        {
+            StringBuilder custAddIdStr = new StringBuilder("[CustAdd ID] in (");
+            foreach (DataRowView a in custAddBindingSource.List)
+            {
+                safeandsounddb1DataSet.CustAddRow b = (safeandsounddb1DataSet.CustAddRow)a.Row;
+                
+                custAddIdStr.Append(b.CustAdd_ID + ", ");
             }
             if (custAddIdStr.Length > "[CustAdd ID] in (".Length)
             {
@@ -115,8 +177,6 @@ namespace WindowsFormsApplication1
             {
                 Phone_NumbersBindingSource.Filter = "[CustAdd ID] = Null";
             }
-            ButChooseSetVisibility();
-
         }
 
         private void ButChooseSetVisibility()
@@ -163,5 +223,6 @@ namespace WindowsFormsApplication1
                 ButCancel_Click(sender, e);
             }
         }
+
     }
 }
